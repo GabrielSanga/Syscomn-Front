@@ -1,0 +1,5 @@
+{
+    "/tipomorte/*": {
+        "tarde"
+    }
+}

@@ -1,0 +1,44 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <mat-nav-list class="nav-list">
+          <a mat-list-item routerLink="home">
+        <i class="material-icons">home</i>
+        Home
+        </a>
+        <a mat-list-item routerLink="tipomorte">
+            <i class="material-icons">language</i>
+            Tipo Morte
+        </a>
+        <a mat-list-item routerLink="localarmazenamento">
+          <i class="material-icons">language</i>
+          Local Armazenamento
+      </a>
+      <a mat-list-item routerLink="estadoanimal">
+        <i class="material-icons">language</i>
+        Estado Animal
+      </a>
+      <a mat-list-item routerLink="sexoanimal">
+        <i class="material-icons">language</i>
+        Sexo Animal
+      </a>
+      <a mat-list-item routerLink="materiaprima">
+        <i class="material-icons">language</i>
+        Matéria Prima
+      </a>
+      <a mat-list-item routerLink="assinante">
+        <i class="material-icons">language</i>
+        Assinante
+      </a>    
+      </mat-nav-list>
+    </mat-drawer>
+  
+    <div class="sidenav-content">
+      <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-drawer-container>
+
+  
