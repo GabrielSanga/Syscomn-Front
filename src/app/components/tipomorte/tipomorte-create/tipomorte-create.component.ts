@@ -39,7 +39,7 @@ export class TipomorteCreateComponent implements OnInit {
   create(): void {
     this.service.create(this.tipomorte).subscribe(() => {
       this.toast.success('Tipo Morte cadastrado com sucesso', 'Cadastro');
-      this.router.navigate(['tipomortes'])
+      this.router.navigate(['tipomorte'])
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {

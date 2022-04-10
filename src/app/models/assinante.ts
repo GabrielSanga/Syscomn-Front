@@ -1,8 +1,6 @@
-export interface Assinante {
-
+export interface Assinante{
     idAssinante?: any;
     nomeAssinante: string;
-    tipoPessoa: number;
+    tipoPessoa: any;
     cpfCnpj: string;
-
 }

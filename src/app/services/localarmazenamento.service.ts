@@ -21,6 +21,8 @@ export class LocalarmazenamentoService {
 
   create(localarmazenamento: LocalArmazenamento): Observable<LocalArmazenamento>{
     return this.http.post<LocalArmazenamento>(`${API_CONFIG.baseUrl}/localarmazenamento`, localarmazenamento);
+    
+
   }
 
   update(localarmazenamento: LocalArmazenamento): Observable<LocalArmazenamento> {

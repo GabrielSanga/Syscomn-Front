@@ -1,44 +1,78 @@
-<mat-drawer-container class="container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-      <mat-nav-list class="nav-list">
-          <a mat-list-item routerLink="home">
-        <i class="material-icons">home</i>
-        Home
-        </a>
-        <a mat-list-item routerLink="tipomorte">
-            <i class="material-icons">language</i>
-            Tipo Morte
-        </a>
-        <a mat-list-item routerLink="localarmazenamento">
-          <i class="material-icons">language</i>
-          Local Armazenamento
-      </a>
-      <a mat-list-item routerLink="estadoanimal">
-        <i class="material-icons">language</i>
-        Estado Animal
-      </a>
-      <a mat-list-item routerLink="sexoanimal">
-        <i class="material-icons">language</i>
-        Sexo Animal
-      </a>
-      <a mat-list-item routerLink="materiaprima">
-        <i class="material-icons">language</i>
-        Matéria Prima
-      </a>
-      <a mat-list-item routerLink="assinante">
-        <i class="material-icons">language</i>
-        Assinante
-      </a>    
-      </mat-nav-list>
-    </mat-drawer>
-  
-    <div class="sidenav-content">
-      <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <router-outlet></router-outlet>
-    </div>
-  
-  </mat-drawer-container>
+    <!-- Conteudo -->
+    <mat-sidenav-container class="nav1" autosize>
 
-  
+        <!--Cabeçalho-->
+        <app-navbar></app-navbar>
+
+        <mat-sidenav #drawer opened class="sidenav" mode="side">
+
+            <!-- Perfil do Usuário -->
+            <div class="profile">
+                <div *ngIf="usuario.foto">
+                    <label for="foto"><img width="80" height="80" src="data:image/png;base64,{{ usuario.foto }}" /></label>
+                </div>
+                <div *ngIf="!usuario.foto">
+                    <label for="foto"><img width="80" height="80" src="assets/images/perfil.png" /></label>
+                </div>
+                <input type="file" style="display: none;" class="form-control form-control-sm" name="foto" id="foto" accept="image/*" (change)="uploadFoto($event, usuario)"/>
+                <p style="margin-top: 0; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif;">{{usuario.nomeUsuario}}</p>
+            </div>
+
+            <!-- Menu de Aplicações -->
+            <ng-container *ngFor="let item of menuItems">
+
+                <!-- Caso Título -->
+                <label class="nav-item nav-category" *ngIf="item.isTitle"> {{ item.label }} </label>
+                
+                <!-- Caso Não Título -->
+                <div class="nav-item" *ngIf="!item.isTitle" >
+                        
+                    <!-- Possui SubItems --> 
+                    <a class="nav-link" *ngIf="hasItems(item)" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon *ngIf="item.icon"></i>
+                        <span class="link-title"> {{ item.label }}</span>
+                        <span class="link-arrow" data-feather="chevron-down" appFeatherIcon></span>
+                    </a>
+            
+                    <!-- Não Possui SubItems --> 
+                    <a class="nav-link nav-link-ref" [routerLink]="item.url" *ngIf="!hasItems(item)" [attr.data-parent]="item.parentId">
+                        <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon *ngIf="item.icon"></i>
+                        <span class="link-title">{{ item.label }}</span>
+                        <span class="badge badge-{{item.badge.variant}}" *ngIf="item.badge">{{item.badge.text}}</span>
+                    </a>
+
+                    <div class="dropdown-menu" style="width:100%;">
+
+                        <!-- Caso possua SubItems lista os mesmos -->
+                        <div class="sidebar-nav sub-menu nav-second-level" *ngIf="hasItems(item)" aria-expanded="false">            
+                            <!-- Percorrendo os SubItems -->
+                            <div class="nav-item" *ngFor="let subitem of item.subItems">
+                                <a class="nav-link nav-link-ref" [routerLink]="subitem.url" *ngIf="!hasItems(subitem)">
+                                <i class="link-icon" [attr.data-feather]="subitem.icon" appFeatherIcon *ngIf="subitem.icon"></i> 
+                                {{ subitem.label }} 
+                                </a>  
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </ng-container>
+
+        </mat-sidenav>
+
+        <div class="sidenav-content">     
+            <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-sidenav-container>
+
+    <!--Rodapé-->
+    <!--<app-footer></app-footer>-->
+
+

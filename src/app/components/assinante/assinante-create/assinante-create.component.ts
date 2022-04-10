@@ -15,7 +15,7 @@ export class AssinanteCreateComponent implements OnInit {
   assinante: Assinante = {
     idAssinante:'',
     nomeAssinante:'',
-    tipoPessoa:0,
+    tipoPessoa:'',
     cpfCnpj:''
   }
 
@@ -43,7 +43,9 @@ export class AssinanteCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean{
-    return this.nomeAssinante.valid && this.cpfCnpj.valid
+    return this.nomeAssinante.valid
+     && this.cpfCnpj.valid
+     && this.tipoPessoa.valid
   }
 
 }

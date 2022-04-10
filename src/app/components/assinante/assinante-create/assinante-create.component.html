@@ -10,7 +10,7 @@
         <div class="tipoPessoa">
             <mat-form-field class="fullWidth" appearance="outline">
                 <mat-label>Selecione o Tipo da Pessoa</mat-label>
-                <mat-select id="tipoPessoa" #mySelect [(ngModel)]="assinante.tipoPessoa" name="tipoPessoa" [formControl]=tipoPessoa>
+                <mat-select id="tipoPessoa" #mySelect [(ngModel)]="assinante.tipoPessoa" name="tipoPessoa" [formControl]="tipoPessoa">
                     <mat-option value="0">Física</mat-option>
                     <mat-option value="1">Jurídica</mat-option>
                 </mat-select>
@@ -19,7 +19,7 @@
 
         <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>CPF/CNPJ</mat-label>
-            <input type="text" [formControl]="cpfCnpj" [(ngModel)]="assinante.cpfCnpj" name="cpfCnpj" matInput mask="000.000.000-00|00.000.000/0000-00"> 
+            <input type="text" [formControl]="cpfCnpj" [(ngModel)]="assinante.cpfCnpj" name="cpfCnpj" matInput mask="000.000.000-00||00.000.000/0000-00"> 
             <mat-icon matSuffix>description</mat-icon>
         </mat-form-field>
 

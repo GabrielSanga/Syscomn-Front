@@ -15,9 +15,9 @@ export class TipomorteUpdadeComponent implements OnInit {
   tipomorte: TipoMorte ={
     idTipoMorte:'',
     descricao:''
-  }
+  } 
 
-  
+  descricao: FormControl = new FormControl(null, Validators.required);
 
   constructor(
     private service: TipomorteService,
@@ -60,5 +60,7 @@ export class TipomorteUpdadeComponent implements OnInit {
     })
     
   }
-
+ validaCampos(): boolean {
+    return this.descricao.valid
+  }
 }

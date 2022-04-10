@@ -26,6 +26,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import {MatMenu, MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 // Componentes do Projeto
@@ -41,25 +44,51 @@ import { LocalarmazenamentoListComponent } from './components/localarmazenamento
 import { LocalarmazenamentoCreateComponent } from './components/localarmazenamento/localarmazenamento-create/localarmazenamento-create.component';
 import { LocalarmazenamentoUpdateComponent } from './components/localarmazenamento/localarmazenamento-update/localarmazenamento-update.component';
 import { LocalarmazenamentoDeleteComponent } from './components/localarmazenamento/localarmazenamento-delete/localarmazenamento-delete.component';
-import { EstadoanimalListComponent } from './components/estadoaninal/estadoanimal-list/estadoanimal-list.component';
-import { EstadoanimalCreateComponent } from './components/estadoaninal/estadoanimal-create/estadoanimal-create.component';
-import { EstadoanimalDeleteComponent } from './components/estadoaninal/estadoanimal-delete/estadoanimal-delete.component';
-import { EstadoanimalUpdateComponent } from './components/estadoaninal/estadoanimal-update/estadoanimal-update.component';
+import { EstadoanimalListComponent } from './components/estadoanimal/estadoanimal-list/estadoanimal-list.component';
+import { EstadoanimalCreateComponent } from './components/estadoanimal/estadoanimal-create/estadoanimal-create.component';
+import { EstadoanimalDeleteComponent } from './components/estadoanimal/estadoanimal-delete/estadoanimal-delete.component';
+import { EstadoanimalUpdateComponent } from './components/estadoanimal/estadoanimal-update/estadoanimal-update.component';
 import { RegimeengordaListComponent } from './components/regimeengorda/regimeengorda-list/regimeengorda-list.component';
 import { SexoanimalListComponent } from './components/sexoanimal/sexoanimal-list/sexoanimal-list.component';
 import { SexoanimalCreateComponent } from './components/sexoanimal/sexoanimal-create/sexoanimal-create.component';
 import { SexoanimalDeleteComponent } from './components/sexoanimal/sexoanimal-delete/sexoanimal-delete.component';
 import { SexoanimalUpdateComponent } from './components/sexoanimal/sexoanimal-update/sexoanimal-update.component';
+import { PropriedadeListComponent } from './components/propriedade/propriedade-list/propriedade-list.component';
+import { PropriedadeCreateComponent } from './components/propriedade/propriedade-create/propriedade-create.component';
+import { PropriedadeDeleteComponent } from './components/propriedade/propriedade-delete/propriedade-delete.component';
+import { PropriedadeUpdateComponent } from './components/propriedade/propriedade-update/propriedade-update.component';
+import { AssinanteListComponent } from './components/assinante/assinante-list/assinante-list.component';
+import { AssinanteCreateComponent } from './components/assinante/assinante-create/assinante-create.component';
+import { AssinanteDeleteComponent } from './components/assinante/assinante-delete/assinante-delete.component';
+import { AssinanteUpdateComponent } from './components/assinante/assinante-update/assinante-update.component';
 import { MateriaprimaListComponent } from './components/materiaprima/materiaprima-list/materiaprima-list.component';
 import { MateriaprimaCreateComponent } from './components/materiaprima/materiaprima-create/materiaprima-create.component';
 import { MateriaprimaDeleteComponent } from './components/materiaprima/materiaprima-delete/materiaprima-delete.component';
 import { MateriaprimaUpdateComponent } from './components/materiaprima/materiaprima-update/materiaprima-update.component';
-import { AssinanteListComponent } from './components/assinante/assinante-list/assinante-list.component';
-import { AssinanteCreateComponent } from './components/assinante/assinante-create/assinante-create.component';
-import { AssinanteUpdateComponent } from './components/assinante/assinante-update/assinante-update.component';
-import { AssinanteDeleteComponent } from './components/assinante/assinante-delete/assinante-delete.component';
-
-
+import { RacaListComponent } from './components/raca/raca-list/raca-list.component';
+import { RacaCreateComponent } from './components/raca/raca-create/raca-create.component';
+import { RacaUpdateComponent } from './components/raca/raca-update/raca-update.component';
+import { RacaDeleteComponent } from './components/raca/raca-delete/raca-delete.component';
+import { TipofornecedorListComponent } from './components/tipofornecedor/tipofornecedor-list/tipofornecedor-list.component';
+import { TipofornecedorCreateComponent } from './components/tipofornecedor/tipofornecedor-create/tipofornecedor-create.component';
+import { TipofornecedorDeleteComponent } from './components/tipofornecedor/tipofornecedor-delete/tipofornecedor-delete.component';
+import { TipofornecedorUpdateComponent } from './components/tipofornecedor/tipofornecedor-update/tipofornecedor-update.component';
+import { RegimeengordaCreateComponent } from './components/regimeengorda/regimeengorda-create/regimeengorda-create.component';
+import { RegimeengordaDeleteComponent } from './components/regimeengorda/regimeengorda-delete/regimeengorda-delete.component';
+import { RegimeengordaUpdateComponent } from './components/regimeengorda/regimeengorda-update/regimeengorda-update.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
+import { PessoaCreateComponent } from './components/pessoa/pessoa-create/pessoa-create.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { FornecedorListComponent } from './components/fornecedor/fornecedor-list/fornecedor-list.component';
+import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
+import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
+import { FuncionarioListComponent } from './components/funcionario/funcionario-list/funcionario-list.component';
+import { FuncionarioUpdateComponent } from './components/funcionario/funcionario-update/funcionario-update.component';
+import { PerfilDialogComponent } from './components/modals/perfil-dialog/perfil-dialog.component';
 
 @NgModule({
   declarations: [
@@ -83,15 +112,42 @@ import { AssinanteDeleteComponent } from './components/assinante/assinante-delet
     SexoanimalCreateComponent,
     SexoanimalDeleteComponent,
     SexoanimalUpdateComponent,
+    PropriedadeListComponent,
+    PropriedadeCreateComponent,
+    PropriedadeDeleteComponent,
+    PropriedadeUpdateComponent,
+    AssinanteListComponent,
+    AssinanteCreateComponent,
+    AssinanteDeleteComponent,
+    AssinanteUpdateComponent,
     MateriaprimaListComponent,
     MateriaprimaCreateComponent,
     MateriaprimaDeleteComponent,
     MateriaprimaUpdateComponent,
-    AssinanteListComponent,
-    AssinanteCreateComponent,
-    AssinanteUpdateComponent,
-    AssinanteDeleteComponent
-  ],
+    RacaListComponent,
+    RacaCreateComponent,
+    RacaUpdateComponent,
+    RacaDeleteComponent,
+    TipofornecedorListComponent,
+    TipofornecedorCreateComponent,
+    TipofornecedorDeleteComponent,
+    TipofornecedorUpdateComponent,
+    RegimeengordaCreateComponent,
+    RegimeengordaDeleteComponent,
+    RegimeengordaUpdateComponent,
+    FooterComponent,
+    NavbarComponent,
+    FuncionarioCreateComponent,
+    PessoaCreateComponent,
+    LoginComponent,
+    AdministradorComponent,
+    FornecedorListComponent,
+    FornecedorUpdateComponent,
+    FornecedorCreateComponent,
+    FuncionarioListComponent,
+    FuncionarioUpdateComponent,
+    PerfilDialogComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -99,6 +155,7 @@ import { AssinanteDeleteComponent } from './components/assinante/assinante-delet
     // Forms
     FormsModule,
     ReactiveFormsModule,
+    MatMenuModule,
     
     // Requisições http
     HttpClientModule,
@@ -122,9 +179,10 @@ import { AssinanteDeleteComponent } from './components/assinante/assinante-delet
       closeButton: true,
       progressBar: true
     }),
-    NgxMaskModule.forRoot()  
+    NgxMaskModule.forRoot(),
+    MatDialogModule
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

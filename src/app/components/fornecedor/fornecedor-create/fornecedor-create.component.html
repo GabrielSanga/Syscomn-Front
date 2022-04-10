@@ -1,0 +1,118 @@
+<div class="container mat-elevation-z8">
+    <form class="form">
+
+        <h1>Cadastrar Fornecedor</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Nome</mat-label>
+                    <input [(ngModel)]="fornecedor.nomePessoa" name="nomePessoa" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Razão Social</mat-label>
+                    <input [(ngModel)]="fornecedor.razaoSocial" name="razaoSocial" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Nome Fantasia</mat-label>
+                    <input [(ngModel)]="fornecedor.nomeFantasia" name="nomeFantasia" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth " appearance="legacy">
+                    <mat-label>CPF/CNPJ</mat-label>
+                    <input type="text" [(ngModel)]="fornecedor.cpfCnpjPessoa" name="cpfCnpj" required matInput mask="000.000.000-00||00.000.000/0000-00"> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>RG</mat-label>
+                    <input type="text" [(ngModel)]="fornecedor.rgPessoa" required name="rgPessoa" matInput mask="00.000.000-0"> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Data Nascimento</mat-label>
+                    <input type="date" [(ngModel)]="fornecedor.dtaNascimentoPessoa" required name="dtaNascimentoPessoa" matInput> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Telefone</mat-label>
+                    <input type="text" [(ngModel)]="fornecedor.telefonePessoa" name="telefonePessoa" matInput mask="(00) 00000-0000"> 
+                </mat-form-field>   
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>E-mail</mat-label>
+                    <input type="email" [(ngModel)]="fornecedor.emailPessoa" required name="emailPessoa" matInput> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Endereço</mat-label>
+                    <input type="text" [(ngModel)]="fornecedor.enderecoPessoa" name="enderecoPessoa" matInput> 
+                </mat-form-field>
+            </div> 
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tipoPessoa">
+                    <mat-form-field class="fullWidth" appearance="outline">
+                        <mat-label>Tipo da Pessoa</mat-label>
+                        <mat-select id="tipoPessoa" #mySelect [(ngModel)]="fornecedor.tipoPessoa" name="tipoPessoa" required>
+                            <mat-option value="0">Física</mat-option>
+                            <mat-option value="1">Jurídica</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>Tipo do Fornecedor</mat-label>
+                    <mat-select [(ngModel)]="fornecedor.idTipoFornecedor" name="idTipoFornecedor" required>
+                        <mat-option *ngFor="let tipo of tipoFornecedor" value="{{ tipo.idTipoFornecedor }}">{{ tipo.descricao }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Inscrição Estadual</mat-label>
+                    <input type="text" [(ngModel)]="fornecedor.inscricaoEstadual" name="inscricaoEstadual" matInput required mask="999999999-0"> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>CNAE</mat-label>
+                    <input type="text" [(ngModel)]="fornecedor.cnae" name="cnae" matInput mask="0000-0/00"> 
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <form class="form">  
+                <mat-form-field class="fullWidth" appearance="outline">
+                  <mat-label>Observação</mat-label>
+                  <textarea  [(ngModel)]="fornecedor.observacaoPessoa" name="observacaoPessoa" matInput></textarea>
+                </mat-form-field>
+            </form>
+        </div>
+
+        <button (click)="create()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Cadastrar</button>
+        <button routerLink="../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Cancelar</button>
+    </form>
+</div>

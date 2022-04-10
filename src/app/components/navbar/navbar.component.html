@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light mat-elevation-z1">
+  <div class="container-fluid">
+    <a class="navbar-brand">SYSCOMN</a>
+
+    <form class="d-flex">       
+      <button mat-icon-button aria-label="Example icon button with a menu icon">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon class="test">more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openPerfil()">
+            <mat-icon>account_circle</mat-icon>
+            <span>Perfil</span>
+          </button>
+
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Sair</span>
+          </button>
+
+        </mat-menu>
+      </button>
+    </form>
+
+  </div>
+</nav>
+
+  
+  
+
+

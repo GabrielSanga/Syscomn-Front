@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MateriaPrima } from 'src/app/models/materiaprima';
@@ -18,6 +19,11 @@ export class MateriaprimaUpdateComponent implements OnInit {
     custoMateriaPrima:0,
     unidade:''
   }
+
+  descricao: FormControl = new FormControl(null, Validators.required);
+  saldoEstoque: FormControl = new FormControl(null, Validators.required);
+  custoMateriaPrima: FormControl = new FormControl(null, Validators.required);
+  unidade: FormControl = new FormControl(null, Validators.required);
 
   constructor(private service: MateriaprimaService, private toast: ToastrService, private router: Router, private route: ActivatedRoute) {}
 
@@ -45,4 +51,10 @@ export class MateriaprimaUpdateComponent implements OnInit {
     })   
   }
 
+  validaCampos(): boolean {
+    return this.descricao.valid
+    && this.saldoEstoque.valid
+    && this.custoMateriaPrima.valid
+    && this.unidade.valid
+  }
 }

@@ -1,0 +1,40 @@
+<div class="row w-100 mx-0 auth-page">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card">
+      <div class="row">
+
+        <div class="col-md-4 pr-md-0 imagem">
+            <img src="assets/images/login-image.svg" alt="Login">
+        </div>
+
+        <div class="col-md-8 pl-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+
+            <h1>Syscomn</h1>
+            <h2 class="font-weight-normal mb-4">Bem vindo de volta! Faça login na sua conta.</h2>
+            
+            <form class="forms-sample">
+              <div class="form-group">
+                <label>Login</label>
+                <input type="email" class="form-control" [(ngModel)]="creds.userName" name="userName" required placeholder="Login">
+              </div>
+
+              <div class="form-group">
+                <label>Senha</label>
+                <input type="password" class="form-control" [(ngModel)]="creds.senha" name="senha" [formControl]="senha" required autocomplete="current-password" placeholder="Senha">
+              </div>
+
+              <div class="mt-3">
+                <button type="submit" [disabled]="!validaCampos()" class="btn btn-primary mr-2 mb-2 mb-md-0" (click)="logar()">Login</button>
+              </div>
+
+              <a class="d-block mt-3" routerLink="../administrador">Não é um usuário? Cadastre-se</a>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

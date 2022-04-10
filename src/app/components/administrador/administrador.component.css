@@ -1,0 +1,28 @@
+.container {
+   max-width: 60rem;
+   margin-top: 2rem;
+   padding: 1rem;
+   border-radius: .6rem;
+}
+
+.fullWidth {
+   width: 100%;
+}
+
+h1, p {
+   text-align: center;
+}
+
+button {
+   margin-top: .5rem;
+}
+
+.tipoPessoa {
+  display: flex;
+  justify-content: space-between;
+}
+
+.observacoes {
+  min-height: 6rem;
+  max-height: 10rem;
+}

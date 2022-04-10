@@ -12,7 +12,10 @@ import { LocalarmazenamentoService } from 'src/app/services/localarmazenamento.s
 })
 export class LocalarmazenamentoListComponent implements OnInit {
 
-  ELEMENT_DATA: LocalArmazenamento[] = [  
+  ELEMENT_DATA: LocalArmazenamento[] = [
+
+  
+    
   ]
 
   displayedColumns: string[] = ['idLocalArmazenamento', 'descricao','acoes'];
@@ -25,6 +28,10 @@ export class LocalarmazenamentoListComponent implements OnInit {
     this.findAll();
   }
 
+
+
+ 
+
   findAll(){
     this.service.findAll().subscribe(resposta => {
       this.ELEMENT_DATA = resposta
@@ -36,6 +43,8 @@ export class LocalarmazenamentoListComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  
 
 }
 

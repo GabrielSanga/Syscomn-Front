@@ -23,7 +23,10 @@ export class LocalarmazenamentoCreateComponent implements OnInit {
   constructor(
     private service: LocalarmazenamentoService,
     private toast:    ToastrService,
-    private router:          Router,  
+    private router:          Router,
+    
+    
+    
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +50,9 @@ export class LocalarmazenamentoCreateComponent implements OnInit {
     })
     
   }
-  
+
+ 
+
   validaCampos(): boolean{
     return this.descricao.valid
   }

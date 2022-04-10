@@ -11,10 +11,7 @@ import { SexoanimalService } from 'src/app/services/sexoanimal.service';
 })
 export class SexoanimalListComponent implements OnInit {
 
-  ELEMENT_DATA: SexoAnimal[] = [
-
-      
-  ]
+  ELEMENT_DATA: SexoAnimal[] = []
 
   displayedColumns: string[] = ['idSexoAnimal', 'descricao','acoes'];
   dataSource = new MatTableDataSource<SexoAnimal>(this.ELEMENT_DATA);

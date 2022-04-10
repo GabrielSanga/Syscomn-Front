@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LocalArmazenamento } from 'src/app/models/localarmazenamento';
@@ -16,14 +17,13 @@ export class LocalarmazenamentoUpdateComponent implements OnInit {
     descricao:''
   }
 
+  descricao: FormControl = new FormControl(null, Validators.required);
+  
   constructor(
     private service: LocalarmazenamentoService,
     private toast:    ToastrService,
     private router:          Router,
-    private route: ActivatedRoute,
-    
-    
-    
+    private route: ActivatedRoute,  
   ) { }
 
   ngOnInit(): void {
@@ -36,10 +36,7 @@ export class LocalarmazenamentoUpdateComponent implements OnInit {
     this.localarmazenamento = resposta;
     } )
   }
-
   
-  
-
   update(): void {
     this.service.update(this.localarmazenamento).subscribe(() => {
       this.toast.success('Tipo Morte atualizado com sucesso', 'Updade');
@@ -57,5 +54,9 @@ export class LocalarmazenamentoUpdateComponent implements OnInit {
     })
     
   }
+  validaCampos(): boolean {
+    return this.descricao.valid
+  }
+  
 
 }

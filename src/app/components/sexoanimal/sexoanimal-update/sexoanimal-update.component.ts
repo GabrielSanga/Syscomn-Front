@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SexoAnimal } from 'src/app/models/sexoanimal';
@@ -16,7 +17,7 @@ export class SexoanimalUpdateComponent implements OnInit {
     descricao:''
   }
 
-  
+  descricao: FormControl = new FormControl(null, Validators.required);
 
   constructor(
     private service: SexoanimalService,
@@ -59,5 +60,9 @@ export class SexoanimalUpdateComponent implements OnInit {
     })
     
   }
+  validaCampos(): boolean {
+    return this.descricao.valid
+  }
+  
 
 }
