@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -34,10 +35,8 @@ export class FuncionarioUpdateComponent implements OnInit {
     status: 'A'
   }
 
-  checked = false;
-  indeterminate = false;
-  labelPosition: 'before' | 'after' = 'after';
-  disabled = false;
+  public checkADMIN = false;
+  public checkFUNC = false;
 
   constructor(private service: FuncionarioService,
               private route: ActivatedRoute,
@@ -66,7 +65,18 @@ export class FuncionarioUpdateComponent implements OnInit {
   }
 
   findById(): void{
-    this.service.findById(this.funcionario.idPessoa).subscribe(resposta => { this.funcionario = resposta; console.log(this.funcionario);})
+    this.service.findById(this.funcionario.idPessoa).subscribe(resposta => {
+      
+      resposta.perfis.forEach(element => {
+        if(Number.parseInt(element) === 0){
+          this.checkADMIN = true;
+        }else if(Number.parseInt(element) === 1){
+          this.checkFUNC = true;
+        }
+      });
+
+       this.funcionario = resposta;
+      })
   }
 
   retornaTipoPessoa(tipoPessoa: any): string {
@@ -88,6 +98,14 @@ export class FuncionarioUpdateComponent implements OnInit {
     dialogRef.componentInstance.idPessoa = this.funcionario.idPessoa;
 
     dialogRef.afterClosed();
+  }
+
+  addPerfil(perfil: any): void {
+    if(this.funcionario.perfis.includes(perfil)) {
+      this.funcionario.perfis.splice(this.funcionario.perfis.indexOf(perfil), 1);
+    } else {
+      this.funcionario.perfis.push(perfil);
+    }
   }
 
 }

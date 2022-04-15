@@ -13,4 +13,5 @@ export interface Pessoa{
     senha: string;
     tipoPessoa: any;
     fotoPessoa: any;
+    perfis?: string[];
 }

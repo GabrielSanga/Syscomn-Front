@@ -2,16 +2,16 @@
     <form class="form">
 
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-11">
                 <h1 style="text-align: center;">Atualizar Funcionário</h1>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-1" style="text-align: right;">
                 <button (click)="openAlterarSenha(funcionario.idPessoa)" class="mat-elevation-z4" mat-flat-button style="margin: 0;"><mat-icon matSuffix>lock</mat-icon></button>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-5">
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label>Nome</mat-label>
                     <input [(ngModel)]="funcionario.nomePessoa" name="nomePessoa" required matInput maxlength="100">
@@ -22,6 +22,13 @@
                     <mat-label>Login</mat-label>
                     <input type="text" [(ngModel)]="funcionario.userName" name="userName" required matInput maxlength="20"> 
                 </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <section class="section">
+                    <mat-checkbox [checked] = "checkADMIN === true"(click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
+                    <mat-checkbox [checked] = "checkFUNC === true" (click)="addPerfil(1)" class="margin" color="primary">Funcionário</mat-checkbox>
+                    <mat-checkbox [checked]="true" [disabled]="true" class="margin" color="primary">Comum</mat-checkbox>
+                </section>
             </div>
         </div>
 
