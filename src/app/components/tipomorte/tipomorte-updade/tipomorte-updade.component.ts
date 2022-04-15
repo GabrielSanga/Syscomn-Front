@@ -40,9 +40,6 @@ export class TipomorteUpdadeComponent implements OnInit {
     } )
   }
 
-  
-  
-
   update(): void {
     this.service.update(this.tipomorte).subscribe(() => {
       this.toast.success('Tipo Morte atualizado com sucesso', 'Updade');
@@ -60,6 +57,7 @@ export class TipomorteUpdadeComponent implements OnInit {
     })
     
   }
+  
  validaCampos(): boolean {
     return this.descricao.valid
   }

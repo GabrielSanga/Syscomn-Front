@@ -4,7 +4,7 @@
         <h1>Cadastrar Funcionário</h1>
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label>Nome</mat-label>
                     <input [(ngModel)]="funcionario.nomePessoa" name="nomePessoa" required matInput maxlength="100">
@@ -14,6 +14,12 @@
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label>Login</mat-label>
                     <input type="text" [(ngModel)]="funcionario.userName" name="userName" required matInput maxlength="20"> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" [(ngModel)]="funcionario.senha" name="senha" required matInput maxlength="20"> 
                 </mat-form-field>
             </div>
         </div>

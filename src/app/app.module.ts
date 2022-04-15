@@ -29,8 +29,6 @@ import { MatCardModule } from '@angular/material/card';
 import {MatMenu, MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 
-
-
 // Componentes do Projeto
 import { NavComponent } from './components/nav/nav.component';
 import { TipomorteListComponent } from './components/tipomorte/tipomorte-list/tipomorte-list.component';
@@ -89,6 +87,11 @@ import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-cr
 import { FuncionarioListComponent } from './components/funcionario/funcionario-list/funcionario-list.component';
 import { FuncionarioUpdateComponent } from './components/funcionario/funcionario-update/funcionario-update.component';
 import { PerfilDialogComponent } from './components/modals/perfil-dialog/perfil-dialog.component';
+import { RacaoCreateComponent } from './components/racao/racao-create/racao-create.component';
+import { RacaoListComponent } from './components/racao/racao-list/racao-list.component';
+import { RacaoUpdateComponent } from './components/racao/racao-update/racao-update.component';
+import { FormulaCreateComponent } from './components/racao/formula/formula-create/formula-create.component';
+import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-producao-create/ordem-producao-create.component';
 
 @NgModule({
   declarations: [
@@ -146,8 +149,13 @@ import { PerfilDialogComponent } from './components/modals/perfil-dialog/perfil-
     FornecedorCreateComponent,
     FuncionarioListComponent,
     FuncionarioUpdateComponent,
-    PerfilDialogComponent
-    ],
+    PerfilDialogComponent,
+    RacaoCreateComponent,
+    RacaoListComponent,
+    RacaoUpdateComponent,
+    FormulaCreateComponent,
+    OrdemProducaoCreateComponent
+],
   imports: [
     BrowserModule,
     AppRoutingModule,

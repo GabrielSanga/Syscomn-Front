@@ -46,18 +46,3 @@
    min-height: 6rem;
    max-height: 10rem;
  }
-
- .example-h2 {
-   margin: 10px;
- }
- 
-.section {
-   display: flex;
-   align-content: center;
-   align-items: center;
-   height: 60px;
- }
- 
- .section {
-   margin: 0 10px;
- }

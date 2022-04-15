@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   validaCampos(): boolean {
-    return this.senha.valid
+    return this.senha.valid;
   }
 
   logar() {

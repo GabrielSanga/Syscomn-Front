@@ -23,6 +23,7 @@ import { MateriaprimaDeleteComponent } from './components/materiaprima/materiapr
 import { MateriaprimaListComponent } from './components/materiaprima/materiaprima-list/materiaprima-list.component';
 import { MateriaprimaUpdateComponent } from './components/materiaprima/materiaprima-update/materiaprima-update.component';
 import { NavComponent } from './components/nav/nav.component';
+import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-producao-create/ordem-producao-create.component';
 import { PropriedadeCreateComponent } from './components/propriedade/propriedade-create/propriedade-create.component';
 import { PropriedadeDeleteComponent } from './components/propriedade/propriedade-delete/propriedade-delete.component';
 import { PropriedadeListComponent } from './components/propriedade/propriedade-list/propriedade-list.component';
@@ -31,6 +32,10 @@ import { RacaCreateComponent } from './components/raca/raca-create/raca-create.c
 import { RacaDeleteComponent } from './components/raca/raca-delete/raca-delete.component';
 import { RacaListComponent } from './components/raca/raca-list/raca-list.component';
 import { RacaUpdateComponent } from './components/raca/raca-update/raca-update.component';
+import { FormulaCreateComponent } from './components/racao/formula/formula-create/formula-create.component';
+import { RacaoCreateComponent } from './components/racao/racao-create/racao-create.component';
+import { RacaoListComponent } from './components/racao/racao-list/racao-list.component';
+import { RacaoUpdateComponent } from './components/racao/racao-update/racao-update.component';
 import { RegimeengordaCreateComponent } from './components/regimeengorda/regimeengorda-create/regimeengorda-create.component';
 import { RegimeengordaDeleteComponent } from './components/regimeengorda/regimeengorda-delete/regimeengorda-delete.component';
 import { RegimeengordaListComponent } from './components/regimeengorda/regimeengorda-list/regimeengorda-list.component';
@@ -108,6 +113,13 @@ const routes: Routes = [
     { path: 'fornecedor', component: FornecedorListComponent },
     { path: 'fornecedor/create', component: FornecedorCreateComponent },
     { path: 'fornecedor/update/:idPessoa', component: FornecedorUpdateComponent },
+
+    { path: 'racao', component: RacaoListComponent },
+    { path: 'racao/create', component: RacaoCreateComponent },
+    { path: 'racao/update/:idRacao', component: RacaoUpdateComponent },
+    { path: 'racao/formula/formula/create/:idRacao', component: FormulaCreateComponent },
+
+    { path: 'ordemProducao', component: OrdemProducaoCreateComponent },
 
    ]
  }

@@ -11,9 +11,7 @@ import { TipomorteService } from 'src/app/services/tipomorte.service';
 })
 export class TipomorteListComponent implements OnInit {
 
-  ELEMENT_DATA: TipoMorte[] = [
-    
-  ]
+  ELEMENT_DATA: TipoMorte[] = []
 
   displayedColumns: string[] = ['idTipoMorte', 'descricao', 'acoes'];
   dataSource = new MatTableDataSource<TipoMorte>(this.ELEMENT_DATA);

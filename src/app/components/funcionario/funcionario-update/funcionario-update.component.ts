@@ -34,6 +34,11 @@ export class FuncionarioUpdateComponent implements OnInit {
     status: 'A'
   }
 
+  checked = false;
+  indeterminate = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled = false;
+
   constructor(private service: FuncionarioService,
               private route: ActivatedRoute,
               private toast: ToastrService,
@@ -76,9 +81,11 @@ export class FuncionarioUpdateComponent implements OnInit {
 
   openAlterarSenha(idPessoa: any): void{
     const dialogRef = this.dialog.open(PerfilDialogComponent, {
-      height: '350px',
+      height: '300px',
       width: '600px',
     });
+
+    dialogRef.componentInstance.idPessoa = this.funcionario.idPessoa;
 
     dialogRef.afterClosed();
   }

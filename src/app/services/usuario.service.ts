@@ -18,5 +18,9 @@ export class UsuarioService {
   upload(usuario: Usuario, formData: FormData): Observable<any> {
     return this.http.put(`${API_CONFIG.baseUrl}/usuario/${usuario.idUsuario}/foto`, formData, { responseType: 'blob' });
   }
+
+  updatePassword(usuario: Usuario): Observable<any> {
+    return this.http.post<Usuario>(`${API_CONFIG.baseUrl}/usuario/password`, usuario);
+  }
   
 }

@@ -36,17 +36,37 @@ export const MENU: MenuItem[] = [
       {
         label: 'Materia Prima',
         url: 'materiaprima'
+      },
+      {
+        label: 'Ração',
+        url: 'racao'
+      },
+      {
+        label: 'Ordem de Produção',
+        url: 'ordemProducao'
       }
     ]   
   },
   {
-    label: 'Alimentação',
-  },
-  {
-    label: 'Vacinação',
-  },
-  {
-    label: 'Pesagem',
+    label: 'Manejos',
+    subItems: [
+      {
+        label: 'Produção de Ração',
+        url: ''
+      },
+      {
+        label: 'Alimentação',
+        url: ''
+      },
+      {
+        label: 'Vacinação',
+        url: ''
+      },
+      {
+        label: 'Pesagem',
+        url: ''
+      }
+    ]   
   },
   {
     label: 'Animal',

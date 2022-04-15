@@ -5,4 +5,5 @@ export interface Usuario {
     senhaAntiga?: string,
     senha?: string
     senhaConfirmada?: string
+    idUsuarioAlteracao?: number
 }

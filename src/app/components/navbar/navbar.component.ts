@@ -20,10 +20,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   openPerfil(): void {
-    const dialogRef = this.dialog.open(PerfilDialogComponent, {
-      height: '350px',
-      width: '600px',
-    });
+    const dialogRef = this.dialog.open(PerfilDialogComponent, { height: '350px',  width: '600px' });
 
     dialogRef.afterClosed();
   }

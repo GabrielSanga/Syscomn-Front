@@ -20,26 +20,19 @@ export class LocalarmazenamentoCreateComponent implements OnInit {
 
   descricao: FormControl = new FormControl(null, Validators.required);
 
-  constructor(
-    private service: LocalarmazenamentoService,
-    private toast:    ToastrService,
-    private router:          Router,
-    
-    
-    
-  ) { }
+  constructor(private service: LocalarmazenamentoService,
+              private toast: ToastrService,
+              private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   create(): void {
     this.service.create(this.localarmazenamento).subscribe(() => {
       this.toast.success('Local Armazenamento cadastrado com sucesso', 'Cadastro');
       this.router.navigate(['localarmazenamento'])
     }, ex => {
-      if(ex.error.errors) {
-        ex.error.errors.forEach(element => {
+      if(ex.error.lstErrors) {
+        ex.error.lstErrors.forEach(element => {
           this.toast.error(element.message);
           
         });
@@ -50,8 +43,6 @@ export class LocalarmazenamentoCreateComponent implements OnInit {
     })
     
   }
-
- 
 
   validaCampos(): boolean{
     return this.descricao.valid

@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Estado Animal</h1>
 
-    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Novo Estado Animal</button>
+    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Cadastrar</button>
 
     <mat-form-field appearance="standard">
         <mat-label>Pesquisar</mat-label>
@@ -10,8 +10,6 @@
 
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">
-
-
             <ng-container matColumnDef="idEstadoAnimal">
                 <th mat-header-cell *matHeaderCellDef> ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.idEstadoAnimal}} </td>

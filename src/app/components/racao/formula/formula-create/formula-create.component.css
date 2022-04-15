@@ -4,6 +4,14 @@
     padding: 1rem;
     border-radius: .6rem;
  }
+
+table {
+   width: 100%;
+}
+
+.delete {
+   color: red;
+}
  
  .fullWidth {
     width: 100%;
@@ -36,28 +44,13 @@
  mat-icon {
     opacity: .8;
  }
- 
+
  .tipoPessoa {
    display: flex;
    justify-content: space-between;
- }
- 
- .observacoes {
+}
+
+.observacoes {
    min-height: 6rem;
    max-height: 10rem;
- }
-
- .example-h2 {
-   margin: 10px;
- }
- 
-.section {
-   display: flex;
-   align-content: center;
-   align-items: center;
-   height: 60px;
- }
- 
- .section {
-   margin: 0 10px;
- }
+}
