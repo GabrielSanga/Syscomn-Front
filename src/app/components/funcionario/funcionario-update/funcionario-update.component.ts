@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -42,7 +41,8 @@ export class FuncionarioUpdateComponent implements OnInit {
               private route: ActivatedRoute,
               private toast: ToastrService,
               private router: Router,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              ) { }
 
   ngOnInit(): void {
     this.funcionario.idPessoa = this.route.snapshot.paramMap.get('idPessoa');
@@ -93,7 +93,7 @@ export class FuncionarioUpdateComponent implements OnInit {
     const dialogRef = this.dialog.open(PerfilDialogComponent, {
       height: '300px',
       width: '600px',
-    });
+    })
 
     dialogRef.componentInstance.idPessoa = this.funcionario.idPessoa;
 

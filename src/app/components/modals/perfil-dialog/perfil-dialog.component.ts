@@ -31,7 +31,8 @@ export class PerfilDialogComponent implements OnInit {
               private service: UsuarioService,
               private toast: ToastrService) { }
 
-  ngOnInit(): void {this.usuario.idUsuarioAlteracao = this.idPessoa;}
+  ngOnInit(): void {this.usuario.idUsuarioAlteracao = this.idPessoa;
+  this.idPessoa = 1000;}
 
   update(): void {
     if (this.validaSenhasIguais() && this.validaTamanhoSenha()){

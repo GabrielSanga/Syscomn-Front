@@ -36,6 +36,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TipomorteCreateComponent } from './components/tipomorte/tipomorte-create/tipomorte-create.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 import { TipomorteUpdadeComponent } from './components/tipomorte/tipomorte-updade/tipomorte-updade.component';
 import { TipomorteDeleteComponent } from './components/tipomorte/tipomorte-delete/tipomorte-delete.component';
 import { LocalarmazenamentoListComponent } from './components/localarmazenamento/localarmazenamento-list/localarmazenamento-list.component';
@@ -77,7 +78,6 @@ import { RegimeengordaUpdateComponent } from './components/regimeengorda/regimee
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
-import { PessoaCreateComponent } from './components/pessoa/pessoa-create/pessoa-create.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { AdministradorComponent } from './components/administrador/administrador.component';
@@ -92,6 +92,7 @@ import { RacaoListComponent } from './components/racao/racao-list/racao-list.com
 import { RacaoUpdateComponent } from './components/racao/racao-update/racao-update.component';
 import { FormulaCreateComponent } from './components/racao/formula/formula-create/formula-create.component';
 import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-producao-create/ordem-producao-create.component';
+import { OrdemProducaoListComponent } from './components/ordemProducao/ordem-producao-list/ordem-producao-list.component';
 
 @NgModule({
   declarations: [
@@ -141,7 +142,6 @@ import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-p
     FooterComponent,
     NavbarComponent,
     FuncionarioCreateComponent,
-    PessoaCreateComponent,
     LoginComponent,
     AdministradorComponent,
     FornecedorListComponent,
@@ -154,7 +154,8 @@ import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-p
     RacaoListComponent,
     RacaoUpdateComponent,
     FormulaCreateComponent,
-    OrdemProducaoCreateComponent
+    OrdemProducaoCreateComponent,
+    OrdemProducaoListComponent
 ],
   imports: [
     BrowserModule,
@@ -188,6 +189,7 @@ import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-p
       progressBar: true
     }),
     NgxMaskModule.forRoot(),
+    ModalDialogModule.forRoot(),
     MatDialogModule
   ],
   providers: [AuthInterceptorProvider],

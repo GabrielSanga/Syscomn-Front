@@ -1,12 +1,12 @@
 <div class="container">
     <h1>Local Armazenamento</h1>
 
+    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Cadastrar</button>
+
     <mat-form-field appearance="standard">
         <mat-label>Pesquisar</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
-
-    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Cadastrar</button>
 
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">

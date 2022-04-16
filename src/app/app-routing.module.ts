@@ -24,6 +24,7 @@ import { MateriaprimaListComponent } from './components/materiaprima/materiaprim
 import { MateriaprimaUpdateComponent } from './components/materiaprima/materiaprima-update/materiaprima-update.component';
 import { NavComponent } from './components/nav/nav.component';
 import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-producao-create/ordem-producao-create.component';
+import { OrdemProducaoListComponent } from './components/ordemProducao/ordem-producao-list/ordem-producao-list.component';
 import { PropriedadeCreateComponent } from './components/propriedade/propriedade-create/propriedade-create.component';
 import { PropriedadeDeleteComponent } from './components/propriedade/propriedade-delete/propriedade-delete.component';
 import { PropriedadeListComponent } from './components/propriedade/propriedade-list/propriedade-list.component';
@@ -119,7 +120,9 @@ const routes: Routes = [
     { path: 'racao/update/:idRacao', component: RacaoUpdateComponent },
     { path: 'racao/formula/formula/create/:idRacao', component: FormulaCreateComponent },
 
-    { path: 'ordemProducao', component: OrdemProducaoCreateComponent },
+    { path: 'ordemProducao', component: OrdemProducaoListComponent },
+    { path: 'ordemProducao/create', component: OrdemProducaoCreateComponent },
+    { path: 'ordemProducao/create/:idOrdemProducao', component: OrdemProducaoCreateComponent },
 
    ]
  }

@@ -19,12 +19,10 @@ export class RacaUpdateComponent implements OnInit {
 
   descricao: FormControl = new FormControl(null, [Validators.required, Validators.minLength(3)]);
 
-  constructor(
-    private service: RacaService,
-    private toast: ToastrService,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) { }
+  constructor(private service: RacaService,
+              private toast: ToastrService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.raca.idRaca = this.route.snapshot.paramMap.get('idRaca');
