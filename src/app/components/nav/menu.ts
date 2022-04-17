@@ -52,7 +52,7 @@ export const MENU: MenuItem[] = [
     subItems: [
       {
         label: 'Produção de Ração',
-        url: ''
+        url: 'loteProducao'
       },
       {
         label: 'Alimentação',

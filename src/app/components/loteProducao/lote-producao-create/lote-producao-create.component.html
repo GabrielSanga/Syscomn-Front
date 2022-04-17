@@ -1,0 +1,78 @@
+<div class="container mat-elevation-z8">
+    <!--CADASTRO-->
+    <form class="form">
+        <h1>Produção de Ração</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>Ordem de Produção</mat-label>
+                    <mat-select [(ngModel)]="loteProducao.idOrdemProducao" name="idOrdemProducao" (ngModelChange)="findRacaoProduzir()">
+                        <mat-option *ngFor="let ordem of ordemProducao" value="{{ ordem.idOrdemProducaoRacao }}">{{ordem.idOrdemProducaoRacao}} - {{ordem.descricao}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>Ração</mat-label>
+                    <mat-select [(ngModel)]="loteProducao.idRacaoProduzir" name="idRacaoProduzir">
+                        <mat-option *ngFor="let racao of racaoProduzir" value="{{ racao.idRacaoProduzir }}">{{racao.idRacaoProduzir}} - {{racao.descrRacao}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <hr style="margin-top: 0; margin-bottom: 30px;"/>
+
+        <div class="row">        
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Data da Produção</mat-label>
+                    <input type="date" [(ngModel)]="loteProducao.dataFabricacao" name="dataFabricacao" matInput> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Data de Validade</mat-label>
+                    <input type="date" [(ngModel)]="loteProducao.dataValidade" name="dataValidade" matInput> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Quantidade</mat-label>
+                    <input [(ngModel)]="loteProducao.saldo" type="number" name="saldo" matInput> 
+                </mat-form-field>
+            </div>
+            <div class=" col-md-1">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Unidade</mat-label>
+                    <input [(ngModel)]="loteProducao.unidade" name="unidade" matInput maxlength="5"> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Custo</mat-label>
+                    <input type="text" [(ngModel)]="loteProducao.custo" name="custo" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>Local de Armazenamento</mat-label>
+                    <mat-select [(ngModel)]="loteProducao.idLocalArmazenamento" name="idLocalArmazenamento">
+                        <mat-option *ngFor="let local of localArmazenamento" value="{{ local.idLocalArmazenamento }}">{{local.idLocalArmazenamento}} - {{local.descricao}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <hr style="margin-top: 0; margin-bottom: 5px;"/>
+
+        <div class="row" style="margin: 0;">
+            <button style="margin: 0;" (click)="create()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Produzir</button>
+        </div>
+
+
+    </form>
+
+     <button routerLink="../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Voltar</button>
+</div>

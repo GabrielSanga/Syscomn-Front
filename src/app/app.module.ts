@@ -93,6 +93,7 @@ import { RacaoUpdateComponent } from './components/racao/racao-update/racao-upda
 import { FormulaCreateComponent } from './components/racao/formula/formula-create/formula-create.component';
 import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-producao-create/ordem-producao-create.component';
 import { OrdemProducaoListComponent } from './components/ordemProducao/ordem-producao-list/ordem-producao-list.component';
+import { LoteProducaoCreateComponent } from './components/loteProducao/lote-producao-create/lote-producao-create.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +156,8 @@ import { OrdemProducaoListComponent } from './components/ordemProducao/ordem-pro
     RacaoUpdateComponent,
     FormulaCreateComponent,
     OrdemProducaoCreateComponent,
-    OrdemProducaoListComponent
+    OrdemProducaoListComponent,
+    LoteProducaoCreateComponent
 ],
   imports: [
     BrowserModule,

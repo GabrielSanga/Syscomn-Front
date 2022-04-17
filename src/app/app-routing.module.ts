@@ -18,6 +18,7 @@ import { LocalarmazenamentoDeleteComponent } from './components/localarmazenamen
 import { LocalarmazenamentoListComponent } from './components/localarmazenamento/localarmazenamento-list/localarmazenamento-list.component';
 import { LocalarmazenamentoUpdateComponent } from './components/localarmazenamento/localarmazenamento-update/localarmazenamento-update.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoteProducaoCreateComponent } from './components/loteProducao/lote-producao-create/lote-producao-create.component';
 import { MateriaprimaCreateComponent } from './components/materiaprima/materiaprima-create/materiaprima-create.component';
 import { MateriaprimaDeleteComponent } from './components/materiaprima/materiaprima-delete/materiaprima-delete.component';
 import { MateriaprimaListComponent } from './components/materiaprima/materiaprima-list/materiaprima-list.component';
@@ -123,6 +124,9 @@ const routes: Routes = [
     { path: 'ordemProducao', component: OrdemProducaoListComponent },
     { path: 'ordemProducao/create', component: OrdemProducaoCreateComponent },
     { path: 'ordemProducao/create/:idOrdemProducao', component: OrdemProducaoCreateComponent },
+
+    { path: 'loteProducao', component: LoteProducaoCreateComponent },
+
 
    ]
  }

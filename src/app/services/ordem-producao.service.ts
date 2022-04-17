@@ -14,6 +14,10 @@ export class OrdemProducaoService {
   findById(idOrdemProducaoRacao: any): Observable<OrdemProducao>{
     return this.http.get<OrdemProducao>(`${API_CONFIG.baseUrl}/ordemproducao/${idOrdemProducaoRacao}`);
   }
+
+  findByData(): Observable<OrdemProducao[]> {
+  return this.http.get<OrdemProducao[]>(`${API_CONFIG.baseUrl}/ordemproducao/data`);
+  }
   
   findAll(): Observable<OrdemProducao[]>{
     return this.http.get<OrdemProducao[]>(`${API_CONFIG.baseUrl}/ordemproducao`);
