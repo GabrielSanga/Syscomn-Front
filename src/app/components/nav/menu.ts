@@ -44,6 +44,14 @@ export const MENU: MenuItem[] = [
       {
         label: 'Ordem de Produção',
         url: 'ordemProducao'
+      },
+      {
+        label: 'Curral-Piquete',
+        url: 'curralpiquete'
+      },
+      {
+        label: 'Lote',
+        url: 'lote'
       }
     ]   
   },
