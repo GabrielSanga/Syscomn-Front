@@ -2,6 +2,10 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { AdministradorComponent } from './components/administrador/administrador.component';
+import { CurralpiqueteCreateComponent } from './components/curralpiquete/curralpiquete-create/curralpiquete-create.component';
+import { CurralpiqueteDeleteComponent } from './components/curralpiquete/curralpiquete-delete/curralpiquete-delete.component';
+import { CurralpiqueteListComponent } from './components/curralpiquete/curralpiquete-list/curralpiquete-list.component';
+import { CurralpiqueteUpdateComponent } from './components/curralpiquete/curralpiquete-update/curralpiquete-update.component';
 import { EstadoanimalCreateComponent } from './components/estadoanimal/estadoanimal-create/estadoanimal-create.component';
 import { EstadoanimalDeleteComponent } from './components/estadoanimal/estadoanimal-delete/estadoanimal-delete.component';
 import { EstadoanimalListComponent } from './components/estadoanimal/estadoanimal-list/estadoanimal-list.component';
@@ -18,6 +22,10 @@ import { LocalarmazenamentoDeleteComponent } from './components/localarmazenamen
 import { LocalarmazenamentoListComponent } from './components/localarmazenamento/localarmazenamento-list/localarmazenamento-list.component';
 import { LocalarmazenamentoUpdateComponent } from './components/localarmazenamento/localarmazenamento-update/localarmazenamento-update.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoteCreateComponent } from './components/lote/lote-create/lote-create.component';
+import { LoteDeleteComponent } from './components/lote/lote-delete/lote-delete.component';
+import { LoteListComponent } from './components/lote/lote-list/lote-list.component';
+import { LoteUpdateComponent } from './components/lote/lote-update/lote-update.component';
 import { MateriaprimaCreateComponent } from './components/materiaprima/materiaprima-create/materiaprima-create.component';
 import { MateriaprimaDeleteComponent } from './components/materiaprima/materiaprima-delete/materiaprima-delete.component';
 import { MateriaprimaListComponent } from './components/materiaprima/materiaprima-list/materiaprima-list.component';
@@ -123,6 +131,16 @@ const routes: Routes = [
     { path: 'ordemProducao', component: OrdemProducaoListComponent },
     { path: 'ordemProducao/create', component: OrdemProducaoCreateComponent },
     { path: 'ordemProducao/create/:idOrdemProducao', component: OrdemProducaoCreateComponent },
+
+    { path: 'curralpiquete', component: CurralpiqueteListComponent },
+    { path: 'curralpiquete/create', component: CurralpiqueteCreateComponent },
+    { path: 'curralpiquete/update/:idCurralPiquete', component: CurralpiqueteUpdateComponent },
+    { path: 'curralpiquete/delete/:idCurralPiquete', component: CurralpiqueteDeleteComponent },
+
+    { path: 'lote', component: LoteListComponent },
+    { path: 'lote/create', component: LoteCreateComponent },
+    { path: 'lote/update/:idLote', component: LoteUpdateComponent },
+    { path: 'lote/delete/:idLote', component: LoteDeleteComponent },
 
    ]
  }

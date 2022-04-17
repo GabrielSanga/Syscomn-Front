@@ -93,6 +93,15 @@ import { RacaoUpdateComponent } from './components/racao/racao-update/racao-upda
 import { FormulaCreateComponent } from './components/racao/formula/formula-create/formula-create.component';
 import { OrdemProducaoCreateComponent } from './components/ordemProducao/ordem-producao-create/ordem-producao-create.component';
 import { OrdemProducaoListComponent } from './components/ordemProducao/ordem-producao-list/ordem-producao-list.component';
+import { CurralpiqueteCreateComponent } from './components/curralpiquete/curralpiquete-create/curralpiquete-create.component';
+import { CurralpiqueteUpdateComponent } from './components/curralpiquete/curralpiquete-update/curralpiquete-update.component';
+import { CurralpiqueteListComponent } from './components/curralpiquete/curralpiquete-list/curralpiquete-list.component';
+import { CurralpiqueteDeleteComponent } from './components/curralpiquete/curralpiquete-delete/curralpiquete-delete.component';
+import { LoteCreateComponent } from './components/lote/lote-create/lote-create.component';
+import { LoteUpdateComponent } from './components/lote/lote-update/lote-update.component';
+import { LoteListComponent } from './components/lote/lote-list/lote-list.component';
+import { LoteDeleteComponent } from './components/lote/lote-delete/lote-delete.component';
+import { MovimentacaoDialogComponent } from './components/modals/movimentacao-dialog/movimentacao-dialog.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +164,16 @@ import { OrdemProducaoListComponent } from './components/ordemProducao/ordem-pro
     RacaoUpdateComponent,
     FormulaCreateComponent,
     OrdemProducaoCreateComponent,
-    OrdemProducaoListComponent
+    OrdemProducaoListComponent,
+    CurralpiqueteCreateComponent,
+    CurralpiqueteUpdateComponent,
+    CurralpiqueteListComponent,
+    CurralpiqueteDeleteComponent,
+    LoteCreateComponent,
+    LoteUpdateComponent,
+    LoteListComponent,
+    LoteDeleteComponent,
+    MovimentacaoDialogComponent
 ],
   imports: [
     BrowserModule,
