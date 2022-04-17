@@ -33,7 +33,7 @@ export class OrdemProducaoCreateComponent implements OnInit {
     quantidade: 0
   }
 
-  isRacaoProduzirAux: number = 0;
+  idRacaoProduzirAux: number = 0;
 
   title: string = "Cadastrar Ordem Produção"
 
@@ -80,51 +80,77 @@ export class OrdemProducaoCreateComponent implements OnInit {
   }
 
   adicionarRacao(): void{
-    //Alimentando o array para salvar na ordem de produção
-    let novaProducao: RacaoProduzir = {idRacaoProduzir: this.isRacaoProduzirAux, idRacao: this.producao.idRacao, quantidade: this.producao.quantidade};
+    var novaProducao: RacaoProduzir = {idRacaoProduzir: this.idRacaoProduzirAux, idRacao: this.producao.idRacao, quantidade: this.producao.quantidade};
 
-    if(!this.isUpdated){
-      this.isRacaoProduzirAux++;
+    if(!this.validaRacao(novaProducao)){ return }
+
+    //Buscando a descrição da ração
+    this.serviceRacao.findById(novaProducao.idRacao).subscribe(resposta => {
+      novaProducao.descrRacao = resposta.descricao;
+    })
+
+    this.ordemProducao.lstRacaoProduzir.push(novaProducao);
+
+    //alimentando a table com a nova ração
+    if (!this.isUpdated){
+      this.ELEMENT_DATA = this.ordemProducao.lstRacaoProduzir;
     }
 
-    if(this.ordemProducao.lstRacaoProduzir.includes(novaProducao)){
-      this.toast.info("Ração já cadastrada na Ordem de Produção com a mesma quantidade");
-    }else{
-      this.ordemProducao.lstRacaoProduzir.push(novaProducao);
+    this.idRacaoProduzirAux++;
 
-      this.limpaProducao();
+    this.dataSource = new MatTableDataSource<RacaoProduzir>(this.ELEMENT_DATA);
+    this.dataSource.paginator = this.paginator;
 
-      //Buscando a descrição da ração TODO: VERIFICAR SE É POSSÍVEL MELHORAR
-      this.serviceRacao.findById(novaProducao.idRacao).subscribe(resposta => {
-        novaProducao.descrRacao = resposta.descricao;
-      })
-
-      //alimentando a table com a nova ração
-      if (!this.isUpdated){
-        this.ELEMENT_DATA.push(novaProducao);
-      }
-
-      this.dataSource = new MatTableDataSource<RacaoProduzir>(this.ELEMENT_DATA);
-      this.dataSource.paginator = this.paginator;
-    }
+    this.limpaProducao();
   }
 
   deletarRacao(idRacaoProduzir: number): void{
     this.ordemProducao.lstRacaoProduzir.forEach(element => {
-      if(element.idRacaoProduzir === idRacaoProduzir){
-
+      if(element.idRacaoProduzir == idRacaoProduzir){
         //Remove da lista
         this.ordemProducao.lstRacaoProduzir.splice(this.ordemProducao.lstRacaoProduzir.indexOf(element), 1);
       }
     });
 
     if(!this.isUpdated){
-      this.ELEMENT_DATA = (this.ordemProducao.lstRacaoProduzir);
+      this.ELEMENT_DATA = this.ordemProducao.lstRacaoProduzir;
     }
 
     //Atualiza a tabela
     this.dataSource = new MatTableDataSource<RacaoProduzir>(this.ELEMENT_DATA);
     this.dataSource.paginator = this.paginator;
+  }
+
+  validaRacao(racaoAdicionar: RacaoProduzir): boolean{
+    if(racaoAdicionar.idRacao == 0){
+      this.toast.error("Necessário selecionar uma ração!");
+      return false
+    };
+
+    if(this.RacaoJaExistente(racaoAdicionar)){
+      this.toast.error("Ração já cadastrada para essa produção!");
+      return false
+    };
+
+    if(racaoAdicionar.quantidade == 0){
+      this.toast.error("Quantidade não pode ser 0!");
+      return false
+    };
+
+    return true
+  }
+
+  RacaoJaExistente(racaoAdicionar: RacaoProduzir): boolean{
+    let retorno = false;
+
+    //verifica se a ração já existe na produção
+    this.ordemProducao.lstRacaoProduzir.forEach(element => {
+        if(element.idRacao == racaoAdicionar.idRacao){
+          retorno = true
+        } 
+      });
+    
+    return retorno
   }
 
   limpaProducao(): void{
