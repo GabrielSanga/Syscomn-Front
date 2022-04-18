@@ -1,16 +1,19 @@
 <div class="container" style="padding: 0;">         
     <div class="mat-elevation-z2" >
-        <table mat-table [dataSource]="dataSource">  
-  
+
+      <h1 style="margin-left: 15px;">Registro de Movimentações</h1> 
+
+      <table mat-table [dataSource]="dataSource">  
+
           <ng-container matColumnDef="dataHoraMovimentacao">
-            <th mat-header-cell *matHeaderCellDef> Data </th>
+            <th mat-header-cell *matHeaderCellDef> Data-Hora </th>
             <td mat-cell *matCellDef="let element"> {{element.dataHoraMovimentacao}} </td>
         </ng-container>
-      
+
         <ng-container matColumnDef="situacao">
           <th mat-header-cell *matHeaderCellDef> Situação </th>
-          <td mat-cell *matCellDef="let element"> {{element.situacao}} </td>
-        </ng-container>
+          <td mat-cell *matCellDef="let element"> {{retornaSituacao(element.situacao)}} </td>
+      </ng-container>
       
         <ng-container matColumnDef="idLote">
         <th mat-header-cell *matHeaderCellDef> Lote </th>
@@ -21,16 +24,6 @@
         <th mat-header-cell *matHeaderCellDef> Descrição do Lote </th>
         <td mat-cell *matCellDef="let element"> {{element.descLote}} </td>
         </ng-container>
-      
-        <!-- <ng-container matColumnDef="dataHoraMovimentacao">
-        <th mat-header-cell *matHeaderCellDef> Funcionario </th>
-        <td mat-cell *matCellDef="let element"> {{element.idFuncionario}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="dataHoraMovimentacao">
-        <th mat-header-cell *matHeaderCellDef> Nome Funcionario </th>
-        <td mat-cell *matCellDef="let element"> {{element.nomeFuncionario}} </td>
-        </ng-container> -->
       
         <ng-container matColumnDef="idCurralPiquete">
         <th mat-header-cell *matHeaderCellDef> Curral-Piquete </th>
