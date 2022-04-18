@@ -70,4 +70,4 @@ export class CurralpiqueteCreateComponent implements OnInit {
 }
 
   
-    
+      
