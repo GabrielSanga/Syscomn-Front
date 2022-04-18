@@ -31,7 +31,6 @@ export class CurralpiqueteCreateComponent implements OnInit {
 
   descricao: FormControl = new FormControl(null, [Validators.required]);
   propriedade: FormControl = new FormControl(null, [Validators.required]);
-  statusCurralPiquete: FormControl = new FormControl(null, [Validators.required]);
   tipoCurralPiquete: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(
@@ -63,11 +62,11 @@ export class CurralpiqueteCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.statusCurralPiquete.valid 
-    && this.descricao.valid 
+    return this.descricao.valid 
     && this.propriedade.valid
    && this.tipoCurralPiquete.valid
   }
 
 }
 
+  
