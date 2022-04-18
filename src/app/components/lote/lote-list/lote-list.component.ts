@@ -45,8 +45,8 @@ export class LoteListComponent implements OnInit {
 
   openMovimentacao(idLote: number): void{
     const dialogRef = this.dialog.open(MovimentacaoDialogComponent, {
-      height: '400px',
-      width: '1500px',
+      height: '410px',
+      width: '1000px',
     });
 
     dialogRef.componentInstance.idLote = idLote;

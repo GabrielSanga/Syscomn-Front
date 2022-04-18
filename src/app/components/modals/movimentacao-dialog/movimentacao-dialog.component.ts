@@ -51,4 +51,15 @@ export class MovimentacaoDialogComponent implements OnInit {
       this.dialogRef.close();
     }
 
+    retornaSituacao(situacao: number): string{
+      switch (situacao){
+        case 0:
+          return "Atual";
+        case 1:
+          return"Encerrado";
+         default:
+          return "situacao";
+      }   
+    }
+
   }

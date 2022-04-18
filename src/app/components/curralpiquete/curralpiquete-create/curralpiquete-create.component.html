@@ -35,15 +35,8 @@
         </mat-form-field>
 
         <div class="status">
-            <mat-form-field class="two" appearance="outline">
-                <mat-label>Selecione o Status</mat-label>
-                <mat-select required [(ngModel)]="curralpiquete.statusCurralPiquete" name="statusCurralPiquete" [formControl]="statusCurralPiquete">
-                    <mat-option value="0">Ativo</mat-option>
-                    <mat-option value="1">Inativo</mat-option>
-                </mat-select>
-            </mat-form-field>
 
-            <mat-form-field class="tre" appearance="outline">
+            <mat-form-field class="fullWidth" appearance="outline">
                 <mat-label>Selecione o Tipo</mat-label>
                 <mat-select required [(ngModel)]="curralpiquete.tipoCurralPiquete" name="tipoCurralPiquete" [formControl]="tipoCurralPiquete">
                     <mat-option value="0">Curral</mat-option>
