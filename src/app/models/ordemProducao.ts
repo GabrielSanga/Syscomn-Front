@@ -6,8 +6,8 @@ export interface OrdemProducao {
     descricao?: string;
     data: Date;
     valorOrdemProducao: number;
-    idFuncionario?: any;
-    nomeFuncionario?: string;
+    IdPessoa?: any;
+    nomePessoa?: string;
     status?: number;
     lstRacaoProduzir?: RacaoProduzir[]
     

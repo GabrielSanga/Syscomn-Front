@@ -6,6 +6,9 @@ export const MENU: MenuItem[] = [
     url: 'home'
   },
   {
+    label: 'Análises',
+  },
+  {
     label: 'Pessoas',
     subItems: [
       {
@@ -44,14 +47,6 @@ export const MENU: MenuItem[] = [
       {
         label: 'Ordem de Produção',
         url: 'ordemProducao'
-      },
-      {
-        label: 'Curral-Piquete',
-        url: 'curralpiquete'
-      },
-      {
-        label: 'Lote',
-        url: 'lote'
       }
     ]   
   },
@@ -98,7 +93,21 @@ export const MENU: MenuItem[] = [
       {
         label: 'Sexo',
         url: 'sexoanimal'
+      },
+      {
+        label: 'Curral-Piquete',
+        url: 'curralpiquete'
+      },
+      {
+        label: 'Lote',
+        url: 'lote'
       }
     ]   
+  },
+  {
+    label: 'Consultas',
+  },
+  {
+    label: 'Relatórios',
   }
 ];

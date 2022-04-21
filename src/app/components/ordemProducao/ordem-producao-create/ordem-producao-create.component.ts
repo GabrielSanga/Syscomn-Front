@@ -21,7 +21,7 @@ export class OrdemProducaoCreateComponent implements OnInit {
     descricao: '',
     data: null,
     valorOrdemProducao: 0,
-    idFuncionario: 0,
+    IdPessoa: 0,
     status: 0,
     lstRacaoProduzir: []
   }
