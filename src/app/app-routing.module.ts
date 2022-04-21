@@ -61,6 +61,10 @@ import { TipomorteCreateComponent } from './components/tipomorte/tipomorte-creat
 import { TipomorteDeleteComponent } from './components/tipomorte/tipomorte-delete/tipomorte-delete.component';
 import { TipomorteListComponent } from './components/tipomorte/tipomorte-list/tipomorte-list.component';
 import { TipomorteUpdadeComponent } from './components/tipomorte/tipomorte-updade/tipomorte-updade.component';
+import { VacinaCreateComponent } from './components/vacina/vacina-create/vacina-create.component';
+import { VacinaDeleteComponent } from './components/vacina/vacina-delete/vacina-delete.component';
+import { VacinaListComponent } from './components/vacina/vacina-list/vacina-list.component';
+import { VacinaUpdateComponent } from './components/vacina/vacina-update/vacina-update.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -141,6 +145,11 @@ const routes: Routes = [
     { path: 'lote/create', component: LoteCreateComponent },
     { path: 'lote/update/:idLote', component: LoteUpdateComponent },
     { path: 'lote/delete/:idLote', component: LoteDeleteComponent },
+
+    { path: 'vacina', component: VacinaListComponent },
+    { path: 'vacina/create', component: VacinaCreateComponent },
+    { path: 'vacina/update/:idVacina', component: VacinaUpdateComponent },
+    { path: 'vacina/delete/:idVacina', component: VacinaDeleteComponent },
 
    ]
  }

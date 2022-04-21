@@ -52,6 +52,10 @@ export const MENU: MenuItem[] = [
       {
         label: 'Lote',
         url: 'lote'
+      },
+      {
+        label: 'Vacina',
+        url: 'vacina'
       }
     ]   
   },

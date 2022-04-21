@@ -102,6 +102,10 @@ import { LoteUpdateComponent } from './components/lote/lote-update/lote-update.c
 import { LoteListComponent } from './components/lote/lote-list/lote-list.component';
 import { LoteDeleteComponent } from './components/lote/lote-delete/lote-delete.component';
 import { MovimentacaoDialogComponent } from './components/modals/movimentacao-dialog/movimentacao-dialog.component';
+import { VacinaCreateComponent } from './components/vacina/vacina-create/vacina-create.component';
+import { VacinaUpdateComponent } from './components/vacina/vacina-update/vacina-update.component';
+import { VacinaDeleteComponent } from './components/vacina/vacina-delete/vacina-delete.component';
+import { VacinaListComponent } from './components/vacina/vacina-list/vacina-list.component';
 
 @NgModule({
   declarations: [
@@ -173,7 +177,11 @@ import { MovimentacaoDialogComponent } from './components/modals/movimentacao-di
     LoteUpdateComponent,
     LoteListComponent,
     LoteDeleteComponent,
-    MovimentacaoDialogComponent
+    MovimentacaoDialogComponent,
+    VacinaCreateComponent,
+    VacinaUpdateComponent,
+    VacinaDeleteComponent,
+    VacinaListComponent
 ],
   imports: [
     BrowserModule,
