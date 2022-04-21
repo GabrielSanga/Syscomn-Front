@@ -57,3 +57,10 @@ h1 {
 }
 
 
+.cursor{
+    cursor: pointer;
+}
+
+body{
+    background: whitesmoke;
+}

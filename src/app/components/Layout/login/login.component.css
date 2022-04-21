@@ -1,29 +1,32 @@
-.card{
-  background-color: #0C6291;;
+body{
+  background: red;
+  background-color: red;
+  color: red;
 }
 
-:host {
-    height: 100%;
+html{
+  background: red;
+  background-color: red;
+  color: red;
+}
+
+
+.divImagem {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 
-img {
-    height: 15rem;
-    width: 100%;
-    margin: 40% 0 1.5rem auto;
-}
-
- .imagem{
+.divCampos{
   align-items: center;
   justify-content: center;
- }
+}
 
-.card{
-  background-color: #0C6291;
-} 
+img{
+  height: 15rem;
+}
 
-h1, h2, a, label{
+h1 {
   color: black;
+  font-size: 30px;
+  font-weight: 800;
 }
