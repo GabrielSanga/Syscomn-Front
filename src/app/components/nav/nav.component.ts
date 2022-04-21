@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { PerfilDialogComponent } from '../modals/perfil-dialog/perfil-dialog.component';
 
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
@@ -23,8 +25,14 @@ export class NavComponent implements OnInit {
     foto: ''
   }
 
+  posicao = null;
+
   menuItems = [];
-  constructor(private router: Router, private service: UsuarioService, private toast: ToastrService) {}
+  constructor(private router: Router,
+              private service: UsuarioService,
+              private toast: ToastrService,  
+              public dialog: MatDialog,
+              private auth: AuthService) {}
 
   ngOnInit(): void {
     this.menuItems = MENU;
@@ -32,6 +40,22 @@ export class NavComponent implements OnInit {
     this.carregarUsuario()
   }
 
+  openUpdatePassword(): void {
+    const dialogRef = this.dialog.open(PerfilDialogComponent, { height: '350px',  width: '600px' });
+
+    dialogRef.afterClosed();
+  }
+
+  setPosicao(pnPosicao: number): void {
+    this.posicao = pnPosicao;
+  }
+
+  logout(){
+    this.router.navigate(['login']);
+    this.auth.logout();
+    this.toast.info('Logout realizado com sucesso!', 'Logout')
+  }
+  
   hasItems(item: MenuItem) {
     return item.subItems !== undefined ? item.subItems.length > 0 : false;
   }

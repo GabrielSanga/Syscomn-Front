@@ -2,8 +2,8 @@ export interface MenuItem {
     id?: number;
     label?: string;
     url?: string;
+    posicao?: number;
     icon?: string;
-    isTitle?: boolean;
     subItems?: any;
   }
  

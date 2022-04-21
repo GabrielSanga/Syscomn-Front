@@ -1,8 +1,3 @@
-/* Solução temporária para problema de tela */
-.nav1 {
-    height: 100%;
-}
-
 /* Perfil do Usuário */
 .profile {
     text-align: center;
@@ -20,20 +15,27 @@
     margin-bottom: 10px;
 }
 
-/* Menu */
-.sidenav {
-    width: auto;
-    min-width: 13rem;
-    background-color: #F5F5F5
+.menu{
+    height: 35px !important; 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 15px !important;
+    color: rgb(148, 143, 143);
+    font-weight: 700;
 }
-.sidenav a {
-    font-size: 16px;
-    font-family: verdana;
-    color: black;
+
+.fonte{
+    font-size: 15px !important;
+    font-family: Arial, Helvetica, sans-serif; 
+    color: rgb(148, 143, 143);
+    font-weight: 700;
+    height: 35px !important;
+    padding: 0 !important;
 }
-.sidenav a:hover {
-    background-color: gainsboro;
+
+a:hover, .menu:hover{
+    color: #3f51b5 !important;
 }
-.sidenav a:active {
-    background-color: azure;
+
+::-webkit-scrollbar {
+    display: none !important;
 }

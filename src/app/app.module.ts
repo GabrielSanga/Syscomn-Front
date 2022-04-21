@@ -28,6 +28,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import {MatMenu, MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 // Componentes do Projeto
 import { NavComponent } from './components/nav/nav.component';
@@ -75,8 +77,6 @@ import { TipofornecedorUpdateComponent } from './components/tipofornecedor/tipof
 import { RegimeengordaCreateComponent } from './components/regimeengorda/regimeengorda-create/regimeengorda-create.component';
 import { RegimeengordaDeleteComponent } from './components/regimeengorda/regimeengorda-delete/regimeengorda-delete.component';
 import { RegimeengordaUpdateComponent } from './components/regimeengorda/regimeengorda-update/regimeengorda-update.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
@@ -149,8 +149,6 @@ import { MovimentacaoDialogComponent } from './components/modals/movimentacao-di
     RegimeengordaCreateComponent,
     RegimeengordaDeleteComponent,
     RegimeengordaUpdateComponent,
-    FooterComponent,
-    NavbarComponent,
     FuncionarioCreateComponent,
     LoginComponent,
     AdministradorComponent,
@@ -210,7 +208,8 @@ import { MovimentacaoDialogComponent } from './components/modals/movimentacao-di
     }),
     NgxMaskModule.forRoot(),
     ModalDialogModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

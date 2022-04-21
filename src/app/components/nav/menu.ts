@@ -10,6 +10,7 @@ export const MENU: MenuItem[] = [
   },
   {
     label: 'Pessoas',
+    posicao: 0,
     subItems: [
       {
         label: 'Funcionário',
@@ -31,6 +32,7 @@ export const MENU: MenuItem[] = [
   },
   {
     label: 'PCP',
+    posicao: 1,
     subItems: [
       {
         label: 'Local Armazenamento',
@@ -52,6 +54,7 @@ export const MENU: MenuItem[] = [
   },
   {
     label: 'Manejos',
+    posicao: 2,
     subItems: [
       {
         label: 'Produção de Ração',
@@ -73,6 +76,7 @@ export const MENU: MenuItem[] = [
   },
   {
     label: 'Animal',
+    posicao: 3,
     subItems: [
       {
         label: 'Tipo Morte',
