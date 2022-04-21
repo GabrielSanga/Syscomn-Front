@@ -1,0 +1,9 @@
+button {
+    margin-top: .5rem;
+}
+
+.margin {
+    margin-left: 15px;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}

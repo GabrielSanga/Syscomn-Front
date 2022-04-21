@@ -1,0 +1,29 @@
+.card{
+  background-color: #0C6291;;
+}
+
+:host {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    height: 15rem;
+    width: 100%;
+    margin: 40% 0 1.5rem auto;
+}
+
+ .imagem{
+  align-items: center;
+  justify-content: center;
+ }
+
+.card{
+  background-color: #0C6291;
+} 
+
+h1, h2, a, label{
+  color: black;
+}

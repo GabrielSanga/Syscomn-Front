@@ -1,0 +1,13 @@
+
+button {
+    margin-top: .5rem;
+}
+
+p {
+    margin-top: 4rem;
+    opacity: .5;
+}
+
+mat-icon {
+    opacity: .8;
+}

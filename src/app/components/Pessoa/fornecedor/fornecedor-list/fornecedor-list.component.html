@@ -1,0 +1,61 @@
+<div class="container">
+    <h1>Fornecedores</h1>
+
+    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary" style="margin: 0;">Cadastrar</button>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="idPessoa">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.idPessoa}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nomePessoa">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let element"> {{element.nomePessoa}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="razaoSocial">
+                <th mat-header-cell *matHeaderCellDef> Razão Social </th>
+                <td mat-cell *matCellDef="let element"> {{element.razaoSocial}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cpfCnpjPessoa">
+                <th mat-header-cell *matHeaderCellDef> CPF/CNPJ </th>
+                <td mat-cell *matCellDef="let element"> {{element.cpfCnpjPessoa}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="descricaoTipoFornecedor">
+                <th mat-header-cell *matHeaderCellDef> Tipo Fornecedor </th>
+                <td mat-cell *matCellDef="let element"> {{element.descricaoTipoFornecedor}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Status </th>
+                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef class="acoes"> Ações </th>
+                <td mat-cell *matCellDef="let element" class="acoes">
+                    <a routerLink="update/{{ element.idPessoa }}">
+                        <i class="material-icons edit">edit</i>
+                    </a>
+                    <a (click)="delete(element.idPessoa)">
+                        <i class="material-icons delete">delete</i>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.two {
+    width: 90%;
+}
+
+.tre {
+    width: 90%;
+    margin-left: 1rem;
+}
+
+button {
+    margin-top: .5rem;
+}
+
+.dividi {
+    display: flex;
+    justify-content: space-between;
+}

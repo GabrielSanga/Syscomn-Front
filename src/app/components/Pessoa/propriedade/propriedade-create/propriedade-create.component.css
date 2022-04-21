@@ -1,0 +1,8 @@
+button {
+    margin-top: .5rem;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+}

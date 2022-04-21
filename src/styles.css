@@ -1,6 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+/* STYLE GLOBAL */
 @import '../node_modules/ngx-toastr/toastr.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container{
+    margin-top: 35px !important;
+    max-width: 60rem !important;
+    padding: 1rem !important;
+    border-radius: .6rem !important;
+}
+
+.fullWidth {
+    width: 100% !important;
+}
+
+.section {
+    margin-bottom: 1rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+table {
+    width: 100% !important;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.edit {
+    color: rgb(0, 153, 255) !important;
+}
+  
+.delete {
+    color: red !important;
+}
+
+h1 {
+    text-align: center;
+}
+
+.observacoes {
+    min-height: 6rem;
+    max-height: 10rem;
+}
+
+.tipoPessoa {
+    display: flex;
+    justify-content: space-between;
+}
+
+.acoes{
+    text-align: right !important;
+}
+
+

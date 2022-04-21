@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Ordens de Produção</h1>
+ 
+   <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary" style="margin: 0;">Cadastrar</button>
+   
+    <mat-form-field appearance="standard">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>   
+   
+     <div class="mat-elevation-z8">
+         <table mat-table [dataSource]="dataSource">             
+            <ng-container matColumnDef="idOrdemProducaoRacao">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.idOrdemProducaoRacao}} </td>
+            </ng-container>
+                  
+            <ng-container matColumnDef="descricao">
+              <th mat-header-cell *matHeaderCellDef> Descrição </th>
+              <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef> Data </th>
+                <td mat-cell *matCellDef="let element"> {{retornaDataFormata(element.data) }} </td>
+              </ng-container>
+
+            <ng-container matColumnDef="valorOrdemProducao">
+                <th mat-header-cell *matHeaderCellDef> Valor </th>
+                <td mat-cell *matCellDef="let element"> {{element.valorOrdemProducao | mask: 'separator':'.'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status </th>
+              <td mat-cell *matCellDef="let element"> {{retornaStatus(element.status)}} </td>
+          </ng-container>
+                
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef class="acoes"> Atualizar </th>
+                <td mat-cell *matCellDef="let element" class="acoes">
+                    <a title="Atualizar Registro" routerLink="create/{{ element.idOrdemProducaoRacao }}">
+                        <i class="material-icons edit">edit</i>
+                    </a>
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+       
+         <mat-paginator [pageSizeOptions]="[5, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+       </div>
+ </div>
+ 
