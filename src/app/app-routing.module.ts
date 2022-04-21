@@ -63,10 +63,10 @@ import { TipomorteCreateComponent } from './components/Animal/tipomorte/tipomort
 import { TipomorteDeleteComponent } from './components/Animal/tipomorte/tipomorte-delete/tipomorte-delete.component';
 import { TipomorteListComponent } from './components/Animal/tipomorte/tipomorte-list/tipomorte-list.component';
 import { TipomorteUpdadeComponent } from './components/Animal/tipomorte/tipomorte-updade/tipomorte-updade.component';
-import { VacinaListComponent } from './components/vacina/vacina-list/vacina-list.component';
-import { VacinaCreateComponent } from './components/vacina/vacina-create/vacina-create.component';
-import { VacinaUpdateComponent } from './components/vacina/vacina-update/vacina-update.component';
-import { VacinaDeleteComponent } from './components/vacina/vacina-delete/vacina-delete.component';
+import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vacina-list.component';
+import { VacinaCreateComponent } from './components/Animal/vacina/vacina-create/vacina-create.component';
+import { VacinaUpdateComponent } from './components/Animal/vacina/vacina-update/vacina-update.component';
+import { VacinaDeleteComponent } from './components/Animal/vacina/vacina-delete/vacina-delete.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},

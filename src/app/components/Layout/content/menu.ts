@@ -49,10 +49,6 @@ export const MENU: MenuItem[] = [
       {
         label: 'Ordem de Produção',
         url: 'ordemProducao'
-      },
-      {
-        label: 'Vacina',
-        url: 'vacina'
       }
     ]   
   },
@@ -109,6 +105,10 @@ export const MENU: MenuItem[] = [
       {
         label: 'Lote',
         url: 'lote'
+      },
+      {
+        label: 'Vacina',
+        url: 'vacina'
       }
     ]   
   },

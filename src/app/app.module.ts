@@ -103,10 +103,10 @@ import { LoteUpdateComponent } from './components/Animal/lote/lote-update/lote-u
 import { LoteListComponent } from './components/Animal/lote/lote-list/lote-list.component';
 import { LoteDeleteComponent } from './components/Animal/lote/lote-delete/lote-delete.component';
 import { MovimentacaoDialogComponent } from './components/Modals/movimentacao-dialog/movimentacao-dialog.component';
-import { VacinaCreateComponent } from './components/vacina/vacina-create/vacina-create.component';
-import { VacinaUpdateComponent } from './components/vacina/vacina-update/vacina-update.component';
-import { VacinaDeleteComponent } from './components/vacina/vacina-delete/vacina-delete.component';
-import { VacinaListComponent } from './components/vacina/vacina-list/vacina-list.component';
+import { VacinaCreateComponent } from './components/Animal/vacina/vacina-create/vacina-create.component';
+import { VacinaUpdateComponent } from './components/Animal/vacina/vacina-update/vacina-update.component';
+import { VacinaDeleteComponent } from './components/Animal/vacina/vacina-delete/vacina-delete.component';
+import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vacina-list.component';
 
 
 @NgModule({
