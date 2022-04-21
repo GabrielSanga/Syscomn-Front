@@ -49,6 +49,10 @@ export const MENU: MenuItem[] = [
       {
         label: 'Ordem de Produção',
         url: 'ordemProducao'
+      },
+      {
+        label: 'Vacina',
+        url: 'vacina'
       }
     ]   
   },

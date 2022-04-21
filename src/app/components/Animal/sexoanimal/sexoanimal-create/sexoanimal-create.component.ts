@@ -18,21 +18,14 @@ export class SexoanimalCreateComponent implements OnInit {
     descricao:''
   }
 
-
   constructor(
     private service: SexoanimalService,
     private toast:    ToastrService,
-    private router:          Router,
-    
-    
-    
+    private router:          Router,  
   ) { }
 
   ngOnInit(): void {
   }
-
-  
-  
 
   create(): void {
     this.service.create(this.sexoanimal).subscribe(() => {
