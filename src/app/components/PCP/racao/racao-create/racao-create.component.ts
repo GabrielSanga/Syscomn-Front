@@ -14,7 +14,8 @@ export class RacaoCreateComponent implements OnInit {
   racao: Racao = {
     idRacao: '',
     descricao: '',
-    diasValidade: 0
+    diasValidade: 0,
+    unidade: ''
   }
 
   constructor(

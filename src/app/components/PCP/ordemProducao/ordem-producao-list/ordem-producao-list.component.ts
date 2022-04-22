@@ -59,10 +59,10 @@ export class OrdemProducaoListComponent implements OnInit {
       case 2:
         return "Andamento";
       case 3:
-        return "Suspenso";
+        return "Finalizado";
       case 4:
         return "Cancelado";
-       default:
+      default:
         return "Status";
     }   
   }

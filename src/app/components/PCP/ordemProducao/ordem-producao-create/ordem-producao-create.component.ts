@@ -30,7 +30,8 @@ export class OrdemProducaoCreateComponent implements OnInit {
     idRacaoProduzir: 0,
     idRacao: 0,
     descrRacao: '',
-    quantidade: 0
+    quantidade: 0,
+    quantidadeProduzido: 0
   }
 
   idRacaoProduzirAux: number = 0;
@@ -43,7 +44,7 @@ export class OrdemProducaoCreateComponent implements OnInit {
 
   ELEMENT_DATA: RacaoProduzir[] = []
 
-  displayedColumns: string[] = ['idRacao', 'descrRacao', 'quantidade', 'acoes'];
+  displayedColumns: string[] = ['idRacao', 'descrRacao', 'quantidade', 'qtdProduzido', 'saldo', 'acoes'];
   dataSource = new MatTableDataSource<RacaoProduzir>(this.ELEMENT_DATA);
 
   constructor(private service: OrdemProducaoService,
@@ -72,7 +73,8 @@ export class OrdemProducaoCreateComponent implements OnInit {
     this.service.findById(this.ordemProducao.idOrdemProducaoRacao).subscribe(resposta => {
         this.ordemProducao = resposta;
 
-        console.log(resposta);
+        console.log(this.ordemProducao.lstRacaoProduzir);
+
         this.ELEMENT_DATA = this.ordemProducao.lstRacaoProduzir;
         this.dataSource = new MatTableDataSource<RacaoProduzir>(this.ELEMENT_DATA);
         this.dataSource.paginator = this.paginator;
@@ -80,7 +82,7 @@ export class OrdemProducaoCreateComponent implements OnInit {
   }
 
   adicionarRacao(): void{
-    var novaProducao: RacaoProduzir = {idRacaoProduzir: this.idRacaoProduzirAux, idRacao: this.producao.idRacao, quantidade: this.producao.quantidade};
+    var novaProducao: RacaoProduzir = {idRacaoProduzir: this.idRacaoProduzirAux, idRacao: this.producao.idRacao, quantidade: this.producao.quantidade, quantidadeProduzido: 0};
 
     if(!this.validaRacao(novaProducao)){ return }
 
@@ -209,10 +211,10 @@ export class OrdemProducaoCreateComponent implements OnInit {
       case 2:
         return "Andamento";
       case 3:
-        return "Suspenso";
+        return "Finalizado";
       case 4:
         return "Cancelado";
-       default:
+      default:
         return "Status";
     }   
   }

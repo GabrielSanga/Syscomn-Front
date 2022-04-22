@@ -53,19 +53,13 @@
                     <input [(ngModel)]="loteProducao.quantidade" type="number" name="quantidade" matInput [disabled]="closeProducao"> 
                 </mat-form-field>
             </div>
-            <div class=" col-md-1">
-                <mat-form-field class="fullWidth" appearance="legacy">
-                    <mat-label>Unidade</mat-label>
-                    <input [(ngModel)]="loteProducao.unidade" name="unidade" matInput maxlength="5" [disabled]="closeProducao"> 
-                </mat-form-field>
-            </div>
             <div class="col-md-2">
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label>Custo</mat-label>
                     <input type="text" [(ngModel)]="loteProducao.custo" name="custo" matInput mask="separator.2" thousandSeparator="." [disabled]="closeProducao">
                 </mat-form-field>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <mat-form-field class="fullWidth" appearance="outline" >
                     <mat-label>Local de Armazenamento</mat-label>
                     <mat-select [(ngModel)]="loteProducao.idLocalArmazenamento" name="idLocalArmazenamento" (ngModelChange)="findLocalArmazenamento()" [disabled]="closeProducao">

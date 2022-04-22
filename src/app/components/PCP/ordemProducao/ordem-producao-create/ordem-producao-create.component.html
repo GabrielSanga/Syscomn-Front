@@ -35,7 +35,7 @@
                         <mat-option value="0">Pronto</mat-option>
                         <mat-option value="1">Liberado</mat-option>
                         <mat-option value="2">Andamento</mat-option>
-                        <mat-option value="3">Suspenso</mat-option>
+                        <mat-option value="3">Finalizado</mat-option>
                         <mat-option value="4">Cancelado</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -69,7 +69,6 @@
     <div style="padding: 0;">         
         <div class="mat-elevation-z2" >
             <table mat-table [dataSource]="dataSource">  
-                        
                 <ng-container matColumnDef="idRacao">
                     <th mat-header-cell *matHeaderCellDef> Ração </th>
                     <td mat-cell *matCellDef="let element"> {{element.idRacao}} </td>
@@ -84,16 +83,26 @@
                     <th mat-header-cell *matHeaderCellDef> Quantidade </th>
                     <td mat-cell *matCellDef="let element"> {{element.quantidade}} </td>
                 </ng-container>
+
+                <ng-container matColumnDef="qtdProduzido">
+                    <th mat-header-cell *matHeaderCellDef> Produzido </th>
+                    <td mat-cell *matCellDef="let element"> {{element.quantidadeProduzido}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="saldo">
+                    <th mat-header-cell *matHeaderCellDef> Saldo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.quantidade - element.quantidadeProduzido}} </td>
+                </ng-container>
                     
                 <ng-container matColumnDef="acoes">
                     <th mat-header-cell *matHeaderCellDef class="acoes"> Deletar </th>
                     <td mat-cell *matCellDef="let element" class="acoes">
-                        <a title="Deletar Registro" (click)="deletarRacao(element.idRacaoProduzir)">
+                        <a title="Deletar Registro" (click)="deletarRacao(element.idRacaoProduzir)" class="cursor">
                             <i class="material-icons delete">delete</i>
                         </a>
                     </td>
-                </ng-container>
-            
+                </ng-container> 
+                                      
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>

@@ -29,7 +29,7 @@
     color: rgb(148, 143, 143);
     font-weight: 700;
     height: 35px !important;
-    padding: 0 !important;
+    padding-left: 10px !important;
 }
 
 a:hover, .menu:hover{

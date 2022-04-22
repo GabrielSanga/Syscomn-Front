@@ -5,8 +5,8 @@ export interface LoteProducao{
     dataValidade?: Date;
     quantidade: number;
     saldo?: number;
-    unidade?: string;
     custo?: number;
+    unidade?: string;
     idRacaoProduzir: number;
     idLocalArmazenamento: number;
     descrLocalArmazenamento?: string;

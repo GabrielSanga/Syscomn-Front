@@ -25,7 +25,6 @@ export class LoteProducaoCreateComponent implements OnInit {
     dataValidade: null,
     quantidade: 0,
     saldo: 0,
-    unidade: '',
     custo: 0,
     idRacaoProduzir: 0,
     idLocalArmazenamento: 0,
@@ -44,6 +43,13 @@ export class LoteProducaoCreateComponent implements OnInit {
     capacidade: 0,
     enderecado: 0,
     status: ''
+  }
+
+  ordemProducao: OrdemProducao = {
+    idOrdemProducaoRacao: 0,
+    data: null,
+    valorOrdemProducao: 0,
+    status: 0
   }
 
   lstOrdemProducao: OrdemProducao[] = [];
@@ -90,7 +96,16 @@ export class LoteProducaoCreateComponent implements OnInit {
 
   findRacoesProduzir(): void{
     this.serviceOrdemProducao.findById(this.loteProducao.idOrdemProducao).subscribe(resposta => {
-      this.lstRacaoProduzir = resposta.lstRacaoProduzir;
+      this.ordemProducao = resposta;
+
+      //VALIDA A ORDEM ANTES DE CARREGAR AS RAÇÕES
+      if(this.validaOrdemProducao(this.ordemProducao.status)){
+        this.lstRacaoProduzir = resposta.lstRacaoProduzir;
+      }else{
+        this.ELEMENT_DATA = null;
+        this.dataSource = new MatTableDataSource<LoteProducao>(this.ELEMENT_DATA);
+        this.lstRacaoProduzir = null;
+      }
 
       this.loteProducao.idRacaoProduzir = 0;
       this.loteProducao.idLocalArmazenamento = 0;
@@ -195,8 +210,27 @@ export class LoteProducaoCreateComponent implements OnInit {
     return true;
   }
 
+  validaOrdemProducao(pnStatus: number): boolean{
+    let sMensagemErro = '';
+
+    if (pnStatus == 0){
+      sMensagemErro = "Ordem de Produção ainda não foi Liberada!";
+    } else if (pnStatus == 3){
+      this.toast.warning("Ordem de Produção já Finalizada!")
+    }else if(pnStatus == 4){
+      sMensagemErro = "Ordem de Produção Cancelada";
+    }
+
+    if (sMensagemErro.length > 0){
+      this.toast.error(sMensagemErro);
+      return false;
+    }
+
+    return true;
+  }
+
   retornaDataFormata(data: Date): String{
-    let dta = new Date(data)
+    let dta = new Date(data);
   
     dta.setHours(24);
   
@@ -207,7 +241,6 @@ export class LoteProducaoCreateComponent implements OnInit {
     this.loteProducao.dataFabricacao = null;
     this.loteProducao.dataValidade = null;
     this.loteProducao.quantidade = 0;
-    this.loteProducao.unidade = '';
     this.loteProducao.custo = 0;
   }
 
@@ -219,6 +252,5 @@ export class LoteProducaoCreateComponent implements OnInit {
   limapTotaisArmazenamento(): void{
     this.localArmazenamento.capacidade = 0;
   }
-
 
 }
