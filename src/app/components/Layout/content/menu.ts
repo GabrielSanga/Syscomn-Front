@@ -2,120 +2,148 @@ import { MenuItem } from './menu.model';
 
 export const MENU: MenuItem[] = [
   {
+    id: 0,
     label: 'Home',
     url: 'home'
   },
   {
+    id: 1,
     label: 'Análises',
   },
   {
-    label: 'Pessoas',
+    id: 2,
     posicao: 0,
+    label: 'Pessoas',
     subItems: [
       {
+        id: 3,
         label: 'Funcionário',
         url: 'funcionario'
       },
       {
+        id: 4,
         label: 'Fornecedor',
         url: 'fornecedor'
       },
       {
+        id: 5,
         label: 'Tipo Fornecedor',
         url: 'tipofornecedor'
       },
       {
+        id: 6,
         label: 'Propriedade',
         url: 'propriedade'
       }
     ]   
   },
   {
-    label: 'PCP',
+    id: 7,
     posicao: 1,
+    label: 'PCP',
     subItems: [
       {
+        id: 8,
         label: 'Local Armazenamento',
         url: 'localarmazenamento'
       },
       {
+        id: 9,
         label: 'Materia Prima',
         url: 'materiaprima'
       },
       {
+        id: 10,
         label: 'Ração',
         url: 'racao'
       },
       {
+        id: 11,
         label: 'Ordem de Produção',
         url: 'ordemProducao'
       }
     ]   
   },
   {
-    label: 'Manejos',
+    id: 12,
     posicao: 2,
+    label: 'Manejos',
     subItems: [
       {
+        id: 13,
         label: 'Produção de Ração',
         url: 'loteProducao'
       },
       {
+        id: 14,
         label: 'Alimentação',
         url: ''
       },
       {
+        id: 15,
         label: 'Vacinação',
         url: ''
       },
       {
+        id: 16,
         label: 'Pesagem',
         url: ''
       }
     ]   
   },
   {
-    label: 'Animal',
+    id: 17,
     posicao: 3,
+    label: 'Animal',
     subItems: [
       {
+        id: 18,
         label: 'Tipo Morte',
         url: 'tipomorte'
       },
       {
+        id: 19,
         label: 'Raça',
         url: 'raca'
       },
       {
+        id: 20,
         label: 'Regime Engorda',
         url: 'regimeengorda'
       },
       {
+        id: 21,
         label: 'Estado Animal',
         url: 'estadoanimal'
       },
       {
+        id: 22,
         label: 'Sexo',
         url: 'sexoanimal'
       },
       {
+        id: 23,
         label: 'Curral-Piquete',
         url: 'curralpiquete'
       },
       {
+        id: 24,
         label: 'Lote',
         url: 'lote'
       },
       {
+        id: 25,
         label: 'Vacina',
         url: 'vacina'
       }
     ]   
   },
   {
+    id: 26,
     label: 'Consultas',
   },
   {
+    id: 27,
     label: 'Relatórios',
   }
 ];

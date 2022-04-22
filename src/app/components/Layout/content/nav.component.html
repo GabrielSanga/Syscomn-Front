@@ -1,11 +1,11 @@
 <!-- CABEÇALHO -->
 <mat-toolbar style="color: white; background-color: #3f51b5">
     <!-- Botão ativar menu-->
-    <button mat-icon-button matTooltip="Application Menu" (click)="sidenav.toggle()">
+    <button mat-icon-button matTooltip="Menu" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
 
-    SYSCOMN
+    <a class="cursor">SYSCOMN</a>
 
     <span style="flex: 1 1 auto;"></span>
 
@@ -55,13 +55,13 @@
         <!--MENUS-->
         <mat-nav-list dense *ngFor="let item of menuItems">
             <!-- CASO O MENU NÃO TENHA SUBMENUS -->
-            <mat-list-item class="menu" [routerLink]="item.url" *ngIf="!hasItems(item)">{{item.label}}</mat-list-item>
+            <mat-list-item class="menu" [routerLink]="item.url" [class.btnPrecionado]="idSelecionado == item.id" (click)="setIdSelecionado(item.id, false)" *ngIf="!hasItems(item)">{{item.label}}</mat-list-item>
 
             <!-- CASO O MENU TENHA SUBMENUS -->
-            <mat-expansion-panel [class.mat-elevation-z0]="true" dense *ngIf="hasItems(item)" [expanded]="posicao == item.posicao" (opened)="setPosicao(item.posicao)" >
-                <mat-expansion-panel-header class="menu" style="padding-left: 16px !important;">{{item.label}}</mat-expansion-panel-header>
+            <mat-expansion-panel [class.mat-elevation-z0]="true" style="border-radius: 0;" dense *ngIf="hasItems(item)" [expanded]="posicao == item.posicao" (opened)="setPosicao(item.posicao)" >
+                <mat-expansion-panel-header class="menu" style="padding-left: 16px !important;" [class.btnPrecionado]="posicao == item.posicao">{{item.label}}</mat-expansion-panel-header>
                 <mat-nav-list dense *ngFor="let subitem of item.subItems">
-                    <a mat-list-item [routerLink]="subitem.url" class="fonte">{{subitem.label}}</a>
+                    <a mat-list-item [routerLink]="subitem.url" class="fonte" [class.btnPrecionado]="idSelecionado == subitem.id" (click)="setIdSelecionado(subitem.id, true)">{{subitem.label}}</a>
                 </mat-nav-list>
             </mat-expansion-panel>
         </mat-nav-list>

@@ -25,6 +25,7 @@ export class NavComponent implements OnInit {
     foto: ''
   }
 
+  idSelecionado = 0;
   posicao = null;
 
   menuItems = [];
@@ -46,8 +47,18 @@ export class NavComponent implements OnInit {
     dialogRef.afterClosed();
   }
 
+  setIdSelecionado(pnIdSelecionado: number, pbIsSubMenu: boolean): void {
+    this.idSelecionado = pnIdSelecionado;
+    
+    if (!pbIsSubMenu){
+      this.posicao = null;
+    }
+  }
+
   setPosicao(pnPosicao: number): void {
     this.posicao = pnPosicao;
+    
+    this.idSelecionado = null;
   }
 
   logout(){

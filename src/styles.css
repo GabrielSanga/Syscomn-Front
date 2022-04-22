@@ -64,3 +64,8 @@ h1 {
 body{
     background: whitesmoke;
 }
+
+.mat-expansion-panel-body{
+    background-color: whitesmoke !important;
+    padding: 0 !important;
+}

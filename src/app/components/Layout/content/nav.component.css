@@ -36,3 +36,8 @@ a:hover, .menu:hover{
     background-color: #3f51b5 !important;
     color: white;
 }
+
+.btnPrecionado{
+    background-color: #3f51b5 !important;
+    color: white;
+}
