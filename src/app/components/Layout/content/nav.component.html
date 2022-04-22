@@ -58,7 +58,7 @@
             <mat-list-item class="menu" [routerLink]="item.url" *ngIf="!hasItems(item)">{{item.label}}</mat-list-item>
 
             <!-- CASO O MENU TENHA SUBMENUS -->
-            <mat-expansion-panel [class.mat-elevation-z0]="true" dense *ngIf="hasItems(item)" [expanded]="posicao == item.posicao" (opened)="setPosicao(item.posicao)" hideToggle>
+            <mat-expansion-panel [class.mat-elevation-z0]="true" dense *ngIf="hasItems(item)" [expanded]="posicao == item.posicao" (opened)="setPosicao(item.posicao)" >
                 <mat-expansion-panel-header class="menu" style="padding-left: 16px !important;">{{item.label}}</mat-expansion-panel-header>
                 <mat-nav-list dense *ngFor="let subitem of item.subItems">
                     <a mat-list-item [routerLink]="subitem.url" class="fonte">{{subitem.label}}</a>

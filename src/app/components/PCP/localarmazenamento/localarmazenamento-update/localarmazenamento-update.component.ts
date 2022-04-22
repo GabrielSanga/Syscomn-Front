@@ -14,7 +14,9 @@ export class LocalarmazenamentoUpdateComponent implements OnInit {
 
   localarmazenamento: LocalArmazenamento ={
     idLocalArmazenamento:'',
-    descricao:''
+    descricao:'',
+    capacidade: 0,
+    status: ''
   }
 
   descricao: FormControl = new FormControl(null, Validators.required);

@@ -20,6 +20,11 @@
               <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
             </ng-container>
 
+            <ng-container matColumnDef="diasValidade">
+              <th mat-header-cell *matHeaderCellDef> Dias de Validade </th>
+              <td mat-cell *matCellDef="let element"> {{element.diasValidade}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="formula">
               <th mat-header-cell *matHeaderCellDef> Fórmula </th>
               <td mat-cell *matCellDef="let element">

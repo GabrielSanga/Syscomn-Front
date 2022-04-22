@@ -5,7 +5,11 @@
         <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>Ração</mat-label>
             <input [(ngModel)]="racao.descricao" name="descricao" required matInput>            
-            <mat-icon matSuffix>description</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth" appearance="legacy">
+            <mat-label>Dias de Validade</mat-label>
+            <input [(ngModel)]="racao.diasValidade" name="diasValidade" required matInput>            
         </mat-form-field>
 
         <button (click)="create()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Cadastrar</button>

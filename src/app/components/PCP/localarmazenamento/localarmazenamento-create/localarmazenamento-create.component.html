@@ -1,10 +1,15 @@
 <div class=" mat-elevation-z8 container">
     <form class="form">
-        <h1>Cadastrar Local Armazenamento</h1>       
+        <h1>Cadastrar Local Armazenamento</h1>   
+
           <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>Descrição</mat-label>
             <input [formControl]="descricao" [(ngModel)]="localarmazenamento.descricao" name="descricao" required matInput>
-            <mat-icon matSuffix>description</mat-icon>         
+          </mat-form-field>
+
+          <mat-form-field class="fullWidth" appearance="legacy">
+            <mat-label>Capacidade</mat-label>
+            <input [(ngModel)]="localarmazenamento.capacidade" name="capacidade" required matInput type="number">
           </mat-form-field>
           
           <button [disabled]="!validaCampos()" (click)="create()"  class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Cadastrar</button>

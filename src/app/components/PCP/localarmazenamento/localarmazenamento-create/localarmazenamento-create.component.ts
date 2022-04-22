@@ -15,7 +15,9 @@ export class LocalarmazenamentoCreateComponent implements OnInit {
 
   localarmazenamento: LocalArmazenamento ={
     idLocalArmazenamento:'',
-    descricao:''
+    descricao:'',
+    capacidade: 0,
+    status: 'A'
   }
 
   descricao: FormControl = new FormControl(null, Validators.required);

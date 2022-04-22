@@ -18,7 +18,7 @@ export class LocalarmazenamentoListComponent implements OnInit {
     
   ]
 
-  displayedColumns: string[] = ['idLocalArmazenamento', 'descricao','acoes'];
+  displayedColumns: string[] = ['idLocalArmazenamento', 'descricao', 'capacidade', 'status', 'acoes'];
   dataSource = new MatTableDataSource<LocalArmazenamento>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

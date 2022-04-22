@@ -1,3 +1,5 @@
+import { LoteProducao } from "./loteProducao";
+
 export interface RacaoProduzir{
 
     idRacaoProduzir: any;
@@ -6,5 +8,7 @@ export interface RacaoProduzir{
     idOrdemProducao?: number;
     descrOrdemProducao?: string;
     quantidade: number;
+    quantidadeProduzido?: number;
+    lstLoteRacao?: LoteProducao[];
 
 }

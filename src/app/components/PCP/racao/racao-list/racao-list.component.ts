@@ -14,7 +14,7 @@ export class RacaoListComponent implements OnInit {
 
   ELEMENT_DATA: Racao[] = []
 
-  displayedColumns: string[] = ['idRacao', 'descricao', 'formula', 'acoes'];
+  displayedColumns: string[] = ['idRacao', 'descricao', 'diasValidade', 'formula', 'acoes'];
   dataSource = new MatTableDataSource<Racao>(this.ELEMENT_DATA);
 
   constructor(private service: RacaoService,

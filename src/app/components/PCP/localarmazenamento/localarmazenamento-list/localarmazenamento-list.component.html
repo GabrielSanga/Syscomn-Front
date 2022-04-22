@@ -21,6 +21,16 @@
                 <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
             </ng-container>
 
+            <ng-container matColumnDef="capacidade">
+                <th mat-header-cell *matHeaderCellDef> Capacidade </th>
+                <td mat-cell *matCellDef="let element"> {{element.capacidade}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="acoes">
                 <th mat-header-cell *matHeaderCellDef class="acoes"> Ações </th>
                 <td mat-cell *matCellDef="let element" class="acoes">

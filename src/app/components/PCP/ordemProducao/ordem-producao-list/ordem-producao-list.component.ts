@@ -40,13 +40,13 @@ export class OrdemProducaoListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
+  } 
+  
   retornaDataFormata(data: Date): String{
     let dta = new Date(data)
-
+  
     dta.setHours(24);
-
+  
     return dta.toLocaleDateString("pt-br");
   }
 
