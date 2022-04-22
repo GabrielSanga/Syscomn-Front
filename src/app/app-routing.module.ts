@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
+
 import { AdministradorComponent } from './components/Pessoa/administrador/administrador.component';
 import { CurralpiqueteCreateComponent } from './components/Animal/curralpiquete/curralpiquete-create/curralpiquete-create.component';
 import { CurralpiqueteDeleteComponent } from './components/Animal/curralpiquete/curralpiquete-delete/curralpiquete-delete.component';
@@ -62,6 +63,10 @@ import { TipomorteCreateComponent } from './components/Animal/tipomorte/tipomort
 import { TipomorteDeleteComponent } from './components/Animal/tipomorte/tipomorte-delete/tipomorte-delete.component';
 import { TipomorteListComponent } from './components/Animal/tipomorte/tipomorte-list/tipomorte-list.component';
 import { TipomorteUpdadeComponent } from './components/Animal/tipomorte/tipomorte-updade/tipomorte-updade.component';
+import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vacina-list.component';
+import { VacinaCreateComponent } from './components/Animal/vacina/vacina-create/vacina-create.component';
+import { VacinaUpdateComponent } from './components/Animal/vacina/vacina-update/vacina-update.component';
+import { VacinaDeleteComponent } from './components/Animal/vacina/vacina-delete/vacina-delete.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -144,6 +149,11 @@ const routes: Routes = [
     { path: 'lote/create', component: LoteCreateComponent },
     { path: 'lote/update/:idLote', component: LoteUpdateComponent },
     { path: 'lote/delete/:idLote', component: LoteDeleteComponent },
+
+    { path: 'vacina', component: VacinaListComponent },
+    { path: 'vacina/create', component: VacinaCreateComponent },
+    { path: 'vacina/update/:idVacina', component: VacinaUpdateComponent },
+    { path: 'vacina/delete/:idVacina', component: VacinaDeleteComponent },
 
    ]
  }
