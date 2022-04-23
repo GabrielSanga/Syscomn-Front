@@ -74,5 +74,23 @@ export class LoteCreateComponent implements OnInit {
   && this.statusLote.valid
   && this.curralPiquete.valid
   }
+
+  somenteNumeros(e: any) {
+    let charCode = e.charCode ? e.charCode : e.keyCode;
+    // charCode 8 = backspace   
+    // charCode 9 = tab
+  
+    if (charCode != 8 && charCode != 9) {
+      // charCode 48 equivale a 0   
+      // charCode 57 equivale a 9
+    let max = 3;    
+ 
+
+      if ((charCode < 48 || charCode > 57)||(e.target.value.length >= max)) return false;
+      else return true
+    }else return false
+  
+  }
+
 }
 
