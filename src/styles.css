@@ -2,8 +2,15 @@
 @import '../node_modules/ngx-toastr/toastr.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    height: 100%;
+    overflow: hidden !important
+}
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: whitesmoke;
+}
 
 .container{
     margin-top: 35px !important;
@@ -61,11 +68,15 @@ h1 {
     cursor: pointer;
 }
 
-body{
-    background: whitesmoke;
-}
-
 .mat-expansion-panel-body{
     background-color: whitesmoke !important;
     padding: 0 !important;
+}
+
+.mat-drawer-inner-container::-webkit-scrollbar{
+    width: 2px !important;
+}
+
+.mat-drawer-inner-container::-webkit-scrollbar-thumb {
+    background-color: #3f51b5;
 }
