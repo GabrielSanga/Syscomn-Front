@@ -6,4 +6,6 @@ export interface Movimentacao {
     descrLote: string;
     idCurralPiquete: number;
     descrCurralPiquete: String;
+    idPessoa: number;
+    nomePessoa: String;
 }
