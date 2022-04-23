@@ -97,6 +97,16 @@ export const MENU: MenuItem[] = [
     label: 'Animal',
     subItems: [
       {
+        id: 40,
+        label: 'Animal Chip',
+        url: 'animalchip'
+      },
+      {
+        id: 24,
+        label: 'Lote',
+        url: 'lote'
+      },
+      {
         id: 18,
         label: 'Tipo Morte',
         url: 'tipomorte'
@@ -125,11 +135,6 @@ export const MENU: MenuItem[] = [
         id: 23,
         label: 'Curral-Piquete',
         url: 'curralpiquete'
-      },
-      {
-        id: 24,
-        label: 'Lote',
-        url: 'lote'
       },
       {
         id: 25,

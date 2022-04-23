@@ -29,7 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatMenu, MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatSortModule} from '@angular/material/sort';
 
 // Componentes do Projeto
 import { NavComponent } from './components/Layout/content/nav.component';
@@ -107,6 +107,9 @@ import { VacinaCreateComponent } from './components/Animal/vacina/vacina-create/
 import { VacinaUpdateComponent } from './components/Animal/vacina/vacina-update/vacina-update.component';
 import { VacinaDeleteComponent } from './components/Animal/vacina/vacina-delete/vacina-delete.component';
 import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vacina-list.component';
+import { AnimalchipCreateComponent } from './components/Animal/animalchip/animalchip-create/animalchip-create.component';
+import { AnimalchipListComponent } from './components/Animal/animalchip/animalchip-list/animalchip-list.component';
+import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal-chip-update/animal-chip-update.component';
 
 
 @NgModule({
@@ -182,7 +185,10 @@ import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vaci
     VacinaCreateComponent,
     VacinaUpdateComponent,
     VacinaDeleteComponent,
-    VacinaListComponent
+    VacinaListComponent,
+    AnimalchipCreateComponent,
+    AnimalchipListComponent,
+    AnimalChipUpdateComponent
 ],
   imports: [
     BrowserModule,
@@ -218,7 +224,8 @@ import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vaci
     NgxMaskModule.forRoot(),
     ModalDialogModule.forRoot(),
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSortModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

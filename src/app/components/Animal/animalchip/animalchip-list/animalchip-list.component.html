@@ -1,0 +1,66 @@
+<div class="container">
+    <h1>Animais</h1>
+
+    <button routerLink="create" class="mat-elevation-z8 fullWidth" mat-stroked-button color="primary" style="margin: 0;">Cadastrar</button>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="idAnimalChip">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.idAnimalChip}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="chip">
+                <th mat-header-cell *matHeaderCellDef> Chip </th>
+                <td mat-cell *matCellDef="let element"> {{element.chip}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="codigo">
+                <th mat-header-cell *matHeaderCellDef> Código </th>
+                <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dtaNascimento">
+                <th mat-header-cell *matHeaderCellDef> Nascimento </th>
+                <td mat-cell *matCellDef="let element"> {{retornaDataFormata(element.dtaNascimento)}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="sexo">
+                <th mat-header-cell *matHeaderCellDef> Sexo </th>
+                <td mat-cell *matCellDef="let element"> {{element.descrSexoAnimal}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="raca">
+                <th mat-header-cell *matHeaderCellDef> Raça </th>
+                <td mat-cell *matCellDef="let element"> {{element.descrRaca}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lote">
+                <th mat-header-cell *matHeaderCellDef> Lote </th>
+                <td mat-cell *matCellDef="let element"> {{element.nroLote}} -- {{element.descrLote}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef class="acoes"> Ações </th>
+                <td mat-cell *matCellDef="let element" class="acoes">
+                    <a routerLink="update/{{ element.idAnimalChip }}">
+                        <i class="material-icons edit">edit</i>
+                    </a>
+                    <a>
+                        <i (click)="delete(element.idAnimalChip)" class="material-icons delete cursor">delete</i>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

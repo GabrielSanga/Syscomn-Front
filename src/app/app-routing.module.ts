@@ -67,6 +67,9 @@ import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vaci
 import { VacinaCreateComponent } from './components/Animal/vacina/vacina-create/vacina-create.component';
 import { VacinaUpdateComponent } from './components/Animal/vacina/vacina-update/vacina-update.component';
 import { VacinaDeleteComponent } from './components/Animal/vacina/vacina-delete/vacina-delete.component';
+import { AnimalchipCreateComponent } from './components/Animal/animalchip/animalchip-create/animalchip-create.component';
+import { AnimalchipListComponent } from './components/Animal/animalchip/animalchip-list/animalchip-list.component';
+import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal-chip-update/animal-chip-update.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -154,6 +157,10 @@ const routes: Routes = [
     { path: 'vacina/create', component: VacinaCreateComponent },
     { path: 'vacina/update/:idVacina', component: VacinaUpdateComponent },
     { path: 'vacina/delete/:idVacina', component: VacinaDeleteComponent },
+
+    { path: 'animalchip', component: AnimalchipListComponent },
+    { path: 'animalchip/create', component: AnimalchipCreateComponent },
+    { path: 'animalchip/update/:idAnimalChip', component: AnimalChipUpdateComponent },
 
    ]
  }
