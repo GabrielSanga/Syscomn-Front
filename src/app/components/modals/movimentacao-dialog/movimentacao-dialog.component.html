@@ -4,50 +4,34 @@
       <h1 style="margin-left: 15px;">Registro de Movimentações</h1> 
 
       <table mat-table [dataSource]="dataSource">  
-
-          <ng-container matColumnDef="dataHoraMovimentacao">
-            <th mat-header-cell *matHeaderCellDef> Data-Hora </th>
+        <ng-container matColumnDef="dataHoraMovimentacao">
+            <th mat-header-cell *matHeaderCellDef> Data </th>
             <td mat-cell *matCellDef="let element"> {{element.dataHoraMovimentacao}} </td>
         </ng-container>
 
         <ng-container matColumnDef="situacao">
           <th mat-header-cell *matHeaderCellDef> Situação </th>
           <td mat-cell *matCellDef="let element"> {{retornaSituacao(element.situacao)}} </td>
-      </ng-container>
-      
-        <ng-container matColumnDef="idLote">
-        <th mat-header-cell *matHeaderCellDef> Lote </th>
-        <td mat-cell *matCellDef="let element"> {{element.lote}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="descrLote">
-        <th mat-header-cell *matHeaderCellDef> Descrição do Lote </th>
-        <td mat-cell *matCellDef="let element"> {{element.descLote}} </td>
+        <ng-container matColumnDef="lote">
+          <th mat-header-cell *matHeaderCellDef> Lote </th>
+          <td mat-cell *matCellDef="let element"> {{element.lote}} - {{element.descLote}} </td>
         </ng-container>
       
-        <ng-container matColumnDef="idCurralPiquete">
-        <th mat-header-cell *matHeaderCellDef> Curral-Piquete </th>
-        <td mat-cell *matCellDef="let element"> {{element.curralPiquete}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="descrCurralPiquete">
-        <th mat-header-cell *matHeaderCellDef> Descrição Curral-Piquete </th>
-        <td mat-cell *matCellDef="let element"> {{element.descCurralPiquete}} </td>
+        <ng-container matColumnDef="curralPiquete">
+          <th mat-header-cell *matHeaderCellDef> Curral-Piquete </th>
+          <td mat-cell *matCellDef="let element"> {{element.curralPiquete}} - {{element.descCurralPiquete}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="idPessoa">
+        <ng-container matColumnDef="pessoa">
           <th mat-header-cell *matHeaderCellDef> Funcionário </th>
-          <td mat-cell *matCellDef="let element"> {{element.idPessoa}} </td>
-          </ng-container>
+          <td mat-cell *matCellDef="let element"> {{element.idPessoa}} - {{element.nomePessoa}} </td>
+        </ng-container>
         
-          <ng-container matColumnDef="nomePessoa">
-          <th mat-header-cell *matHeaderCellDef> Nome do Funcionário </th>
-          <td mat-cell *matCellDef="let element"> {{element.nomePessoa}} </td>
-          </ng-container>
-        
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     
         <mat-paginator [pageSizeOptions]="[4, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
     </div>

@@ -16,7 +16,7 @@ export class MovimentacaoDialogComponent implements OnInit {
   ELEMENT_DATA: Movimentacao[] = []
   FILTERED_DATA: Movimentacao[] = []
 
-  displayedColumns: string[] = ['dataHoraMovimentacao', 'situacao', 'idLote', 'descrLote', 'idCurralPiquete','descrCurralPiquete', 'idPessoa', 'nomePessoa'];
+  displayedColumns: string[] = ['dataHoraMovimentacao', 'situacao', 'lote', 'curralPiquete', 'pessoa'];
   dataSource = new MatTableDataSource<Movimentacao>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
