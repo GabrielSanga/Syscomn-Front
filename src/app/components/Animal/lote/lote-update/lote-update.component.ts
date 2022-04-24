@@ -28,6 +28,7 @@ export class LoteUpdateComponent implements OnInit {
     descricaoCurralPiquete: '',
     dataInicio: undefined,
     dataFinal: undefined,
+    status: 0,
   }
 
   lscurralPiquete: CurralPiquete[] = []
@@ -35,7 +36,7 @@ export class LoteUpdateComponent implements OnInit {
   descricao: FormControl = new FormControl(null, [Validators.required]);
   nroLote: FormControl = new FormControl(null, [Validators.required]);
   qtdeCabecasEntrada: FormControl = new FormControl(null, [Validators.required]);
-  statusLote: FormControl = new FormControl(null, [Validators.required]);
+  status: FormControl = new FormControl(null, [Validators.required]);
   curralPiquete: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(
@@ -77,20 +78,24 @@ export class LoteUpdateComponent implements OnInit {
       return this.descricao.valid 
       && this.nroLote.valid 
       && this.qtdeCabecasEntrada.valid 
-     /* && this.statusLote.valid*/
+      && this.status.valid
       && this.curralPiquete.valid
       }
 
-      retornaStatusLote(statusLote: any): string {
-        if(statusLote == 'ABERTO') {
-          return 'Aberto'
-        } else if(statusLote == 'FECHADO') {
-          return 'Fechado'
-        } else if(statusLote == 'ENCERRADO'){
-          return 'Encerrado'
-        } else {
-          return ''
-        }
+      limitaNumeros(e: any) {
+        let charCode = e.charCode ? e.charCode : e.keyCode;
+        // charCode 8 = backspace   
+        // charCode 9 = tab
+      
+        if (charCode != 8 && charCode != 9) {
+          // charCode 48 equivale a 0   
+          // charCode 57 equivale a 9
+        let max = 4;    
+     
+          if ((charCode < 48 || charCode > 57)||(e.target.value.length >= max)) return false;
+          else return true
+        }else return false
+      
       }
 
 }

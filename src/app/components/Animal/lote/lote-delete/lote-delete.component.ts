@@ -23,7 +23,7 @@ export class LoteDeleteComponent implements OnInit {
     qtdeCabecasEntrada: 0,
     qtdeCabecasMorte: 0,
     qtdeCabecasAtual: 0,
-    statusLote: '',
+    status: 0,
     curralPiquete: '',
     descricaoCurralPiquete: '',
     dataInicio: undefined,
@@ -76,17 +76,7 @@ export class LoteDeleteComponent implements OnInit {
     
   }
 
-  retornaStatusLote(statusLote: any): string {
-    if(statusLote == 'ABERTO') {
-      return 'Aberto'
-    } else if(statusLote == 'FECHADO') {
-      return 'Fechado'
-    } else if(statusLote == 'ENCERRADO'){
-      return 'Encerrado'
-    } else {
-      return ''
-    }
-  }
+  
 
 }
 

@@ -2,61 +2,54 @@
     <form class="form">
         <h1>Cadastrar Lote</h1>
 
-        <mat-form-field class="fullWidth" appearance="legacy">
+        <div class="dividi">
+        <mat-form-field class="two" appearance="legacy">
             <mat-label>Descrição</mat-label>
             <input required [(ngModel)]="lote.descricao" name="descricao" matInput maxlength="50" [formControl]="descricao">
         </mat-form-field>
 
-        <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-form-field class="tre" appearance="legacy">
             <mat-label>Número do Lote</mat-label>
-            <input type="number" [(ngModel)]="lote.nroLote" name="nroLote" required matInput [formControl]="nroLote">
+            <input type="number" [(ngModel)]="lote.nroLote" (keypress)="limitaNumeros($event)" name="nroLote" required matInput [formControl]="nroLote">
         </mat-form-field>
+    </div>
 
         <div class="dividi">
             <mat-form-field class="two" appearance="legacy">
                 <mat-label>Peso de Entrada</mat-label>
-                <input type="number" [(ngModel)]="lote.pesoEntrada" name="pesoEntrada" required matInput>
+                <input type="text" [(ngModel)]="lote.pesoEntrada" name="pesoEntrada" required matInput matInput mask="separator.2" thousandSeparator=".">
             </mat-form-field>
 
             <mat-form-field class="tre" appearance="legacy">
                 <mat-label>Peso de Atual</mat-label>
-                <input type="number" [(ngModel)]="lote.pesoAtual" name="pesoAtual" required matInput>
+                <input type="text" [(ngModel)]="lote.pesoAtual" name="pesoAtual" required matInput matInput mask="separator.2" thousandSeparator=".">
             </mat-form-field>
+      
+            <mat-form-field class="tre" appearance="legacy">
+                <mat-label>Custo do Lote</mat-label>
+                <input type="text" [(ngModel)]="lote.custoLote" name="custoLote" required matInput matInput mask="separator.2" thousandSeparator=".">
+            </mat-form-field>
+      
         </div>
-
-        <mat-form-field class="fullWidth" appearance="legacy">
-            <mat-label>Custo do Lote</mat-label>
-            <input type="number" [(ngModel)]="lote.custoLote" name="custoLote" required matInput>
-        </mat-form-field>
 
         <div class="dividi">
             <mat-form-field class="two" appearance="legacy">
                 <mat-label>Quantidade de Cabeças Entrada</mat-label>
-                <input type="number" [(ngModel)]="lote.qtdeCabecasEntrada" name="qtdeCabecasEntrada" required matInput [formControl]="qtdeCabecasEntrada">
+                <input type="number" [(ngModel)]="lote.qtdeCabecasEntrada" (keypress)="limitaNumeros($event)" name="qtdeCabecasEntrada" required matInput [formControl]="qtdeCabecasEntrada">
             </mat-form-field>
 
             <mat-form-field class="tre" appearance="legacy">
                 <mat-label>Quantidade de Cabeças Morte</mat-label>
-                <input type="number" [(ngModel)]="lote.qtdeCabecasMorte" name="qtdeCabecasMorte" required matInput>
+                <input type="number" [(ngModel)]="lote.qtdeCabecasMorte" (keypress)="limitaNumeros($event)" name="qtdeCabecasMorte" required matInput>
             </mat-form-field>
-        </div>
+        
+            <mat-form-field class="tre" appearance="legacy">
+                <mat-label>Quantidade de Cabeças Atual</mat-label>
+                <input type="number" [(ngModel)]="lote.qtdeCabecasAtual" (keypress)="limitaNumeros($event)" name="qtdeCabecasAtual" required matInput>
+            </mat-form-field>
 
-        <mat-form-field class="fullWidth" appearance="legacy">
-            <mat-label>Quantidade de Cabeças Atual</mat-label>
-            <input type="number" [(ngModel)]="lote.qtdeCabecasAtual" name="qtdeCabecasAtual" required matInput>
-        </mat-form-field>
-
-
-        <mat-form-field class="fullWidth" appearance="outline">
-            <mat-label>Selecione o Status do Lote</mat-label>
-            <mat-select required [(ngModel)]="lote.statusLote" name="statusLote" [formControl]="statusLote">
-                <mat-option value="0">Aberto</mat-option>
-                <mat-option value="1">Fechado</mat-option>
-                <mat-option value="2">Encerrado</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-
+        </div>   
+        
         <mat-form-field class="fullWidth" appearance="outline">
             <mat-label>Selecione um Curral-Piquete</mat-label>
             <mat-select [(ngModel)]="lote.curralPiquete" name="curralPiquete" required [formControl]="curralPiquete">

@@ -23,11 +23,10 @@
         </mat-form-field>
 
         <mat-form-field class="fullWidth" appearance="outline">
-            <mat-label>{{ retornaStatusLote(lote.statusLote) }}</mat-label>
-            <mat-select [(ngModel)]="lote.statusLote" name="statusLote" disabled="true">
-                <mat-option value="0">Aberto</mat-option>
-                <mat-option value="1">Fechado</mat-option>
-                <mat-option value="2">Encerrado</mat-option>
+            <mat-label>{{ lote.status }}</mat-label>
+            <mat-select required [(ngModel)]="lote.status" name="status" >
+                <mat-option value="0">Ativo</mat-option>
+                <mat-option value="1">Inativo</mat-option>
             </mat-select>
         </mat-form-field>
 

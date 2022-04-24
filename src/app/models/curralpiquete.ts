@@ -6,7 +6,7 @@ export interface CurralPiquete {
     curralLargura: Number;
     quantidadeCabecas: Number;
     statusCurralPiquete: any;
-    tipoCurralPiquete: number;
+    tipoCurralPiquete: any;
     propriedade: any;
     nomePropriedade: String;
 }
