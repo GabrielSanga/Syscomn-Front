@@ -27,12 +27,13 @@ export class CurralpiqueteUpdateComponent implements OnInit {
     tipoCurralPiquete: 0
   }
 
+  isCurral: boolean
+  isPiquete: boolean 
   propriedades: Propriedade[] = []
 
   descricao: FormControl = new FormControl(null, [Validators.required]);
   propriedade: FormControl = new FormControl(null, [Validators.required]);
   statusCurralPiquete: FormControl = new FormControl(null, [Validators.required]);
-  tipoCurralPiquete: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(
     private curralpiqueteService: CurralpiqueteService,
@@ -51,6 +52,13 @@ export class CurralpiqueteUpdateComponent implements OnInit {
   findById(): void {
     this.curralpiqueteService.findById(this.curralpiquete.idCurralPiquete).subscribe(resposta => {
       this.curralpiquete = resposta;
+      if (this.curralpiquete.tipoCurralPiquete == 'CURRAL'){
+        this.isCurral = false
+        this.isPiquete = true
+      }else{
+        this.isCurral = true
+        this.isPiquete = false
+      }
     })
   }
 
@@ -69,11 +77,25 @@ export class CurralpiqueteUpdateComponent implements OnInit {
    })
    }
 
+   limitaNumeros(e: any) {
+    let charCode = e.charCode ? e.charCode : e.keyCode;
+    // charCode 8 = backspace   
+    // charCode 9 = tab
+  
+    if (charCode != 8 && charCode != 9) {
+      // charCode 48 equivale a 0   
+      // charCode 57 equivale a 9
+    let max = 4;    
+  
+      if ((charCode < 48 || charCode > 57)||(e.target.value.length >= max)) return false;
+      else return true
+    }else return false
+  }
+
    validaCampos(): boolean {
     return this.statusCurralPiquete.valid 
     && this.descricao.valid 
     && this.propriedade.valid
-    && this.tipoCurralPiquete.valid
   }
 
 }

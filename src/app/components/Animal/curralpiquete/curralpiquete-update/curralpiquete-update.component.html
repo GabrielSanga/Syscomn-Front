@@ -7,27 +7,29 @@
             <input required [formControl]="descricao" [(ngModel)]="curralpiquete.descricao" name="descricao" matInput maxlength="50">
         </mat-form-field>
 
-        <mat-form-field class="fullWidth" appearance="legacy">
+        <div class="status">
+
+        <mat-form-field class="two" appearance="legacy">
             <mat-label>Área Pasto</mat-label>
-            <input type="text" [(ngModel)]="curralpiquete.areaPasto" name="areaPasto" matInput mask="000.00">
+            <input type="text" [(ngModel)]="curralpiquete.areaPasto" name="areaPasto" matInput mask="separator.2" thousandSeparator="." [disabled]="isPiquete">
         </mat-form-field>
 
-        <div class="status">
-            <mat-form-field class="two" appearance="legacy">
+            <mat-form-field class="tre" appearance="legacy">
                 <mat-label>Altura do Curral</mat-label>
-                <input type="number" [(ngModel)]="curralpiquete.curralAltura" name="curralAltura" matInput mask="000.00" ng>
+                <input type="number" [(ngModel)]="curralpiquete.curralAltura" name="curralAltura" matInput mask="separator.2" thousandSeparator="." [disabled]="isCurral">
             </mat-form-field>
 
             <mat-form-field class="tre" appearance="legacy">
                 <mat-label>Largura do Curral</mat-label>
-                <input type="number" [(ngModel)]="curralpiquete.curralLargura" name="curralAltura" matInput mask="000.00">
+                <input type="number" [(ngModel)]="curralpiquete.curralLargura" name="curralAltura" matInput mask="separator.2" thousandSeparator="." [disabled]="isCurral">
             </mat-form-field>
-        </div>
-
-        <mat-form-field class="fullWidth" appearance="legacy">
+       
+        <mat-form-field class="tre" appearance="legacy">
             <mat-label>Quantidade de Cabeças</mat-label>
-            <input type="number" [(ngModel)]="curralpiquete.quantidadeCabecas" name="quantidadeCabecas" required matInput>
+            <input type="number" [(ngModel)]="curralpiquete.quantidadeCabecas" name="quantidadeCabecas" required matInput (keypress)="limitaNumeros($event)">
         </mat-form-field>
+    
+    </div>
 
         <mat-form-field class="fullWidth" appearance="outline">
             <mat-label>{{ curralpiquete.statusCurralPiquete }}</mat-label>
@@ -36,19 +38,6 @@
                 <mat-option value="1">Inativo</mat-option>
             </mat-select>
         </mat-form-field>
-
-        <mat-form-field class="fullWidth" appearance="outline">
-            <mat-label>{{ curralpiquete.tipoCurralPiquete }}</mat-label>
-            <mat-select required [(ngModel)]="curralpiquete.tipoCurralPiquete" name="tipoCurralPiquete" [formControl]="tipoCurralPiquete">
-                <mat-option value="0">Curral</mat-option>
-                <mat-option value="1">Piquete</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <mat-radio-group aria-label="Selecione uma opção" required [(ngModel)]="curralpiquete.tipoCurralPiquete" name="tipoCurralPiquete" [formControl]="tipoCurralPiquete">
-            <mat-radio-button value="0">Curral</mat-radio-button>
-            <mat-radio-button value="1">Piquete</mat-radio-button>
-          </mat-radio-group>
         
         <mat-form-field class="fullWidth" appearance="outline">
             <mat-label>{{ curralpiquete.nomePropriedade }}</mat-label>
