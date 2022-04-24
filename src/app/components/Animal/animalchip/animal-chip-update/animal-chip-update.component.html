@@ -1,0 +1,179 @@
+<div class="container mat-elevation-z8">
+    <form class="form">
+        <div class="row" *ngIf="animalMorto">         
+            <h1 class="col-md-10">Atualizar Animal</h1> 
+            <h1 class="col-md-2" style="color: red; font-weight: 600; text-align: right;">MORTO</h1>
+        </div>
+
+        <h1 *ngIf="!animalMorto">Atualizar Animal</h1> 
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Nome</mat-label>
+                    <input [(ngModel)]="animalChip.nome" name="nome" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Chip</mat-label>
+                    <input [(ngModel)]="animalChip.chip" name="chip" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Código</mat-label>
+                    <input [(ngModel)]="animalChip.codigo" name="codigo" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Data Nascimento</mat-label>
+                    <input type="date" [(ngModel)]="animalChip.dtaNascimento" name="dtaNascimento" matInput> 
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Data Entrada</mat-label>
+                    <input type="date" [(ngModel)]="animalChip.dtaEntrada" required name="dtaEntrada" matInput> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Pai</mat-label>
+                    <input [(ngModel)]="animalChip.pai" name="pai" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Mãe</mat-label>
+                    <input [(ngModel)]="animalChip.mae" name="mae" required matInput maxlength="100">
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Custo Aquisição</mat-label>
+                    <input type="text" [(ngModel)]="animalChip.custoAquisicao" name="custoAquisicao" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Peso Entrada</mat-label>
+                    <input type="text" [(ngModel)]="animalChip.pesoEntrada" name="pesoEntrada" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>{{animalChip.nroLote}} - {{animalChip.descrLote}}</mat-label>
+                    <mat-select [(ngModel)]="animalChip.idLote" name="idLote" required>
+                        <mat-option *ngFor="let lote of lotes" value="{{ lote.idLote }}">{{ lote.nroLote }} - {{ lote.descricao }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>{{animalChip.idSexoAnimal}} - {{animalChip.descrSexoAnimal}}</mat-label>
+                    <mat-select [(ngModel)]="animalChip.idSexoAnimal" name="idSexoAnimal" required>
+                        <mat-option *ngFor="let sexo of sexos" value="{{ sexo.idSexoAnimal }}">{{ sexo.idSexoAnimal }} - {{ sexo.descricao }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>{{animalChip.idRaca}} - {{animalChip.descrRaca}}</mat-label>
+                    <mat-select [(ngModel)]="animalChip.idRaca" name="idRaca" required>
+                        <mat-option *ngFor="let raca of racas" value="{{ raca.idRaca }}">{{ raca.idRaca }} - {{ raca.descricao }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>{{animalChip.idEstadoAnimal}} - {{animalChip.descrEstadoAnimal}}</mat-label>
+                    <mat-select [(ngModel)]="animalChip.idEstadoAnimal" name="idEstadoAnimal" required>
+                        <mat-option *ngFor="let estado of estadosAnimal" value="{{ estado.idEstadoAnimal }}">{{ estado.idEstadoAnimal }} - {{ estado.descricao }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>{{ retornaDescrStatus(animalChip.status) }}</mat-label>
+                    <mat-select required [(ngModel)]="animalChip.status" name="status" (ngModelChange)="HabilitarMotivo()">
+                        <mat-option value="0">Normal</mat-option>
+                        <mat-option value="1">Saída</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Motivo Saída</mat-label>
+                    <input [(ngModel)]="animalChip.motivoSaida" name="motivoSaida" matInput maxlength="100" [disabled]="!habilitarMotivoSaida">
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <section class="section" style="margin: 0 !important;">
+                    <mat-checkbox [checked]="animalMorto" class="margin" color="primary" (change)="setAnimalMorto($event)">Animal Morto</mat-checkbox>
+                </section>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label *ngIf="animalChip.idTipoMorte" value="">{{animalChip.descrTipoMorte}}</mat-label>
+                    <mat-label *ngIf="!animalChip.idTipoMorte"> Tipo da Morte</mat-label>
+                    <mat-select [disabled]="!animalMorto" [(ngModel)]="animalChip.idTipoMorte" name="idTipoMorte">
+                        <mat-option *ngFor="let morte of tipoMortes" value="{{ morte.idTipoMorte }}">{{ morte.descricao }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <hr style="margin-top: 0; margin-bottom: 10px;"/>
+
+        <h3 style="font-weight: 600; margin-bottom: 5px;">Informações</h3>
+
+        <div class="row">
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Data Última Pesagem</mat-label>
+                    <input readonly type="date" [(ngModel)]="animalChip.dtaUltimaPesagem" name="dtaUltimaPesagem" matInput> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Data Saída</mat-label>
+                    <input readonly type="date" [(ngModel)]="animalChip.dtaSaida" name="dtaSaida" matInput> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Custo Final</mat-label>
+                    <input type="text" readonly [(ngModel)]="animalChip.custoFinal" name="custoFinal" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Peso Atual</mat-label>
+                    <input type="text" readonly [(ngModel)]="animalChip.pesoAtual" name="pesoAtual" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="fullWidth" appearance="legacy">
+                    <mat-label>Ganho médio diário</mat-label>
+                    <input type="text" readonly [(ngModel)]="animalChip.ganhoMedioDiario" name="ganhoMedioDiario" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <hr style="margin-top: 0; margin-bottom: 15px;"/>
+
+        <button (click)="create()" class="fullWidth mat-elevation-z4" mat-flat-button color="primary">Atualizar</button>
+        <button routerLink="../../" class="fullWidth mat-elevation-z4" mat-stroked-button color="warn">Voltar</button>
+    </form>
+</div>
