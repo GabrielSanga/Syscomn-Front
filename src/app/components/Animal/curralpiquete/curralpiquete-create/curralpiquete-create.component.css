@@ -7,6 +7,10 @@
     margin-left: 1rem;
 }
 
+.descr {
+    width: 60%;
+}
+
 button {
     margin-top: .5rem;
 }
@@ -14,4 +18,12 @@ button {
 .status {
     display: flex;
     justify-content: space-between;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 15px;
+  } 
+
+.curral{
+    margin-left: 32px;
 }

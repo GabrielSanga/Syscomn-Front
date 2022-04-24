@@ -44,6 +44,11 @@
                 <mat-option value="1">Piquete</mat-option>
             </mat-select>
         </mat-form-field>
+
+        <mat-radio-group aria-label="Selecione uma opção" required [(ngModel)]="curralpiquete.tipoCurralPiquete" name="tipoCurralPiquete" [formControl]="tipoCurralPiquete">
+            <mat-radio-button value="0">Curral</mat-radio-button>
+            <mat-radio-button value="1">Piquete</mat-radio-button>
+          </mat-radio-group>
         
         <mat-form-field class="fullWidth" appearance="outline">
             <mat-label>{{ curralpiquete.nomePropriedade }}</mat-label>

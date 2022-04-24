@@ -24,7 +24,7 @@ export class LoteCreateComponent implements OnInit {
     qtdeCabecasEntrada: 0,
     qtdeCabecasMorte: 0,
     qtdeCabecasAtual: 0,
-    statusLote: '',
+    status: 0,
     curralPiquete: '',
     descricaoCurralPiquete: '',
     dataInicio: undefined,
@@ -36,7 +36,6 @@ export class LoteCreateComponent implements OnInit {
   descricao: FormControl = new FormControl(null, [Validators.required]);
   nroLote: FormControl = new FormControl(null, [Validators.required]);
   qtdeCabecasEntrada: FormControl = new FormControl(null, [Validators.required]);
-  statusLote: FormControl = new FormControl(null, [Validators.required]);
   curralPiquete: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(
@@ -71,11 +70,10 @@ export class LoteCreateComponent implements OnInit {
   return this.descricao.valid 
   && this.nroLote.valid 
   && this.qtdeCabecasEntrada.valid 
-  && this.statusLote.valid
   && this.curralPiquete.valid
   }
 
-  somenteNumeros(e: any) {
+  limitaNumeros(e: any) {
     let charCode = e.charCode ? e.charCode : e.keyCode;
     // charCode 8 = backspace   
     // charCode 9 = tab
@@ -83,13 +81,11 @@ export class LoteCreateComponent implements OnInit {
     if (charCode != 8 && charCode != 9) {
       // charCode 48 equivale a 0   
       // charCode 57 equivale a 9
-    let max = 3;    
- 
+    let max = 4;    
 
       if ((charCode < 48 || charCode > 57)||(e.target.value.length >= max)) return false;
       else return true
     }else return false
-  
   }
 
 }

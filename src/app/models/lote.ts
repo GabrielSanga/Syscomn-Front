@@ -12,7 +12,7 @@ export interface Lote{
     qtdeCabecasEntrada: Number;
     qtdeCabecasMorte: Number;
     qtdeCabecasAtual: Number;
-    statusLote?: any;
+    status: any;
     curralPiquete: any;
     descricaoCurralPiquete: String;
     lstMovimentacao?: Movimentacao[];
