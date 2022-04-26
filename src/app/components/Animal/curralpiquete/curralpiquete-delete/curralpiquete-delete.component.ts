@@ -22,7 +22,7 @@ export class CurralpiqueteDeleteComponent implements OnInit {
     quantidadeCabecas: 0,
     propriedade: '',
     nomePropriedade: '',
-    statusCurralPiquete: '',
+    statusCurralPiquete: 0,
     tipoCurralPiquete: 0
   }
 

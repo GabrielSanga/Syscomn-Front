@@ -1,3 +1,5 @@
+import { NumberSymbol } from "@angular/common";
+
 export interface CurralPiquete {
     idCurralPiquete?: any;
     descricao: string;
@@ -5,7 +7,7 @@ export interface CurralPiquete {
     curralAltura: Number;
     curralLargura: Number;
     quantidadeCabecas: Number;
-    statusCurralPiquete: any;
+    statusCurralPiquete: Number;
     tipoCurralPiquete: any;
     propriedade: any;
     nomePropriedade: String;

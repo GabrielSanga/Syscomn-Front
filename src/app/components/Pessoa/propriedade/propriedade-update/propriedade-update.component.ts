@@ -47,11 +47,11 @@ export class PropriedadeUpdateComponent implements OnInit {
     this.service.update(this.propriedade).subscribe(() => {
       this.toast.success('Propriedade atualizada com sucesso', 'Updade');
       this.router.navigate(['propriedade'])
+      console.log(this.propriedade.status)
     }, ex => {
       if (ex.error.errors) {
         ex.error.errors.forEach(element => {
           this.toast.error(element.message);
-
         });
       } else {
         this.toast.error(ex.error.message);
