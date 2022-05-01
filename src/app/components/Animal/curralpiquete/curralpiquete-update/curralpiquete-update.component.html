@@ -34,8 +34,8 @@
     <div class="status">
 
         <mat-form-field class="two" appearance="outline">
-            <mat-label>{{ curralpiquete.statusCurralPiquete }}</mat-label>
-            <mat-select required [(ngModel)]="curralpiquete.statusCurralPiquete" name="statusCurralPiquete" [formControl]="statusCurralPiquete">
+            <mat-label>{{ retornaStatus(curralpiquete.statusCurralPiquete) }}</mat-label>
+            <mat-select #mySelect [(ngModel)]="curralpiquete.statusCurralPiquete" name="statusCurralPiquete" id="statusCurralPiquete">
                 <mat-option value="0">Aberto</mat-option>
                 <mat-option value="1">Fechado</mat-option>
                 <mat-option value="2">Encerrado</mat-option>

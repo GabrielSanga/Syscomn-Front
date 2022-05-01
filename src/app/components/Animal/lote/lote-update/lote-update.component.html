@@ -19,11 +19,6 @@
                     <mat-label>Peso de Entrada</mat-label>
                     <input type="text" [(ngModel)]="lote.pesoEntrada" name="pesoEntrada" required matInput matInput mask="separator.2" thousandSeparator=".">
                 </mat-form-field>
-    
-                <mat-form-field class="tre" appearance="legacy">
-                    <mat-label>Peso de Atual</mat-label>
-                    <input type="text" [(ngModel)]="lote.pesoAtual" name="pesoAtual" required matInput matInput mask="separator.2" thousandSeparator=".">
-                </mat-form-field>
           
                 <mat-form-field class="tre" appearance="legacy">
                     <mat-label>Custo do Lote</mat-label>
@@ -41,11 +36,6 @@
                 <mat-form-field class="tre" appearance="legacy">
                     <mat-label>Quantidade de Cabeças Morte</mat-label>
                     <input type="number" [(ngModel)]="lote.qtdeCabecasMorte" (keypress)="limitaNumeros($event)" name="qtdeCabecasMorte" required matInput>
-                </mat-form-field>
-            
-                <mat-form-field class="tre" appearance="legacy">
-                    <mat-label>Quantidade de Cabeças Atual</mat-label>
-                    <input type="number" [(ngModel)]="lote.qtdeCabecasAtual" (keypress)="limitaNumeros($event)" name="qtdeCabecasAtual" required matInput>
                 </mat-form-field>
     
             </div>
