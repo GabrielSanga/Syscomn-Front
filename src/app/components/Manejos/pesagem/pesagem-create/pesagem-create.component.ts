@@ -116,10 +116,24 @@ export class PesagemCreateComponent implements OnInit {
     this.animalService.findById(idAnimalChip).subscribe(resposta =>{ this.animalChip = resposta})
 
     this.pesagem.idAnimalChip = idAnimalChip;
+    this.pesagem.peso = 0;
   }
 
   create(): void{
-    console.log(this.pesagem.peso);
+    if(this.pesagem.peso <= 0){
+      this.toast.error("Peso deve ser maior que 0!");
+      return;
+    }
+
+    if(this.pesagem.tipoPesagem == "A"){
+      if(this.validaPesagemAnimalUnico() == false){
+        return;
+      }
+    }else if(this.pesagem.tipoPesagem == "L"){
+      if(this.validaPesagemLote() == false){
+        return;
+      }
+    }
 
     this.pesagemService.create(this.pesagem).subscribe(() => {
       this.toast.success('Pesagem realizada com Sucesso!', 'Produção');
@@ -149,6 +163,9 @@ export class PesagemCreateComponent implements OnInit {
     //Apenas limpa o lote pelo evento de troca de tipo pesagem
     if(pbLimpaLote){
       this.pesagem.idLote = 0;
+
+      this.ELEMENT_DATA = null;
+      this.dataSource = new MatTableDataSource<AnimalChip>(this.ELEMENT_DATA);
     }
 
     if(this.pesagem.tipoPesagem == 'A'){
@@ -172,11 +189,40 @@ export class PesagemCreateComponent implements OnInit {
 
     //Limpa Pesagem
     this.pesagem.peso = 0;
-    this.pesagem.observacao = ''; 
+    this.pesagem.pesoBrutoVeiculo = 0;
+    this.pesagem.pesoTaraVeiculo = 0;
+    this.pesagem.observacao = '';
+
+    if(this.pesagem.tipoPesagem == "L"){
+      this.pesagem.idLote = 0;
+    }
   }
 
   calculaPesoLiquido(): void{
     this.pesagem.peso = this.pesagem.pesoBrutoVeiculo - this.pesagem.pesoTaraVeiculo;
+  }
+
+  validaPesagemAnimalUnico(): boolean{
+    if(this.pesagem.idLote == 0){
+      this.toast.error("Necessário selecionar um Lote para pesagem!");
+      return false;
+    }
+
+    if(this.pesagem.idAnimalChip == 0){
+      this.toast.error("Necessário selecionar um animal para Pesagem!");
+      return false;
+    }
+
+    return true
+  }
+
+  validaPesagemLote(): boolean{
+    if(this.pesagem.idLote == 0){
+      this.toast.error("Necessário selecionar um Lote para pesagem!");
+      return false;
+    }
+
+    return true;
   }
   
 }

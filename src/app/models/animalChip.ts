@@ -6,7 +6,7 @@ export interface AnimalChip{
     dtaNascimento: Date;
     dtaEntrada: Date;
     dtaSaida?: Date;
-    dtaUltimaPesagem?: Date,
+    dtaHoraUltimaPesagem?: Date,
     pai?: string;
     mae?: string;
     custoAquisicao: number;
