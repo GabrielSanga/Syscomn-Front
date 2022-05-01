@@ -72,6 +72,8 @@ export class PesagemCreateComponent implements OnInit {
     descricaoCurralPiquete: '',
     dataInicio: null,
     dataFinal: null,
+    regimeEngorda: 0,
+    descricaoRegimeEngorda: ''
   }
 
   lstLote: Lote[] = [];
