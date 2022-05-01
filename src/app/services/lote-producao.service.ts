@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { API_CONFIG } from '../config/api.config';
 import { LoteProducao } from '../models/loteProducao';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,10 @@ export class LoteProducaoService {
 
   findAll(): Observable<LoteProducao[]> {
     return this.http.get<LoteProducao[]>(`${API_CONFIG.baseUrl}/loteracao`);
+  }
+
+  findAllProducaoPorData(): Observable<Object[]> {
+    return this.http.get<Object[]>(`${API_CONFIG.baseUrl}/loteracao/producaoData`);
   }
 
   create(loteProducao: LoteProducao): Observable<LoteProducao> {

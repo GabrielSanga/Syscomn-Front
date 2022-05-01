@@ -12,10 +12,10 @@ import { LoteProducaoService } from 'src/app/services/lote-producao.service';
 })
 export class EstoqueProducaoComponent implements OnInit {
 
-  ELEMENT_DATA: LoteProducao[] = []
+  ELEMENT_DATA: Object[] = []
 
-  displayedColumns: string[] = ['racao', 'unidade', 'dataFabricacao', 'dataValidade', 'saldo'];
-  dataSource = new MatTableDataSource<LoteProducao>(this.ELEMENT_DATA);
+  displayedColumns: string[] = ['idRacao', 'descricao', 'dataFabricacao', 'dataValidade', 'saldo'];
+  dataSource = new MatTableDataSource<Object>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -34,9 +34,9 @@ export class EstoqueProducaoComponent implements OnInit {
   ngOnInit(): void {this.findAll(); }
 
   findAll(){
-    this.service.findAll().subscribe(resposta => {
+    this.service.findAllProducaoPorData().subscribe(resposta => {
       this.ELEMENT_DATA = resposta
-      this.dataSource = new MatTableDataSource<LoteProducao>(resposta);
+      this.dataSource = new MatTableDataSource<Object>(resposta);
       this.dataSource.paginator = this.paginator;
     })
   }

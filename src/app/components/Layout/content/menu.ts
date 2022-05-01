@@ -9,6 +9,7 @@ export const MENU: MenuItem[] = [
   {
     id: 1,
     label: 'Análises',
+    url: 'analise'
   },
   {
     id: 2,

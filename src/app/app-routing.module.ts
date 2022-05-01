@@ -72,6 +72,7 @@ import { AnimalchipListComponent } from './components/Animal/animalchip/animalch
 import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal-chip-update/animal-chip-update.component';
 import { EstoqueProducaoComponent } from './components/Consultas/estoque/estoque-producao/estoque-producao.component';
 import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-create/pesagem-create.component';
+import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -167,6 +168,8 @@ const routes: Routes = [
     { path: 'estoque', component: EstoqueProducaoComponent },
 
     { path: 'pesagem', component: PesagemCreateComponent },
+
+    { path: 'analise', component: AnalisesComponent },
 
    ]
  }
