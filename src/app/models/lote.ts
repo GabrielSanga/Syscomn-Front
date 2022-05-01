@@ -16,6 +16,8 @@ export interface Lote{
     status: any;
     curralPiquete: any;
     descricaoCurralPiquete: String;
+    regimeEngorda: any;
+    descricaoRegimeEngorda: String;
     lstMovimentacao?: Movimentacao[];
     lstAnimais?: AnimalChip[];
 }

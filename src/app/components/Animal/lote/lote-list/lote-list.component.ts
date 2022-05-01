@@ -16,7 +16,7 @@ export class LoteListComponent implements OnInit {
   ELEMENT_DATA: Lote[] = []
   FILTERED_DATA: Lote[] = []
 
-  displayedColumns: string[] = ['idLote', 'descricao', 'nroLote', 'pesoEntrada', 'pesoAtual', 'status', 'descricaoCurralPiquete', 'movimentacao','acoes'];
+  displayedColumns: string[] = ['idLote', 'descricao', 'nroLote', 'pesoEntrada', 'pesoAtual', 'status', 'descricaoCurralPiquete', 'descricaoRegimeEngorda', 'movimentacao','acoes'];
   dataSource = new MatTableDataSource<Lote>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -23,7 +23,7 @@ export class CurralpiqueteUpdateComponent implements OnInit {
     quantidadeCabecas: 0,
     propriedade: '',
     nomePropriedade: '',
-    statusCurralPiquete: '',
+    statusCurralPiquete: 0,
     tipoCurralPiquete: 0
   }
 
@@ -33,7 +33,6 @@ export class CurralpiqueteUpdateComponent implements OnInit {
 
   descricao: FormControl = new FormControl(null, [Validators.required]);
   propriedade: FormControl = new FormControl(null, [Validators.required]);
-  statusCurralPiquete: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(
     private curralpiqueteService: CurralpiqueteService,
@@ -52,7 +51,7 @@ export class CurralpiqueteUpdateComponent implements OnInit {
   findById(): void {
     this.curralpiqueteService.findById(this.curralpiquete.idCurralPiquete).subscribe(resposta => {
       this.curralpiquete = resposta;
-      if (this.curralpiquete.tipoCurralPiquete == 'CURRAL'){
+      if (this.curralpiquete.tipoCurralPiquete == 0){
         this.isCurral = false
         this.isPiquete = true
       }else{
@@ -68,6 +67,7 @@ export class CurralpiqueteUpdateComponent implements OnInit {
       this.router.navigate(['curralpiquete']);
     }, ex => {
       this.toastService.error(ex.error.error);
+      console.log(this.curralpiquete.tipoCurralPiquete);
     })
   }
 
@@ -93,9 +93,22 @@ export class CurralpiqueteUpdateComponent implements OnInit {
   }
 
    validaCampos(): boolean {
-    return this.statusCurralPiquete.valid 
-    && this.descricao.valid 
+    return this.descricao.valid 
     && this.propriedade.valid
   }
+
+  retornaStatus(statusCurralPiquete: number): string{
+    switch (statusCurralPiquete){
+      case 0:
+        return "Aberto";
+      case 1:
+        return"Fechado";
+      case 2:
+        return "Encerrado";
+        default:
+        return "statusCurralPiquete";
+    }   
+    }   
+  
 
 }

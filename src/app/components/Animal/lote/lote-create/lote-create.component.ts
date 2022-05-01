@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CurralPiquete } from 'src/app/models/curralpiquete';
 import { Lote } from 'src/app/models/lote';
+import { RegimeEngorda } from 'src/app/models/regimeengorda';
 import { CurralpiqueteService } from 'src/app/services/curralpiquete.service';
 import { LoteService } from 'src/app/services/lote.service';
+import { RegimeengordaService } from 'src/app/services/regimeengorda.service';
 
 @Component({
   selector: 'app-lote-create',
@@ -27,11 +29,14 @@ export class LoteCreateComponent implements OnInit {
     status: 0,
     curralPiquete: '',
     descricaoCurralPiquete: '',
+    regimeEngorda: 0,
+    descricaoRegimeEngorda: '',
     dataInicio: undefined,
     dataFinal: undefined,
   }
 
   lscurralPiquete: CurralPiquete[] = []
+  lsregimeEngorda: RegimeEngorda[] = []
 
   descricao: FormControl = new FormControl(null, [Validators.required]);
   nroLote: FormControl = new FormControl(null, [Validators.required]);
@@ -41,12 +46,14 @@ export class LoteCreateComponent implements OnInit {
   constructor(
     private loteService:          LoteService,
     private curralpiqueteService: CurralpiqueteService,
+    private regimeemgordaService: RegimeengordaService,
     private toastService:         ToastrService,
     private router:               Router,
     ) { }
 
   ngOnInit(): void {
     this.findAllCurralPiquete();
+    this.findAllRegimeEngorda();
   }
 
   create(): void {
@@ -65,6 +72,12 @@ export class LoteCreateComponent implements OnInit {
      this.lscurralPiquete = resposta;
   })
   }
+
+  findAllRegimeEngorda(): void {
+    this.regimeemgordaService.findAll().subscribe(resposta => {
+      this.lsregimeEngorda = resposta;
+   })
+   }
 
   validaCampos(): boolean {
   return this.descricao.valid 
