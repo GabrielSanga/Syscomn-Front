@@ -12,7 +12,6 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 2,
-    posicao: 0,
     label: 'Pessoas',
     subItems: [
       {
@@ -39,7 +38,6 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 7,
-    posicao: 1,
     label: 'PCP',
     subItems: [
       {
@@ -66,7 +64,6 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 12,
-    posicao: 2,
     label: 'Manejos',
     subItems: [
       {
@@ -87,13 +84,12 @@ export const MENU: MenuItem[] = [
       {
         id: 16,
         label: 'Pesagem',
-        url: ''
+        url: 'pesagem'
       }
     ]   
   },
   {
     id: 17,
-    posicao: 3,
     label: 'Animal',
     subItems: [
       {
@@ -144,8 +140,15 @@ export const MENU: MenuItem[] = [
     ]   
   },
   {
-    id: 26,
+    id: 60,
     label: 'Consultas',
+    subItems: [
+      {
+        id: 50,
+        label: 'Estoque de Ração',
+        url: 'estoque'
+      },
+    ]
   },
   {
     id: 27,

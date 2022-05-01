@@ -73,8 +73,6 @@ export class OrdemProducaoCreateComponent implements OnInit {
     this.service.findById(this.ordemProducao.idOrdemProducaoRacao).subscribe(resposta => {
         this.ordemProducao = resposta;
 
-        console.log(this.ordemProducao.lstRacaoProduzir);
-
         this.ELEMENT_DATA = this.ordemProducao.lstRacaoProduzir;
         this.dataSource = new MatTableDataSource<RacaoProduzir>(this.ELEMENT_DATA);
         this.dataSource.paginator = this.paginator;
@@ -161,6 +159,10 @@ export class OrdemProducaoCreateComponent implements OnInit {
   }
 
   create(): void {
+    this.ordemProducao.lstRacaoProduzir.forEach(element => {
+      element.idRacaoProduzir = null;
+    });
+
     this.service.create(this.ordemProducao).subscribe(() => {
       this.toast.success('Ordem de Produção cadastrada com sucesso', 'Cadastro');
       this.router.navigate(['ordemProducao'])
@@ -176,7 +178,11 @@ export class OrdemProducaoCreateComponent implements OnInit {
   }
 
   update():void{
-    console.log(this.ordemProducao.lstRacaoProduzir);
+    if(this.ordemProducao.status > 1){
+      this.toast.error("Ordem de Produção em Andamento ou Cancelada! Manutenção não permitida.")
+      return;
+    }
+    
     this.service.update(this.ordemProducao).subscribe(() => {
       this.toast.success('Ordem de Produção atualizada com sucesso', 'Alteração');
       this.router.navigate(['ordemProducao'])

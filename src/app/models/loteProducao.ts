@@ -8,6 +8,8 @@ export interface LoteProducao{
     custo?: number;
     unidade?: string;
     idRacaoProduzir: number;
+    idRacao?: number;
+    descrRacao?: string,
     idLocalArmazenamento: number;
     descrLocalArmazenamento?: string;
     idOrdemProducao?: number;

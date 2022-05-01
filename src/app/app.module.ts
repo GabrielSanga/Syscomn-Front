@@ -110,6 +110,8 @@ import { VacinaListComponent } from './components/Animal/vacina/vacina-list/vaci
 import { AnimalchipCreateComponent } from './components/Animal/animalchip/animalchip-create/animalchip-create.component';
 import { AnimalchipListComponent } from './components/Animal/animalchip/animalchip-list/animalchip-list.component';
 import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal-chip-update/animal-chip-update.component';
+import { EstoqueProducaoComponent } from './components/Consultas/estoque/estoque-producao/estoque-producao.component';
+import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-create/pesagem-create.component';
 
 
 @NgModule({
@@ -188,7 +190,9 @@ import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal
     VacinaListComponent,
     AnimalchipCreateComponent,
     AnimalchipListComponent,
-    AnimalChipUpdateComponent
+    AnimalChipUpdateComponent,
+    EstoqueProducaoComponent,
+    PesagemCreateComponent
 ],
   imports: [
     BrowserModule,

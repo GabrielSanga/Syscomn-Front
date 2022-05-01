@@ -1,3 +1,4 @@
+import { AnimalChip } from "./animalChip";
 import { Movimentacao } from "./movimentacao";
 
 export interface Lote{
@@ -16,5 +17,6 @@ export interface Lote{
     curralPiquete: any;
     descricaoCurralPiquete: String;
     lstMovimentacao?: Movimentacao[];
+    lstAnimais?: AnimalChip[];
 }
   

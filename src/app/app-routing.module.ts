@@ -70,6 +70,8 @@ import { VacinaDeleteComponent } from './components/Animal/vacina/vacina-delete/
 import { AnimalchipCreateComponent } from './components/Animal/animalchip/animalchip-create/animalchip-create.component';
 import { AnimalchipListComponent } from './components/Animal/animalchip/animalchip-list/animalchip-list.component';
 import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal-chip-update/animal-chip-update.component';
+import { EstoqueProducaoComponent } from './components/Consultas/estoque/estoque-producao/estoque-producao.component';
+import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-create/pesagem-create.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -161,6 +163,10 @@ const routes: Routes = [
     { path: 'animalchip', component: AnimalchipListComponent },
     { path: 'animalchip/create', component: AnimalchipCreateComponent },
     { path: 'animalchip/update/:idAnimalChip', component: AnimalChipUpdateComponent },
+
+    { path: 'estoque', component: EstoqueProducaoComponent },
+
+    { path: 'pesagem', component: PesagemCreateComponent },
 
    ]
  }
