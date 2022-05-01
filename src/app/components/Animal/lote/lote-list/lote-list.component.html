@@ -12,8 +12,7 @@
     <div class="mat-elevation-z8">
 
         <table mat-table [dataSource]="dataSource">
-
-
+            
             <ng-container matColumnDef="idLote">
                 <th mat-header-cell *matHeaderCellDef> ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.idLote}} </td>
@@ -45,8 +44,13 @@
             </ng-container>
 
             <ng-container matColumnDef="descricaoCurralPiquete">
-                <th mat-header-cell *matHeaderCellDef> Descrição do Curral-Piquete </th>
+                <th mat-header-cell *matHeaderCellDef> Curral-Piquete </th>
                 <td mat-cell *matCellDef="let element"> {{element.descricaoCurralPiquete}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="descricaoRegimeEngorda">
+                <th mat-header-cell *matHeaderCellDef> Regime Engorda </th>
+                <td mat-cell *matCellDef="let element"> {{element.descricaoRegimeEngorda}} </td>
             </ng-container>
 
             <ng-container matColumnDef="movimentacao">

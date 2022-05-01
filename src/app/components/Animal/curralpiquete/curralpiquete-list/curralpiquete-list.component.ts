@@ -40,4 +40,28 @@ export class CurralpiqueteListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  retornaStatus(statusCurralPiquete: number): string{
+    switch (statusCurralPiquete){
+      case 0:
+        return "Aberto";
+      case 1:
+        return"Fechado";
+      case 2:
+        return "Encerrado";
+        default:
+        return "statusCurralPiquete";
+    }   
+    }   
+
+    retornaTipo(tipoCurralPiquete: number): string{
+      switch (tipoCurralPiquete){
+        case 0:
+          return "Curral";
+        case 1:
+          return"Piquete";
+          default:
+          return "tipoCurralPiquete";
+      }   
+      }
+
 }

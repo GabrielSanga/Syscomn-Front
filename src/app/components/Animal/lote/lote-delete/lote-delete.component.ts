@@ -26,6 +26,8 @@ export class LoteDeleteComponent implements OnInit {
     status: 0,
     curralPiquete: '',
     descricaoCurralPiquete: '',
+    regimeEngorda: '',
+    descricaoRegimeEngorda: '',
     dataInicio: undefined,
     dataFinal: undefined,
   }
