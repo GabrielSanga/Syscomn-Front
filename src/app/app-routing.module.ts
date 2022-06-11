@@ -74,6 +74,7 @@ import { EstoqueProducaoComponent } from './components/Consultas/estoque/estoque
 import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-create/pesagem-create.component';
 import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
 import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
+import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -173,6 +174,8 @@ const routes: Routes = [
     { path: 'analise', component: AnalisesComponent },
 
     { path: 'alimentacao', component: AlimentacaoCreateComponent },
+ 
+    { path: 'vacinacao', component: VacinacaoCreateComponent },
 
    ]
  }

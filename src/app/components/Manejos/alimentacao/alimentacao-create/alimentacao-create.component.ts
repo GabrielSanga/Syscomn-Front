@@ -172,7 +172,7 @@ export class AlimentacaoCreateComponent implements OnInit {
   }
 
   atualizaTela(): void{
-    //Atualiza a tabela de Animais com as novas informações de pesagem
+    //Atualiza a tabela de Animais com as novas informações de alimentação
     if(this.alimentacao.tipoAlimentacao == 'A'){
       this.findLote();
     }
@@ -208,7 +208,8 @@ export class AlimentacaoCreateComponent implements OnInit {
       this.lote.descricaoCurralPiquete = '';
     }
 
-    //Limpa Pesagem
+    //Limpa Alimentação
+    this.alimentacao.idAnimalChip = null;
     this.alimentacao.quantidade = 0;
     this.alimentacao.custo = 0;
 

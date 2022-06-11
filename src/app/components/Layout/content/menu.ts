@@ -80,7 +80,7 @@ export const MENU: MenuItem[] = [
       {
         id: 15,
         label: 'Vacinação',
-        url: ''
+        url: 'vacinacao'
       },
       {
         id: 16,
