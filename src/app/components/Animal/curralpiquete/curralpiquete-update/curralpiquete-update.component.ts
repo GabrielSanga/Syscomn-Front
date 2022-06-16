@@ -67,7 +67,6 @@ export class CurralpiqueteUpdateComponent implements OnInit {
       this.router.navigate(['curralpiquete']);
     }, ex => {
       this.toastService.error(ex.error.error);
-      console.log(this.curralpiquete.tipoCurralPiquete);
     })
   }
 

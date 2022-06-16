@@ -118,6 +118,9 @@ import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinac
 import { AlimentacaoDialogComponent } from './components/Modals/alimentacao-dialog/alimentacao-dialog/alimentacao-dialog.component';
 import { PesagemDialogComponent } from './components/Modals/pesagem-dialog/pesagem-dialog/pesagem-dialog.component';
 import { VacinacaoDialogComponent } from './components/Modals/vacinacao-dialog/vacinacao-dialog/vacinacao-dialog.component';
+import { PerfilUserDialogComponent } from './components/Modals/perfil-user-dialog/perfil-user-dialog/perfil-user-dialog.component';
+import { Error403Component } from './components/Error-Page/403/error403/error403.component';
+import { Error404Component } from './components/Error-Page/404/error404/error404.component';
 
 
 @NgModule({
@@ -204,7 +207,10 @@ import { VacinacaoDialogComponent } from './components/Modals/vacinacao-dialog/v
     VacinacaoCreateComponent,
     AlimentacaoDialogComponent,
     PesagemDialogComponent,
-    VacinacaoDialogComponent
+    VacinacaoDialogComponent,
+    PerfilUserDialogComponent,
+    Error403Component,
+    Error404Component
 ],
   imports: [
     BrowserModule,

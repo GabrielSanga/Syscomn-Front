@@ -60,9 +60,7 @@ export class LoteCreateComponent implements OnInit {
     this.loteService.create(this.lote).subscribe(resposta => {
       this.toastService.success('Lote criado com sucesso', 'Novo Lote');
       this.router.navigate(['lote']);
-    }, ex => {
-      console.log(ex);
-      
+    }, ex => {      
       this.toastService.error(ex.error.error);
     })
   }

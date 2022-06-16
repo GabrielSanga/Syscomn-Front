@@ -34,7 +34,6 @@ export class FuncionarioListComponent implements OnInit {
   }
 
   announceSortChange(sortState: Sort) {
-    console.log(sortState.direction);
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {

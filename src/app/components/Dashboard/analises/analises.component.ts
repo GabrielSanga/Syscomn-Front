@@ -26,7 +26,7 @@ export class AnalisesComponent implements OnInit {
 
   mesesDoAno = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',];
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.DashBoardMorte();
     this.DashBoardPesoLote();
     this.DashBoardPesoAnimal();

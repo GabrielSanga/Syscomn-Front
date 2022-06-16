@@ -75,6 +75,7 @@ import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-cre
 import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
 import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
 import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
+import { Error403Component } from './components/Error-Page/403/error403/error403.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -83,6 +84,8 @@ const routes: Routes = [
  
  {path: '', component: NavComponent, canActivate: [AuthGuard], children:[
     {  path: 'home', component:  HomeComponent},
+
+    { path: 'analise', component: AnalisesComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN'] }},
 
     {  path: 'tipomorte', component:  TipomorteListComponent},
     {  path: 'tipomorte/create', component:  TipomorteCreateComponent},
@@ -129,7 +132,7 @@ const routes: Routes = [
     { path: 'regimeengorda/update/:idRegimeEngorda', component: RegimeengordaUpdateComponent },
     { path: 'regimeengorda/delete/:idRegimeEngorda', component: RegimeengordaDeleteComponent },
 
-    { path: 'funcionario', component: FuncionarioListComponent },
+    { path: 'funcionario', component: FuncionarioListComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN'] }},
     { path: 'funcionario/create', component: FuncionarioCreateComponent },
     { path: 'funcionario/update/:idPessoa', component: FuncionarioUpdateComponent },
  
@@ -142,11 +145,11 @@ const routes: Routes = [
     { path: 'racao/update/:idRacao', component: RacaoUpdateComponent },
     { path: 'racao/formula/formula/create/:idRacao', component: FormulaCreateComponent },
 
-    { path: 'ordemProducao', component: OrdemProducaoListComponent },
-    { path: 'ordemProducao/create', component: OrdemProducaoCreateComponent },
-    { path: 'ordemProducao/create/:idOrdemProducao', component: OrdemProducaoCreateComponent },
+    { path: 'ordemProducao', component: OrdemProducaoListComponent},
+    { path: 'ordemProducao/create', component: OrdemProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
+    { path: 'ordemProducao/create/:idOrdemProducao', component: OrdemProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
 
-    { path: 'loteProducao', component: LoteProducaoCreateComponent },
+    { path: 'loteProducao', component: LoteProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
 
     { path: 'curralpiquete', component: CurralpiqueteListComponent },
     { path: 'curralpiquete/create', component: CurralpiqueteCreateComponent },
@@ -169,13 +172,11 @@ const routes: Routes = [
 
     { path: 'estoque', component: EstoqueProducaoComponent },
 
-    { path: 'pesagem', component: PesagemCreateComponent },
+    { path: 'pesagem', component: PesagemCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
 
-    { path: 'analise', component: AnalisesComponent },
-
-    { path: 'alimentacao', component: AlimentacaoCreateComponent },
+    { path: 'alimentacao', component: AlimentacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
  
-    { path: 'vacinacao', component: VacinacaoCreateComponent },
+    { path: 'vacinacao', component: VacinacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
 
    ]
  }

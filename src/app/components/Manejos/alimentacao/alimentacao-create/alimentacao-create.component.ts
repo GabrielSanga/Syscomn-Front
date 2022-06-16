@@ -30,6 +30,18 @@ export class AlimentacaoCreateComponent implements OnInit {
     idLoteRacao: null
   }
 
+  loteProducao: LoteProducao = {
+    idLoteRacao: 0,
+    dataFabricacao: null,
+    dataValidade: null,
+    quantidade: 0,
+    saldo: 0,
+    custo: 0,
+    idRacaoProduzir: 0,
+    idLocalArmazenamento: 0,
+    idOrdemProducao: 0
+  }
+
   lote: Lote = {
     idLote: '',
     descricao: '',
@@ -134,6 +146,11 @@ export class AlimentacaoCreateComponent implements OnInit {
       return;
     }
 
+    if(this.alimentacao.quantidade > this.loteProducao.saldo){
+      this.toast.error("Ração não possui saldo suficiente!");
+      return;
+    }
+
     if(this.alimentacao.tipoAlimentacao == "A"){
       if(this.validaAlimentacaoAnimalUnico() == false){
         return;
@@ -188,7 +205,7 @@ export class AlimentacaoCreateComponent implements OnInit {
       this.findLote();
     }
 
-    //Atualiza o saldo da produção
+    this.findLoteProducao();
     this.findAllLoteProducao();
 
     this.limpaTela(false);
@@ -223,7 +240,7 @@ export class AlimentacaoCreateComponent implements OnInit {
     }
 
     //Limpa Alimentação
-    this.alimentacao.idAnimalChip = null;
+    this.alimentacao.idAnimalChip = 0;
     this.alimentacao.quantidade = 0;
     this.alimentacao.custo = 0;
 
@@ -238,6 +255,12 @@ export class AlimentacaoCreateComponent implements OnInit {
     dta.setHours(24);
   
     return dta.toLocaleDateString("pt-br");
+  }
+
+  findLoteProducao(): void{
+    this.loteProducaoService.findById(this.alimentacao.idLoteRacao).subscribe(resposta => {
+      this.loteProducao = resposta;
+    })
   }
 
 }

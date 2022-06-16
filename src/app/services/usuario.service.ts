@@ -22,5 +22,10 @@ export class UsuarioService {
   updatePassword(usuario: Usuario): Observable<any> {
     return this.http.post<Usuario>(`${API_CONFIG.baseUrl}/usuario/password`, usuario);
   }
-  
+
+  getRolesUsuario(): Observable<String[]> {
+    return this.http.get<String[]>(`${API_CONFIG.baseUrl}/usuario/rolesUsuario`);
+  }
+
 }
+

@@ -52,9 +52,7 @@ export class CurralpiqueteCreateComponent implements OnInit {
     this.curralpiqueteService.create(this.curralpiquete).subscribe(resposta => {
       this.toastService.success('Curral-Piquete criado com sucesso', 'Novo Curral-Piquete');
       this.router.navigate(['curralpiquete']);
-    }, ex => {
-      console.log(ex);
-      
+    }, ex => {      
       this.toastService.error(ex.error.error);
     })
   }
