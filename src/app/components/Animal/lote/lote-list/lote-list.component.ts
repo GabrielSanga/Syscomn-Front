@@ -54,4 +54,9 @@ export class LoteListComponent implements OnInit {
     dialogRef.afterClosed();
   }
 
+  imprimiRelatorio(){
+  return this.Loteservice.dowloadRelatorio();
+
+  }
+
 }

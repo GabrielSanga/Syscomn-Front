@@ -4,6 +4,8 @@
 
     <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Novo Lote</button>
 
+    <button type="button" data-toggle="modal" data-target="#myModal" class="mat-elevation-z8" mat-stroked-button color="primary">Imprimir Relatório</button>
+
     <mat-form-field appearance="standard">
         <mat-label>Pesquisa</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Curral..." #input>

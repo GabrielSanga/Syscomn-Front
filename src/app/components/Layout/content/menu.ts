@@ -153,5 +153,12 @@ export const MENU: MenuItem[] = [
   {
     id: 27,
     label: 'Relatórios',
+    subItems: [
+      {
+        id: 28,
+        label: 'Movimentação',
+        url: 'relatorio'
+      },
+    ]
   }
 ];

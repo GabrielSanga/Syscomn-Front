@@ -30,5 +30,11 @@ export class LoteService {
     return this.http.delete<Lote>(`${API_CONFIG.baseUrl}/lote/${idLote}`);
   }
 
+  dowloadRelatorio() {
+    return this.http.get(`${API_CONFIG.baseUrl}/lote/relatorios`, {responseType: 'text'}).subscribe(data =>{
+      document.querySelector('iframe').src = data;
+    });
+  }
+
 }
 
