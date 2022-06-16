@@ -1,3 +1,7 @@
+import { Alimentacao } from "./alimentacao";
+import { Pesagem } from "./pesagem";
+import { Vacinacao } from "./vacinacao";
+
 export interface AnimalChip{
     idAnimalChip: any;
     chip: string;
@@ -32,4 +36,8 @@ export interface AnimalChip{
 
     idTipoMorte?: number;
     descrTipoMorte?: string;
+
+    lstAlimentacao?: Alimentacao[];
+    lstPesagem?: Pesagem[];
+    lstVacinacao?: Vacinacao[];
 }

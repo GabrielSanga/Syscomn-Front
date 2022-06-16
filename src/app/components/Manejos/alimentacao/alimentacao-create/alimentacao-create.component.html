@@ -113,16 +113,26 @@
 
         <!-- CAMPOS INSERT -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label style="font-weight: 800; font-size: 25x;">Quantidade</mat-label>
                     <input [(ngModel)]="alimentacao.quantidade"  matInput  mask="separator.2" thousandSeparator="." > 
                 </mat-form-field>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-2">
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label>Custo</mat-label>
                     <input type="text" [(ngModel)]="alimentacao.custo" name="custo" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>Produção</mat-label>
+                    <mat-select [(ngModel)]="alimentacao.idLoteRacao" name="idLoteRacao">
+                        <mat-option *ngFor="let loteProducao of lstLoteProducao" value="{{ loteProducao.idLoteRacao }}">
+                            {{loteProducao.idRacao}} - {{loteProducao.descrRacao}} - Saldo: [{{loteProducao.saldo}}] - UN: [{{loteProducao.unidade}}] - Fabr: [{{retornaDataFormata(loteProducao.dataFabricacao)}}] - Val: [{{retornaDataFormata(loteProducao.dataValidade)}}] 
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>
@@ -176,16 +186,26 @@
 
         <!-- CAMPOS INSERT -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label style="font-weight: 800; font-size: 25x;">Quantidade</mat-label>
                     <input [(ngModel)]="alimentacao.quantidade"  matInput  mask="separator.2" thousandSeparator="." > 
                 </mat-form-field>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-2">
                 <mat-form-field class="fullWidth" appearance="legacy">
                     <mat-label>Custo</mat-label>
                     <input type="text" [(ngModel)]="alimentacao.custo" name="custo" matInput mask="separator.2" thousandSeparator=".">
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label>Produção</mat-label>
+                    <mat-select [(ngModel)]="alimentacao.idLoteRacao" name="idLoteRacao">
+                        <mat-option *ngFor="let loteProducao of lstLoteProducao" value="{{ loteProducao.idLoteRacao }}">
+                            {{loteProducao.idRacao}} - {{loteProducao.descrRacao}} - Saldo: [{{loteProducao.saldo}}] - UN: [{{loteProducao.unidade}}] - Fabr: [{{retornaDataFormata(loteProducao.dataFabricacao)}}] - Val: [{{retornaDataFormata(loteProducao.dataValidade)}}] 
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>

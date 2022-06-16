@@ -1,6 +1,6 @@
 export interface LoteProducao{
 
-    idLoteProducao: any;
+    idLoteRacao: any;
     dataFabricacao?: Date;
     dataValidade?: Date;
     quantidade: number;

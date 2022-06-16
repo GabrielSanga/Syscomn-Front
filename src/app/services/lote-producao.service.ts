@@ -20,6 +20,10 @@ export class LoteProducaoService {
     return this.http.get<LoteProducao[]>(`${API_CONFIG.baseUrl}/loteracao`);
   }
 
+  findAllEstoque(): Observable<LoteProducao[]> {
+    return this.http.get<LoteProducao[]>(`${API_CONFIG.baseUrl}/loteracao/producaoEstoque`);
+  }
+
   findAllProducaoPorData(): Observable<Object[]> {
     return this.http.get<Object[]>(`${API_CONFIG.baseUrl}/loteracao/producaoData`);
   }
@@ -29,7 +33,7 @@ export class LoteProducaoService {
   }
 
   update(loteProducao: LoteProducao): Observable<LoteProducao> {
-    return this.http.put<LoteProducao>(`${API_CONFIG.baseUrl}/loteracao/${loteProducao.idLoteProducao}`, loteProducao);
+    return this.http.put<LoteProducao>(`${API_CONFIG.baseUrl}/loteracao/${loteProducao.idLoteRacao}`, loteProducao);
   }
 
   delete(idLoteProducao: any): Observable<LoteProducao> {

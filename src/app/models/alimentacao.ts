@@ -5,6 +5,10 @@ export interface Alimentacao {
     idAnimalChip: number;
     idPessoa: number;
     nomePessoa?: string;
+    idLoteRacao: number;
+
+    idRacao?: number;
+    descrRacao?: string;
 
     idLote?: any;
     tipoAlimentacao?: string;

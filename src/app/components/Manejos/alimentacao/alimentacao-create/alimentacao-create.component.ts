@@ -5,8 +5,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Alimentacao } from 'src/app/models/alimentacao';
 import { AnimalChip } from 'src/app/models/animalChip';
 import { Lote } from 'src/app/models/lote';
+import { LoteProducao } from 'src/app/models/loteProducao';
 import { AlimentacaoService } from 'src/app/services/alimentacao.service';
 import { AnimalChipService } from 'src/app/services/animal-chip.service';
+import { LoteProducaoService } from 'src/app/services/lote-producao.service';
 import { LoteService } from 'src/app/services/lote.service';
 
 @Component({
@@ -24,7 +26,8 @@ export class AlimentacaoCreateComponent implements OnInit {
     idPessoa: null,
     nomePessoa: '',
     idLote: 0,
-    tipoAlimentacao: 'A'
+    tipoAlimentacao: 'A',
+    idLoteRacao: null
   }
 
   lote: Lote = {
@@ -76,6 +79,8 @@ export class AlimentacaoCreateComponent implements OnInit {
 
   lstLote: Lote[] = [];
 
+  lstLoteProducao: LoteProducao[] = [];
+
   ELEMENT_DATA: AnimalChip[] = []
 
   displayedColumns: string[] = ['chip', 'codigo', 'descrSexoAnimal', 'pesoAtual', 'dtaHoraUltimaPesagem', 'acoes'];
@@ -90,14 +95,20 @@ export class AlimentacaoCreateComponent implements OnInit {
   constructor(private loteService: LoteService,
               private animalService: AnimalChipService,
               private alimentacaoService: AlimentacaoService,
+              private loteProducaoService: LoteProducaoService,
               private toast: ToastrService) { }
 
   ngOnInit(): void {
     this.findAllLote();
+    this.findAllLoteProducao();
   }
 
   findAllLote(): void{
     this.loteService.findAll().subscribe(resposta => {this.lstLote = resposta;});
+  }
+
+  findAllLoteProducao(): void{
+    this.loteProducaoService.findAllEstoque().subscribe(resposta => {this.lstLoteProducao = resposta;});
   }
 
   findLote(): void{
@@ -177,6 +188,9 @@ export class AlimentacaoCreateComponent implements OnInit {
       this.findLote();
     }
 
+    //Atualiza o saldo da produção
+    this.findAllLoteProducao();
+
     this.limpaTela(false);
   }
 
@@ -216,6 +230,14 @@ export class AlimentacaoCreateComponent implements OnInit {
     if(this.alimentacao.tipoAlimentacao == "L"){
       this.alimentacao.idLote = 0;
     }
+  }
+
+  retornaDataFormata(data: Date): String{
+    let dta = new Date(data)
+  
+    dta.setHours(24);
+  
+    return dta.toLocaleDateString("pt-br");
   }
 
 }

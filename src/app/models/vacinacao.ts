@@ -1,5 +1,6 @@
 export interface Vacinacao {
     idVacinacao: any;
+    data?: Date;
     loteVacina?: string;
     quantidadeDose: number;
     custoDose?: number;

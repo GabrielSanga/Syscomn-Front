@@ -21,10 +21,8 @@ export class LoteListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(
-    private Loteservice: LoteService,
-    public dialog: MatDialog
-  ) { }
+  constructor(private Loteservice: LoteService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.findAll();

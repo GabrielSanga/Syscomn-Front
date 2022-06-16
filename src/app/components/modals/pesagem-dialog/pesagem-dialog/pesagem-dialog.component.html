@@ -1,0 +1,28 @@
+<h1 style="margin-left: 15px;">Pesagens</h1> 
+
+<table mat-table [dataSource]="dataSource">  
+  <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef> Data </th>
+      <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="peso">
+    <th mat-header-cell *matHeaderCellDef> Peso </th>
+    <td mat-cell *matCellDef="let element"> {{element.peso}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="observacao">
+    <th mat-header-cell *matHeaderCellDef> Observação </th>
+    <td mat-cell *matCellDef="let element"> {{element.observacao}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pessoa">
+    <th mat-header-cell *matHeaderCellDef> Funcionário </th>
+    <td mat-cell *matCellDef="let element"> {{element.idPessoa}} - {{element.nomePessoa}} </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[4, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>

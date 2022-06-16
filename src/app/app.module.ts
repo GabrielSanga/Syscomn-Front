@@ -115,6 +115,9 @@ import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-cre
 import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
 import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
 import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
+import { AlimentacaoDialogComponent } from './components/Modals/alimentacao-dialog/alimentacao-dialog/alimentacao-dialog.component';
+import { PesagemDialogComponent } from './components/Modals/pesagem-dialog/pesagem-dialog/pesagem-dialog.component';
+import { VacinacaoDialogComponent } from './components/Modals/vacinacao-dialog/vacinacao-dialog/vacinacao-dialog.component';
 
 
 @NgModule({
@@ -198,7 +201,10 @@ import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinac
     PesagemCreateComponent,
     AnalisesComponent,
     AlimentacaoCreateComponent,
-    VacinacaoCreateComponent
+    VacinacaoCreateComponent,
+    AlimentacaoDialogComponent,
+    PesagemDialogComponent,
+    VacinacaoDialogComponent
 ],
   imports: [
     BrowserModule,
