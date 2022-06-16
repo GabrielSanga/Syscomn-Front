@@ -25,9 +25,9 @@ export class MovimentacaoDialogComponent implements OnInit {
   idLote: number = 0;
 
   constructor(public dialogRef: MatDialogRef<MovimentacaoDialogComponent>,
-    private loteService: LoteService,
-    private toast: ToastrService,
-    public dialog: MatDialog) { }
+              private loteService: LoteService,
+              private toast: ToastrService,
+              public dialog: MatDialog) { }
 
     ngOnInit(): void {
       this.findAll();
@@ -35,7 +35,6 @@ export class MovimentacaoDialogComponent implements OnInit {
   
     findAll(): void {
       this.loteService.findById(this.idLote).subscribe(resposta => {
-        console.log(resposta.lstMovimentacao);
         this.ELEMENT_DATA = resposta.lstMovimentacao;
         this.dataSource = new MatTableDataSource<Movimentacao>(resposta.lstMovimentacao);
         this.dataSource.paginator = this.paginator;

@@ -20,7 +20,7 @@ import { RacaoProduzirService } from 'src/app/services/racao-produzir.service';
 export class LoteProducaoCreateComponent implements OnInit {
 
   loteProducao: LoteProducao = {
-    idLoteProducao: 0,
+    idLoteRacao: 0,
     dataFabricacao: null,
     dataValidade: null,
     quantidade: 0,

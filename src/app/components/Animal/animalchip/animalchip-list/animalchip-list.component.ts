@@ -1,7 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
+import { AlimentacaoDialogComponent } from 'src/app/components/Modals/alimentacao-dialog/alimentacao-dialog/alimentacao-dialog.component';
+import { PesagemDialogComponent } from 'src/app/components/Modals/pesagem-dialog/pesagem-dialog/pesagem-dialog.component';
+import { VacinacaoDialogComponent } from 'src/app/components/Modals/vacinacao-dialog/vacinacao-dialog/vacinacao-dialog.component';
 import { AnimalChip } from 'src/app/models/animalChip';
 import { AnimalChipService } from 'src/app/services/animal-chip.service';
 
@@ -14,13 +18,14 @@ export class AnimalchipListComponent implements OnInit {
 
   ELEMENT_DATA: AnimalChip[] = []
 
-  displayedColumns: string[] = ['idAnimalChip', 'chip', 'codigo', 'dtaNascimento', 'sexo', 'raca', 'lote', 'acoes'];
+  displayedColumns: string[] = ['idAnimalChip', 'chip', 'codigo', 'dtaNascimento', 'sexo', 'raca', 'lote', 'alimentacao', 'pesagem', 'vacinacao', 'acoes'];
 
   dataSource = new MatTableDataSource<AnimalChip>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private service: AnimalChipService,
-              private toast: ToastrService) { }
+              private toast: ToastrService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {this.findAll()}
 
@@ -61,10 +66,42 @@ export class AnimalchipListComponent implements OnInit {
     })   
   }
 
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  openAlimentacao(idAnimalChip: number): void{
+    const dialogRef = this.dialog.open(AlimentacaoDialogComponent, {
+      height: '80%',
+      width: '100%',
+    });
+
+    dialogRef.componentInstance.idAnimalChip = idAnimalChip;
+
+    dialogRef.afterClosed();
+  }
+
+  openPesagem(idAnimalChip: number): void{
+    const dialogRef = this.dialog.open(PesagemDialogComponent, {
+      height: '80%',
+      width: '100%',
+    });
+
+    dialogRef.componentInstance.idAnimalChip = idAnimalChip;
+
+    dialogRef.afterClosed();
+  }
+
+  openVacinacao(idAnimalChip: number): void{
+    const dialogRef = this.dialog.open(VacinacaoDialogComponent, {
+      height: '80%',
+      width: '100%',
+    });
+
+    dialogRef.componentInstance.idAnimalChip = idAnimalChip;
+
+    dialogRef.afterClosed();
   }
 
 }

@@ -19,6 +19,10 @@ export class AnimalChipService {
     return this.http.get<AnimalChip[]>(`${API_CONFIG.baseUrl}/animalchip`);
   }
 
+  findAllQtdMortosMes(): Observable<Object[]>{
+    return this.http.get<Object[]>(`${API_CONFIG.baseUrl}/animalchip/mortos`);
+  }
+
   create(animalChip: AnimalChip): Observable<AnimalChip>{
     return this.http.post<AnimalChip>(`${API_CONFIG.baseUrl}/animalchip`, animalChip);
   }

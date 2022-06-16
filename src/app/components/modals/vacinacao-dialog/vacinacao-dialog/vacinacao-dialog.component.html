@@ -1,0 +1,38 @@
+<h1 style="margin-left: 15px;">Vacinações</h1> 
+
+<table mat-table [dataSource]="dataSource">  
+  <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef> Data </th>
+      <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lote">
+    <th mat-header-cell *matHeaderCellDef> Lote da Vacina </th>
+    <td mat-cell *matCellDef="let element"> {{element.loteVacina}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dose">
+    <th mat-header-cell *matHeaderCellDef> Quantidade Dose </th>
+    <td mat-cell *matCellDef="let element"> {{element.quantidadeDose}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="custo">
+    <th mat-header-cell *matHeaderCellDef> Custo </th>
+    <td mat-cell *matCellDef="let element"> {{element.custoDose}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="vacina">
+    <th mat-header-cell *matHeaderCellDef> Vacina </th>
+    <td mat-cell *matCellDef="let element"> {{element.idVacina}} - {{element.nomeVacina}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pessoa">
+    <th mat-header-cell *matHeaderCellDef> Funcionário </th>
+    <td mat-cell *matCellDef="let element"> {{element.idPessoa}} - {{element.nomePessoa}} </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[4, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>

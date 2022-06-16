@@ -21,10 +21,8 @@ export class LoteListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(
-    private Loteservice: LoteService,
-    public dialog: MatDialog
-  ) { }
+  constructor(private Loteservice: LoteService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -45,8 +43,8 @@ export class LoteListComponent implements OnInit {
 
   openMovimentacao(idLote: number): void{
     const dialogRef = this.dialog.open(MovimentacaoDialogComponent, {
-      height: '410px',
-      width: '1000px',
+      height: '80%',
+      width: '100%',
     });
 
     dialogRef.componentInstance.idLote = idLote;

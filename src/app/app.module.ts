@@ -113,6 +113,13 @@ import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal
 import { EstoqueProducaoComponent } from './components/Consultas/estoque/estoque-producao/estoque-producao.component';
 import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-create/pesagem-create.component';
 import { MovimentacaoComponent } from './components/Relatorios/movimentacao/movimentacao.component';
+import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
+import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
+import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
+import { AlimentacaoDialogComponent } from './components/Modals/alimentacao-dialog/alimentacao-dialog/alimentacao-dialog.component';
+import { PesagemDialogComponent } from './components/Modals/pesagem-dialog/pesagem-dialog/pesagem-dialog.component';
+import { VacinacaoDialogComponent } from './components/Modals/vacinacao-dialog/vacinacao-dialog/vacinacao-dialog.component';
+
 
 
 @NgModule({
@@ -194,7 +201,13 @@ import { MovimentacaoComponent } from './components/Relatorios/movimentacao/movi
     AnimalChipUpdateComponent,
     EstoqueProducaoComponent,
     PesagemCreateComponent,
-    MovimentacaoComponent
+    MovimentacaoComponent,
+    AnalisesComponent,
+    AlimentacaoCreateComponent,
+    VacinacaoCreateComponent,
+    AlimentacaoDialogComponent,
+    PesagemDialogComponent,
+    VacinacaoDialogComponent
 ],
   imports: [
     BrowserModule,

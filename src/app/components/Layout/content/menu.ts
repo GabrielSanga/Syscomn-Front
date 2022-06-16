@@ -9,6 +9,7 @@ export const MENU: MenuItem[] = [
   {
     id: 1,
     label: 'Análises',
+    url: 'analise'
   },
   {
     id: 2,
@@ -74,12 +75,12 @@ export const MENU: MenuItem[] = [
       {
         id: 14,
         label: 'Alimentação',
-        url: ''
+        url: 'alimentacao'
       },
       {
         id: 15,
         label: 'Vacinação',
-        url: ''
+        url: 'vacinacao'
       },
       {
         id: 16,
