@@ -75,6 +75,7 @@ import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-cre
 import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
 import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
 import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
+import { RelatoriosComponent } from './components/Relatorios/relatorios/relatorios.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -176,6 +177,8 @@ const routes: Routes = [
     { path: 'alimentacao', component: AlimentacaoCreateComponent },
  
     { path: 'vacinacao', component: VacinacaoCreateComponent },
+
+    { path: 'relatorio', component: RelatoriosComponent },
 
    ]
  }

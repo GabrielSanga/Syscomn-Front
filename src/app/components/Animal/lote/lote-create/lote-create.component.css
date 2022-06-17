@@ -1,9 +1,23 @@
 .two {
-    width: 90%;
+    width: 40%;
 }
 
 .tre {
+    width: 40%;
+    margin-left: 1rem;
+}
+
+.pri {
     width: 90%;
+}
+
+.seg {
+    width: 90%;
+    margin-left: 1rem;
+}
+
+.one {
+    width: 40%;
     margin-left: 1rem;
 }
 

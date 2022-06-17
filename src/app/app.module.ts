@@ -112,14 +112,13 @@ import { AnimalchipListComponent } from './components/Animal/animalchip/animalch
 import { AnimalChipUpdateComponent } from './components/Animal/animalchip/animal-chip-update/animal-chip-update.component';
 import { EstoqueProducaoComponent } from './components/Consultas/estoque/estoque-producao/estoque-producao.component';
 import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-create/pesagem-create.component';
-import { MovimentacaoComponent } from './components/Relatorios/movimentacao/movimentacao.component';
 import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
 import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
 import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
 import { AlimentacaoDialogComponent } from './components/Modals/alimentacao-dialog/alimentacao-dialog/alimentacao-dialog.component';
 import { PesagemDialogComponent } from './components/Modals/pesagem-dialog/pesagem-dialog/pesagem-dialog.component';
 import { VacinacaoDialogComponent } from './components/Modals/vacinacao-dialog/vacinacao-dialog/vacinacao-dialog.component';
-
+import { RelatoriosComponent } from './components/Relatorios/relatorios/relatorios.component';
 
 
 @NgModule({
@@ -201,13 +200,13 @@ import { VacinacaoDialogComponent } from './components/Modals/vacinacao-dialog/v
     AnimalChipUpdateComponent,
     EstoqueProducaoComponent,
     PesagemCreateComponent,
-    MovimentacaoComponent,
     AnalisesComponent,
     AlimentacaoCreateComponent,
     VacinacaoCreateComponent,
     AlimentacaoDialogComponent,
     PesagemDialogComponent,
-    VacinacaoDialogComponent
+    VacinacaoDialogComponent,
+    RelatoriosComponent,
 ],
   imports: [
     BrowserModule,

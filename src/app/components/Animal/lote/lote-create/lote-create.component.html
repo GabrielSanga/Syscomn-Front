@@ -3,12 +3,12 @@
         <h1>Cadastrar Lote</h1>
 
         <div class="dividi">
-        <mat-form-field class="two" appearance="legacy">
+        <mat-form-field class="pri" appearance="legacy">
             <mat-label>Descrição</mat-label>
             <input required [(ngModel)]="lote.descricao" name="descricao" matInput maxlength="50" [formControl]="descricao">
         </mat-form-field>
 
-        <mat-form-field class="tre" appearance="legacy">
+        <mat-form-field class="seg" appearance="legacy">
             <mat-label>Número do Lote</mat-label>
             <input type="number" [(ngModel)]="lote.nroLote" (keypress)="limitaNumeros($event)" name="nroLote" required matInput [formControl]="nroLote">
         </mat-form-field>
@@ -25,30 +25,22 @@
                 <input type="text" [(ngModel)]="lote.custoLote" name="custoLote" required matInput matInput mask="separator.2" thousandSeparator=".">
             </mat-form-field>
       
-        </div>
-
-        <div class="dividi">
-            <mat-form-field class="two" appearance="legacy">
+            <mat-form-field class="one" appearance="legacy">
                 <mat-label>Quantidade de Cabeças Entrada</mat-label>
-                <input type="number" [(ngModel)]="lote.qtdeCabecasEntrada" (keypress)="limitaNumeros($event)" name="qtdeCabecasEntrada" required matInput [formControl]="qtdeCabecasEntrada">
+                <input type="number" [(ngModel)]="lote.qtdeCabecasEntrada" (keypress)="limitaNumeros($event)" name="qtdeCabecasEntrada" required matInput>
             </mat-form-field>
 
-            <mat-form-field class="tre" appearance="legacy">
-                <mat-label>Quantidade de Cabeças Morte</mat-label>
-                <input type="number" [(ngModel)]="lote.qtdeCabecasMorte" (keypress)="limitaNumeros($event)" name="qtdeCabecasMorte" required matInput>
-            </mat-form-field>
-
-        </div>   
+        </div> 
         
         <div class="dividi">
-        <mat-form-field class="two" appearance="outline">
+        <mat-form-field class="pri" appearance="outline">
             <mat-label>Selecione um Regime Engorda</mat-label>
             <mat-select [(ngModel)]="lote.regimeEngorda" name="regimeEngorda" required>
                 <mat-option *ngFor="let lsre of lsregimeEngorda" value="{{ lsre.idRegimeEngorda }}">{{ lsre.descricao }}</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="tre" appearance="outline">
+        <mat-form-field class="seg" appearance="outline">
             <mat-label>Selecione um Curral-Piquete</mat-label>
             <mat-select [(ngModel)]="lote.curralPiquete" name="curralPiquete" required [formControl]="curralPiquete">
                 <mat-option *ngFor="let lscurr of lscurralPiquete" value="{{ lscurr.idCurralPiquete }}">{{ lscurr.descricao }}</mat-option>

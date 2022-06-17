@@ -29,12 +29,5 @@ export class LoteService {
   delete(idLote: any): Observable<Lote> {
     return this.http.delete<Lote>(`${API_CONFIG.baseUrl}/lote/${idLote}`);
   }
-
-  dowloadRelatorio() {
-    return this.http.get(`${API_CONFIG.baseUrl}/lote/relatorios`, {responseType: 'text'}).subscribe(data =>{
-      document.querySelector('iframe').src = data;
-    });
-  }
-
 }
 

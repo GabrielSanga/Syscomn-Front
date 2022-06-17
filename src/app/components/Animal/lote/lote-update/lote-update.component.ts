@@ -40,7 +40,6 @@ export class LoteUpdateComponent implements OnInit {
 
   descricao: FormControl = new FormControl(null, [Validators.required]);
   nroLote: FormControl = new FormControl(null, [Validators.required]);
-  qtdeCabecasEntrada: FormControl = new FormControl(null, [Validators.required]);
   status: FormControl = new FormControl(null, [Validators.required]);
   curralPiquete: FormControl = new FormControl(null, [Validators.required]);
 
@@ -90,7 +89,6 @@ export class LoteUpdateComponent implements OnInit {
      validaCampos(): boolean {
       return this.descricao.valid 
       && this.nroLote.valid 
-      && this.qtdeCabecasEntrada.valid 
       && this.status.valid
       && this.curralPiquete.valid
       }
