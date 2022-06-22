@@ -25,8 +25,8 @@
             </div>
             <div class="col-md-4">
                 <section class="section">
-                    <mat-checkbox [checked] = "checkADMIN === true"(click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
-                    <mat-checkbox [checked] = "checkFUNC === true" (click)="addPerfil(1)" class="margin" color="primary">Funcionário</mat-checkbox>
+                    <mat-checkbox [checked] = "checkADMIN === true" (click)="addPerfil(this.PerfilADMIN)"       class="margin" color="primary">Admin</mat-checkbox>
+                    <mat-checkbox [checked] = "checkFUNC === true"  (click)="addPerfil(this.PerfilFuncionario)" class="margin" color="primary">Funcionário</mat-checkbox>
                     <mat-checkbox [checked]="true" [disabled]="true" class="margin" color="primary">Comum</mat-checkbox>
                 </section>
             </div>

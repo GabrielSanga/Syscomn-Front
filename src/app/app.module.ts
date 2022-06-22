@@ -121,6 +121,7 @@ import { VacinacaoDialogComponent } from './components/Modals/vacinacao-dialog/v
 import { PerfilUserDialogComponent } from './components/Modals/perfil-user-dialog/perfil-user-dialog/perfil-user-dialog.component';
 import { Error403Component } from './components/Error-Page/403/error403/error403.component';
 import { Error404Component } from './components/Error-Page/404/error404/error404.component';
+import { AdministradorListComponent } from './components/Pessoa/administrador/administrador-list/administrador-list/administrador-list.component';
 
 
 @NgModule({
@@ -210,7 +211,8 @@ import { Error404Component } from './components/Error-Page/404/error404/error404
     VacinacaoDialogComponent,
     PerfilUserDialogComponent,
     Error403Component,
-    Error404Component
+    Error404Component,
+    AdministradorListComponent
 ],
   imports: [
     BrowserModule,

@@ -9,16 +9,24 @@ export const MENU: MenuItem[] = [
   {
     id: 1,
     label: 'Análises',
-    url: 'analise'
+    url: 'analise',
+    roles: ['ROLE_ADMIN']   
   },
   {
     id: 2,
     label: 'Pessoas',
     subItems: [
       {
+        id: 66,
+        label: 'Administrador',
+        url: 'administrador/list',
+        roles: ['ROLE_DIRETOR']
+      },
+      {
         id: 3,
         label: 'Funcionário',
-        url: 'funcionario'
+        url: 'funcionario',
+        roles: ['ROLE_ADMIN']
       },
       {
         id: 4,
@@ -35,7 +43,8 @@ export const MENU: MenuItem[] = [
         label: 'Propriedade',
         url: 'propriedade'
       }
-    ]   
+    ],
+    roles: ['ROLE_FUNCIONARIO'] 
   },
   {
     id: 7,
@@ -59,7 +68,8 @@ export const MENU: MenuItem[] = [
       {
         id: 11,
         label: 'Ordem de Produção',
-        url: 'ordemProducao'
+        url: 'ordemProducao',
+        roles: ['ROLE_FUNCIONARIO']
       }
     ]   
   },
@@ -87,7 +97,8 @@ export const MENU: MenuItem[] = [
         label: 'Pesagem',
         url: 'pesagem'
       }
-    ]   
+    ],
+    roles: ['ROLE_FUNCIONARIO']
   },
   {
     id: 17,
@@ -96,12 +107,14 @@ export const MENU: MenuItem[] = [
       {
         id: 40,
         label: 'Animal Chip',
-        url: 'animalchip'
+        url: 'animalchip',
+        roles: ['ROLE_FUNCIONARIO']
       },
       {
         id: 24,
         label: 'Lote',
-        url: 'lote'
+        url: 'lote',
+        roles: ['ROLE_FUNCIONARIO']
       },
       {
         id: 18,
@@ -154,5 +167,6 @@ export const MENU: MenuItem[] = [
   {
     id: 27,
     label: 'Relatórios',
+    roles: ['ROLE_ADMIN']
   }
 ];

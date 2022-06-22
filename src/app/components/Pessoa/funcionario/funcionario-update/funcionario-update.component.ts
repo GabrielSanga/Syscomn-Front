@@ -13,6 +13,9 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 })
 export class FuncionarioUpdateComponent implements OnInit {
 
+  public PerfilADMIN: any = 1;
+  public PerfilFuncionario: any = 2;
+
   funcionario: Funcionario = {
     idPessoa: '',
     nomePessoa: '',
@@ -68,9 +71,9 @@ export class FuncionarioUpdateComponent implements OnInit {
     this.service.findById(this.funcionario.idPessoa).subscribe(resposta => {
       
       resposta.perfis.forEach(element => {
-        if(Number.parseInt(element) === 0){
+        if(Number.parseInt(element) === 1){
           this.checkADMIN = true;
-        }else if(Number.parseInt(element) === 1){
+        }else if(Number.parseInt(element) === 2){
           this.checkFUNC = true;
         }
       });
@@ -102,8 +105,20 @@ export class FuncionarioUpdateComponent implements OnInit {
 
   addPerfil(perfil: any): void {
     if(this.funcionario.perfis.includes(perfil)) {
+      //Caso retirado o perfil de Funcionario retira também o de ADMIN
+      if(perfil == this.PerfilFuncionario){
+        this.funcionario.perfis.splice(this.funcionario.perfis.indexOf(this.PerfilADMIN), 1);
+        this.checkADMIN = false;
+      }
+
       this.funcionario.perfis.splice(this.funcionario.perfis.indexOf(perfil), 1);
-    } else {
+    } else {  
+      //Caso adicionado o perfil de ADM adiciona também o de Funcionario
+      if(perfil == this.PerfilADMIN){
+        this.funcionario.perfis.push(this.PerfilFuncionario);
+        this.checkFUNC = true;
+      }
+
       this.funcionario.perfis.push(perfil);
     }
   }

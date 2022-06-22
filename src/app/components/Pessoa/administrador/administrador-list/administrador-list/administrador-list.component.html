@@ -1,17 +1,15 @@
 <div class="container">
-    <h1>Fornecedores</h1>
-
-    <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary" style="margin: 0;">Cadastrar</button>
-
+    <h1>Administradores</h1>
+    
     <mat-form-field appearance="standard">
         <mat-label>Pesquisar</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        <input matInput (keyup)="applyFilter($event)" #input>
     </mat-form-field>
 
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="idPessoa">
-                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <th mat-header-cell *matHeaderCellDef > ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.idPessoa}} </td>
             </ng-container>
 
@@ -20,34 +18,26 @@
                 <td mat-cell *matCellDef="let element"> {{element.nomePessoa}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="razaoSocial">
-                <th mat-header-cell *matHeaderCellDef> Razão Social </th>
-                <td mat-cell *matCellDef="let element"> {{element.razaoSocial}} </td>
-            </ng-container>
-
             <ng-container matColumnDef="cpfCnpjPessoa">
                 <th mat-header-cell *matHeaderCellDef> CPF/CNPJ </th>
-                <td mat-cell *matCellDef="let element"> {{element.cpfCnpjPessoa | mask: 'CPF_CNPJ'}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="descricaoTipoFornecedor">
-                <th mat-header-cell *matHeaderCellDef> Tipo Fornecedor </th>
-                <td mat-cell *matCellDef="let element"> {{element.descricaoTipoFornecedor}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.cpfCnpjPessoa | mask: 'CPF_CNPJ' }} </td>
             </ng-container>
             
-            <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef style="text-align: center;" > Status </th>
-                <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.status}} </td>
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> E-Mail </th>
+                <td mat-cell *matCellDef="let element" > {{element.emailPessoa}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="telefone">
+                <th mat-header-cell *matHeaderCellDef> Telefone </th>
+                <td mat-cell *matCellDef="let element"> {{element.telefonePessoa | mask: '(00) 00000-0000'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="acoes">
                 <th mat-header-cell *matHeaderCellDef class="acoes"> Ações </th>
                 <td mat-cell *matCellDef="let element" class="acoes">
-                    <a routerLink="update/{{ element.idPessoa }}">
+                    <a title="Atualizar Registro" routerLink="../{{ element.idPessoa }}">
                         <i class="material-icons edit">edit</i>
-                    </a>
-                    <a (click)="delete(element.idPessoa)">
-                        <i class="material-icons delete cursor">delete</i>
                     </a>
                 </td>
             </ng-container>

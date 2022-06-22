@@ -7,6 +7,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { PerfilDialogComponent } from '../../Modals/perfil-dialog/perfil-dialog.component';
+import { VerificarPermissoes } from 'src/app/auth/VerificarPermissoes';
 
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
@@ -82,13 +83,22 @@ export class NavComponent implements OnInit {
         this.carregarUsuario()
       });
     }
-  }  
+  }
 
   carregarUsuario() {
     this.service.getUsuarioLogado(this.usuario).subscribe(resposta => {
       //Alimenta a model de usuário
       this.usuario = resposta
     })
+  }
+
+  verificarPermissao(aRoles: String[]): boolean{
+    const rolesUsuario = JSON.parse(localStorage.getItem("rolesUsuario"));
+    
+    if (aRoles != undefined && aRoles.length){
+      return VerificarPermissoes.temPermissao(aRoles, rolesUsuario);
+    }
+    return true;
   }
 
 }

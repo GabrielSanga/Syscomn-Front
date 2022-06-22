@@ -3,6 +3,7 @@ export interface MenuItem {
     label?: string;
     url?: string;
     subItems?: MenuItem[];
+    roles?: String[];
   }
  
   

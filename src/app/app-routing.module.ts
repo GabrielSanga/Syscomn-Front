@@ -76,6 +76,7 @@ import { AnalisesComponent } from './components/Dashboard/analises/analises.comp
 import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
 import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
 import { Error403Component } from './components/Error-Page/403/error403/error403.component';
+import { AdministradorListComponent } from './components/Pessoa/administrador/administrador-list/administrador-list/administrador-list.component';
 
 const routes: Routes = [
  {path: 'login', component: LoginComponent},
@@ -87,25 +88,28 @@ const routes: Routes = [
 
     { path: 'analise', component: AnalisesComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN'] }},
 
+    { path: 'administrador/list', component: AdministradorListComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN'] }},
+    { path: 'administrador/:idPessoa', component: AdministradorComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN'] }},
+
     {  path: 'tipomorte', component:  TipomorteListComponent},
-    {  path: 'tipomorte/create', component:  TipomorteCreateComponent},
-    {  path: 'tipomorte/update/:idTipoMorte', component:  TipomorteUpdadeComponent},
-    {  path: 'tipomorte/delete/:idTipoMorte', component:  TipomorteDeleteComponent},
+    {  path: 'tipomorte/create', component:  TipomorteCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'tipomorte/update/:idTipoMorte', component:  TipomorteUpdadeComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'tipomorte/delete/:idTipoMorte', component:  TipomorteDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
     {  path: 'localarmazenamento', component:  LocalarmazenamentoListComponent},
-    {  path: 'localarmazenamento/create', component:  LocalarmazenamentoCreateComponent},
-    {  path: 'localarmazenamento/update/:idLocalArmazenamento', component:  LocalarmazenamentoUpdateComponent},
-    {  path: 'localarmazenamento/delete/:idLocalArmazenamento', component:  LocalarmazenamentoDeleteComponent},
+    {  path: 'localarmazenamento/create', component:  LocalarmazenamentoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'localarmazenamento/update/:idLocalArmazenamento', component:  LocalarmazenamentoUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'localarmazenamento/delete/:idLocalArmazenamento', component:  LocalarmazenamentoDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
     {  path: 'estadoanimal', component:  EstadoanimalListComponent},
-    {  path: 'estadoanimal/create', component:  EstadoanimalCreateComponent},
-    {  path: 'estadoanimal/update/:idEstadoAnimal', component:  EstadoanimalUpdateComponent},
-    {  path: 'estadoanimal/delete/:idEstadoAnimal', component:  EstadoanimalDeleteComponent},
+    {  path: 'estadoanimal/create', component:  EstadoanimalCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'estadoanimal/update/:idEstadoAnimal', component:  EstadoanimalUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'estadoanimal/delete/:idEstadoAnimal', component:  EstadoanimalDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
     {  path: 'sexoanimal', component:  SexoanimalListComponent},
-    {  path: 'sexoanimal/create', component:  SexoanimalCreateComponent},
-    {  path: 'sexoanimal/update/:idSexoAnimal', component:  SexoanimalUpdateComponent},
-    {  path: 'sexoanimal/delete/:idSexoAnimal', component:  SexoanimalDeleteComponent},
+    {  path: 'sexoanimal/create', component:  SexoanimalCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'sexoanimal/update/:idSexoAnimal', component:  SexoanimalUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'sexoanimal/delete/:idSexoAnimal', component:  SexoanimalDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
     {  path: 'propriedade', component:  PropriedadeListComponent},
     {  path: 'propriedade/create', component:  PropriedadeCreateComponent},
@@ -113,9 +117,9 @@ const routes: Routes = [
     {  path: 'propriedade/delete/:idPropriedade', component:  PropriedadeDeleteComponent},
 
     {  path: 'materiaprima', component: MateriaprimaListComponent},
-    {  path: 'materiaprima/create', component: MateriaprimaCreateComponent},
-    {  path: 'materiaprima/update/:idMateriaPrima', component: MateriaprimaUpdateComponent},
-    {  path: 'materiaprima/delete/:idMateriaPrima', component: MateriaprimaDeleteComponent},
+    {  path: 'materiaprima/create', component: MateriaprimaCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'materiaprima/update/:idMateriaPrima', component: MateriaprimaUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    {  path: 'materiaprima/delete/:idMateriaPrima', component: MateriaprimaDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
     { path: 'tipofornecedor', component: TipofornecedorListComponent },
     { path: 'tipofornecedor/create', component: TipofornecedorCreateComponent },
@@ -123,14 +127,14 @@ const routes: Routes = [
     { path: 'tipofornecedor/delete/:idTipoFornecedor', component: TipofornecedorDeleteComponent },
     
     { path: 'raca', component: RacaListComponent },
-    { path: 'raca/create', component: RacaCreateComponent },
-    { path: 'raca/update/:idRaca', component: RacaUpdateComponent },
-    { path: 'raca/delete/:idRaca', component: RacaDeleteComponent },
+    { path: 'raca/create', component: RacaCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'raca/update/:idRaca', component: RacaUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'raca/delete/:idRaca', component: RacaDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
 
     { path: 'regimeengorda', component: RegimeengordaListComponent },
-    { path: 'regimeengorda/create', component: RegimeengordaCreateComponent },
-    { path: 'regimeengorda/update/:idRegimeEngorda', component: RegimeengordaUpdateComponent },
-    { path: 'regimeengorda/delete/:idRegimeEngorda', component: RegimeengordaDeleteComponent },
+    { path: 'regimeengorda/create', component: RegimeengordaCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'regimeengorda/update/:idRegimeEngorda', component: RegimeengordaUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'regimeengorda/delete/:idRegimeEngorda', component: RegimeengordaDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
 
     { path: 'funcionario', component: FuncionarioListComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN'] }},
     { path: 'funcionario/create', component: FuncionarioCreateComponent },
@@ -141,20 +145,20 @@ const routes: Routes = [
     { path: 'fornecedor/update/:idPessoa', component: FornecedorUpdateComponent },
 
     { path: 'racao', component: RacaoListComponent },
-    { path: 'racao/create', component: RacaoCreateComponent },
-    { path: 'racao/update/:idRacao', component: RacaoUpdateComponent },
-    { path: 'racao/formula/formula/create/:idRacao', component: FormulaCreateComponent },
+    { path: 'racao/create', component: RacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    { path: 'racao/update/:idRacao', component: RacaoUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    { path: 'racao/formula/formula/create/:idRacao', component: FormulaCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
     { path: 'ordemProducao', component: OrdemProducaoListComponent},
-    { path: 'ordemProducao/create', component: OrdemProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
-    { path: 'ordemProducao/create/:idOrdemProducao', component: OrdemProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
+    { path: 'ordemProducao/create', component: OrdemProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+    { path: 'ordemProducao/create/:idOrdemProducao', component: OrdemProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
-    { path: 'loteProducao', component: LoteProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
+    { path: 'loteProducao', component: LoteProducaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
     { path: 'curralpiquete', component: CurralpiqueteListComponent },
-    { path: 'curralpiquete/create', component: CurralpiqueteCreateComponent },
-    { path: 'curralpiquete/update/:idCurralPiquete', component: CurralpiqueteUpdateComponent },
-    { path: 'curralpiquete/delete/:idCurralPiquete', component: CurralpiqueteDeleteComponent },
+    { path: 'curralpiquete/create', component: CurralpiqueteCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'curralpiquete/update/:idCurralPiquete', component: CurralpiqueteUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'curralpiquete/delete/:idCurralPiquete', component: CurralpiqueteDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
 
     { path: 'lote', component: LoteListComponent },
     { path: 'lote/create', component: LoteCreateComponent },
@@ -162,9 +166,9 @@ const routes: Routes = [
     { path: 'lote/delete/:idLote', component: LoteDeleteComponent },
 
     { path: 'vacina', component: VacinaListComponent },
-    { path: 'vacina/create', component: VacinaCreateComponent },
-    { path: 'vacina/update/:idVacina', component: VacinaUpdateComponent },
-    { path: 'vacina/delete/:idVacina', component: VacinaDeleteComponent },
+    { path: 'vacina/create', component: VacinaCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'vacina/update/:idVacina', component: VacinaUpdateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
+    { path: 'vacina/delete/:idVacina', component: VacinaDeleteComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] } },
 
     { path: 'animalchip', component: AnimalchipListComponent },
     { path: 'animalchip/create', component: AnimalchipCreateComponent },
@@ -172,11 +176,11 @@ const routes: Routes = [
 
     { path: 'estoque', component: EstoqueProducaoComponent },
 
-    { path: 'pesagem', component: PesagemCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
+    { path: 'pesagem', component: PesagemCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
-    { path: 'alimentacao', component: AlimentacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
+    { path: 'alimentacao', component: AlimentacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
  
-    { path: 'vacinacao', component: VacinacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_ADMIN', 'ROLE_FUNCIONARIO'] }},
+    { path: 'vacinacao', component: VacinacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
 
    ]
  }

@@ -1,7 +1,6 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { Funcionario } from 'src/app/models/funcionario';
@@ -24,28 +23,15 @@ export class FuncionarioListComponent implements OnInit {
               private toast: ToastrService,
               private _liveAnnouncer: LiveAnnouncer) {}
             
-  //@ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {this.findAll();}
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
-
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
 
   findAll(){
     this.service.findAll().subscribe(resposta => {
       this.ELEMENT_DATA = resposta
       this.dataSource = new MatTableDataSource<Funcionario>(resposta);
-      //this.dataSource.paginator = this.paginator;
+      this.dataSource.paginator = this.paginator;
     })
   }
 
@@ -56,13 +42,13 @@ export class FuncionarioListComponent implements OnInit {
 
   delete(idFuncionario: any): void{
     if(confirm("Deseja Realmente Deletar o Funcionário?")){
-      this.deletarFornecedor(idFuncionario);
+      this.deletarFuncionario(idFuncionario);
     }  
   }
 
-  deletarFornecedor(idFuncionario) {
+  deletarFuncionario(idFuncionario) {
     this.service.delete(idFuncionario).subscribe(() => {
-      this.toast.success('Funcionário Deletado com sucesso', 'Delete');
+      this.toast.success('Funcionário deletado com sucesso', 'Delete');
       this.findAll();
     }, ex => {
       if(ex.error.lstErrors) {

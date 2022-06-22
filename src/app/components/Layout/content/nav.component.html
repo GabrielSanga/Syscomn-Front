@@ -54,15 +54,17 @@
 
         <!--MENUS-->
         <mat-nav-list dense *ngFor="let item of menuItems">
-            <!-- CASO O MENU NÃO TENHA SUBMENUS -->
-            <mat-list-item class="menu" [routerLink]="item.url" [class.btnPrecionado]="idSelecionado == item.id" (click)="setIdSelecionado(item.id, false)" *ngIf="!hasItems(item)">{{item.label}}</mat-list-item>
 
+            <!-- CASO O MENU NÃO TENHA SUBMENUS -->
+            <mat-list-item *ngIf="!hasItems(item) && verificarPermissao(item.roles)" class="menu" [routerLink]="item.url" [class.btnPrecionado]="idSelecionado == item.id" (click)="setIdSelecionado(item.id, false)">{{item.label}}</mat-list-item>
+            
             <!-- CASO O MENU TENHA SUBMENUS -->
-            <mat-expansion-panel [class.mat-elevation-z0]="true" style="border-radius: 0;" dense *ngIf="hasItems(item)" [expanded]="posicao == item.id" (opened)="setPosicao(item.id)" >
+            <mat-expansion-panel *ngIf="hasItems(item) && verificarPermissao(item.roles)" [class.mat-elevation-z0]="true" style="border-radius: 0;" dense [expanded]="posicao == item.id" (opened)="setPosicao(item.id)">
                 <mat-expansion-panel-header class="menu" style="padding-left: 16px !important;" [class.btnPrecionado]="posicao == item.id">{{item.label}}</mat-expansion-panel-header>
+            
                 <mat-nav-list dense *ngFor="let subitem of item.subItems">
-                    <a mat-list-item [routerLink]="subitem.url" class="fonte" [class.btnPrecionado]="idSelecionado == subitem.id" (click)="setIdSelecionado(subitem.id, true)">{{subitem.label}}</a>
-                </mat-nav-list>
+                    <a *ngIf="verificarPermissao(subitem.roles)" mat-list-item [routerLink]="subitem.url" class="fonte" [class.btnPrecionado]="idSelecionado == subitem.id" (click)="setIdSelecionado(subitem.id, true)">{{subitem.label}}</a>
+                </mat-nav-list>            
             </mat-expansion-panel>
         </mat-nav-list>
 

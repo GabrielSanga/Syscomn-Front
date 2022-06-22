@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Administrador } from 'src/app/models/administrador';
 import { AdministradorService } from 'src/app/services/administrador.service';
@@ -35,17 +35,32 @@ export class AdministradorComponent implements OnInit {
     status: 'A'
   }
 
-  constructor(private service: AdministradorService,
-              private assinanteService: AssinanteService, 
-              private toast: ToastrService, 
-              private router: Router) { }
+  isUpdated: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(private service: AdministradorService,
+              private toast: ToastrService, 
+              private router: Router,
+              private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.administrador.idPessoa = this.route.snapshot.paramMap.get('idPessoa');
+
+    if (this.administrador.idPessoa > 0){
+      this.findById();
+      this.isUpdated = true;
+    }
+  }
+
+  findById(): void{
+    this.service.findById(this.administrador.idPessoa).subscribe(resposta => {
+        this.administrador = resposta;
+      } )
+  }
 
   create(): void {
     this.service.create(this.administrador).subscribe(() => {
       this.toast.success('Cadastro realizado com sucesso!', 'Cadastro');
-      this.router.navigate(['login'])
+      this.router.navigate(['login']);
     }, ex => {
       if(ex.error.lstErrors) {
         ex.error.lstErrors.forEach(element => { this.toast.error(element.message); });
@@ -53,6 +68,29 @@ export class AdministradorComponent implements OnInit {
         this.toast.error(ex.error.message);  
       }
     })  
+  }
+
+  update(): void {
+    this.service.update(this.administrador).subscribe(() => {
+      this.toast.success('Atualização realizada com sucesso!', 'Alterar');
+      this.router.navigate(['administrador/list']);
+    }, ex => {
+      if(ex.error.lstErrors) {
+        ex.error.lstErrors.forEach(element => { this.toast.error(element.message); });
+      } else {
+        this.toast.error(ex.error.message);  
+      }
+    })  
+  }
+
+  retornaTipoPessoa(tipoPessoa: any): string {
+    if(tipoPessoa == 0) {
+      return 'Física'
+    } else if(tipoPessoa == 1) {
+      return 'Jurídica'
+    } else {
+      return ''
+    }
   }
 
 }
