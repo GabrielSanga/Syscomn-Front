@@ -29,6 +29,5 @@ export class LoteService {
   delete(idLote: any): Observable<Lote> {
     return this.http.delete<Lote>(`${API_CONFIG.baseUrl}/lote/${idLote}`);
   }
-
 }
 

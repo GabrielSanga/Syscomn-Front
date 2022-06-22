@@ -166,7 +166,8 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 27,
-    label: 'Relatórios',
+    label: 'Relatórios',  
+    url: 'relatorio',
     roles: ['ROLE_ADMIN']
-  }
+  },
 ];

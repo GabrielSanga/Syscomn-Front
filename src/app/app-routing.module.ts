@@ -75,6 +75,7 @@ import { PesagemCreateComponent } from './components/Manejos/pesagem/pesagem-cre
 import { AnalisesComponent } from './components/Dashboard/analises/analises.component';
 import { AlimentacaoCreateComponent } from './components/Manejos/alimentacao/alimentacao-create/alimentacao-create.component';
 import { VacinacaoCreateComponent } from './components/Manejos/vacinacao/vacinacao-create/vacinacao-create.component';
+import { RelatoriosComponent } from './components/Relatorios/relatorios/relatorios.component';
 import { Error403Component } from './components/Error-Page/403/error403/error403.component';
 import { AdministradorListComponent } from './components/Pessoa/administrador/administrador-list/administrador-list/administrador-list.component';
 
@@ -181,6 +182,8 @@ const routes: Routes = [
     { path: 'alimentacao', component: AlimentacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
  
     { path: 'vacinacao', component: VacinacaoCreateComponent, canActivate: [AuthGuard],  data: { roles:['ROLE_FUNCIONARIO'] }},
+
+    { path: 'relatorio', component: RelatoriosComponent },
 
    ]
  }
