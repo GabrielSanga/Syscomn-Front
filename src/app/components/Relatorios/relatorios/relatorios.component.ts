@@ -50,7 +50,7 @@ export class RelatoriosComponent implements OnInit {
       return this.RelatorioService.dowloadRelatorioMovimentacaoParam(this.movimentacaoReport);
     }else if(this.modelo == 1){
       console.log("Caiu aqui Imprimi", this.modelo)
-      return this.RelatorioService.dowloadRelatorioAnimal(this.animalReport);
+      return this.RelatorioService.dowloadRelatorioAnimal();
     }else if(this.modelo == 2){
       console.log("Caiu aqui Imprimi Lote", this.modelo)
       return this.RelatorioService.dowloadRelatorioLoteSem();

@@ -25,9 +25,8 @@ export class RelatorioService {
     });
   }
 
-  dowloadRelatorioAnimal(animalReport: animalReport) {
-
-    return this.http.post(`${API_CONFIG.baseUrl}/animalchip/relatorios/`, animalReport, {responseType: 'text'}).subscribe(data =>{
+  dowloadRelatorioAnimal() {
+    return this.http.get(`${API_CONFIG.baseUrl}/animalchip/relatorios`, {responseType: 'text'}).subscribe(data =>{
       document.querySelector('iframe').src = data;
     });
   }
