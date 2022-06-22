@@ -1,51 +1,43 @@
-<div class="container">
-    <h1>Relatórios</h1>
+<div class="container mat-elevation-z8">
+  <h1>Relatórios</h1>
 
-    <div class="mat-elevation-z4">
+  <div class="row">
+    <mat-form-field class="fullWidth" appearance="outline">
+        <mat-label>Selecione o Layout</mat-label>
+        <mat-select id="tipoPessoa"  [(ngModel)]="modelo" name="tipoPessoa">
+            <mat-option value="0">Movimentação</mat-option>
+            <mat-option value="1">Animal-Chip</mat-option>
+            <mat-option value="2">Lote</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
 
-      <h4>Selecione as Datas para Filtro</h4>
-
-      <div class="row">
-      <div class="two">
+  <div class="row"> 
+    <div class="col-md-6"> 
       <label for="dataInicio">Data-Inicio</label>
       <span style="color: red; font-size: 23px;">*</span>
-      <div class="input-group"> 
-        <input type="date" name="dataInicio" class="form-control" placeholder="YYYY-MM-DD"
-        [(ngModel)]="movimentacaoReport.dataInicio"
-        id="dataInicio" 
-        >
+      <div> 
+        <input type="date" name="dataInicio" class="form-control" placeholder="YYYY-MM-DD" [(ngModel)]="movimentacaoReport.dataInicio" id="dataInicio">
       </div>
-        </div>
+    </div>
+  
+    <div class="col-md-6">
+      <label for="dataFim">Data-Final</label>
+      <span style="color: red; font-size: 23px;">*</span>
+      <div> 
+        <input type="date" name="dataFim" class="form-control" placeholder="YYYY-MM-DD" [(ngModel)]="movimentacaoReport.dataFim" id="dataFim">
+      </div>
+    </div>
+  </div>
 
-        <div class="tre">
-        <label for="dataFim">Data-Final</label>
-        <span style="color: red; font-size: 23px;">*</span>
-        <div class="input-group"> 
-          <input type="date" name="dataFim" class="form-control" placeholder="YYYY-MM-DD"
-          [(ngModel)]="movimentacaoReport.dataFim"
-          id="dataFim" 
-          >
-        </div>
-          </div>
-          </div>
 
-      <div>
-        <mat-radio-group aria-label="Selecione uma opção" required>
-            <h4>Selecione um Modelo de Relatório</h4>
-            <mat-radio-button [checked]="true" class="curral" value="0">Movimentação</mat-radio-button>
-            <br>
-            <mat-radio-button  class="curral" value="1">Animal</mat-radio-button>
-            <br>
-            <mat-radio-button  class="curral" value="2">Lote</mat-radio-button>
-          </mat-radio-group>
-        
-        </div>
+  <button style="margin-top: 1rem;" (click)="imprimiRelatorio()" type="button" color="primary" class="mat-elevation-z8" mat-stroked-button data-toggle="modal" data-target="#myModal">
+  Imprimir
+  </button>
 
 </div>
 
-<button style="margin-top: 1rem;" (click)="imprimiRelatorio()" type="button" color="primary" class="mat-elevation-z8" mat-stroked-button data-toggle="modal" data-target="#myModal">
-    Imprimir
-  </button>
+  
   
   <!-- Modal -->
   <div class="modal fade preview-modal" id="myModal" data-backdrop="" role="dialog" aria-labelledby="preview-modal" aria-hidden="true">
@@ -56,7 +48,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-left: 60rem;">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+    </div>
 
 <div class="modal-body">
     <iframe id="pdf" width="100%" height="500" frameborder="0" allowtransparency="true"></iframe>
@@ -70,9 +62,5 @@
     </div>
   </div>
 
-
-  <div>
- 
- </div>
 
  
