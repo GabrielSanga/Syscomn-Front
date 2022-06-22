@@ -7,7 +7,7 @@
             <div>
                 <label style="margin-right: 15px; font-weight: 700; font-size: 16px;">Tipo da Alimentação: </label>
             
-                <mat-radio-group id="tipoAlimentacao" name="tipoAlimentacao" [(ngModel)]="alimentacao.tipoAlimentacao">
+                <mat-radio-group id="tipoAlimentacao" name="tipoAlimentacao" [(ngModel)]="alimentacao.tipoAlimentacao" (change)="limpaTela(true)">
                     <mat-radio-button [checked]="true" name="tipoAlimentacao" value="A">Animal Único</mat-radio-button>
                     <mat-radio-button name="tipoAlimentacao" value="L">Lote</mat-radio-button>
                 </mat-radio-group>
@@ -35,9 +35,9 @@
                     <td mat-cell *matCellDef="let element"> {{ element.chip }} - {{ element.nome }} </td>
                 </ng-container>
         
-                <ng-container matColumnDef="codigo">
-                    <th mat-header-cell *matHeaderCellDef> Código </th>
-                    <td mat-cell *matCellDef="let element"> {{ element.codigo }} </td>
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef> Nome </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.nome }} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="descrSexoAnimal">
@@ -125,15 +125,37 @@
                     <input type="text" [(ngModel)]="alimentacao.custo" name="custo" matInput mask="separator.2" thousandSeparator=".">
                 </mat-form-field>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-3">
                 <mat-form-field class="fullWidth" appearance="outline">
                     <mat-label>Produção</mat-label>
-                    <mat-select [(ngModel)]="alimentacao.idLoteRacao" name="idLoteRacao">
+                    <mat-select [(ngModel)]="alimentacao.idLoteRacao" name="idLoteRacao" (ngModelChange)="findLoteProducao()">
                         <mat-option *ngFor="let loteProducao of lstLoteProducao" value="{{ loteProducao.idLoteRacao }}">
-                            {{loteProducao.idRacao}} - {{loteProducao.descrRacao}} - Saldo: [{{loteProducao.saldo}}] - UN: [{{loteProducao.unidade}}] - Fabr: [{{retornaDataFormata(loteProducao.dataFabricacao)}}] - Val: [{{retornaDataFormata(loteProducao.dataValidade)}}] 
+                            {{loteProducao.idRacao}} - {{loteProducao.descrRacao}} - UN: [{{loteProducao.unidade}}] 
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+            </div>
+            <div class="col-md-5">
+                <table>
+                    <thead>
+                        <th class="text-center">Saldo</th>
+                        <th class="text-center">Fabricação</th>
+                        <th class="text-center">Validade</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                <label class="quadrado" readonly> {{loteProducao.saldo}} </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="quadrado" style="min-width: 100px; min-height: 25px;" readonly> {{retornaDataFormata(loteProducao.dataFabricacao)}} </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="quadrado" style="min-width: 100px; min-height: 25px;" readonly> {{retornaDataFormata(loteProducao.dataValidade)}} </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -198,15 +220,37 @@
                     <input type="text" [(ngModel)]="alimentacao.custo" name="custo" matInput mask="separator.2" thousandSeparator=".">
                 </mat-form-field>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-3">
                 <mat-form-field class="fullWidth" appearance="outline">
                     <mat-label>Produção</mat-label>
-                    <mat-select [(ngModel)]="alimentacao.idLoteRacao" name="idLoteRacao">
+                    <mat-select [(ngModel)]="alimentacao.idLoteRacao" name="idLoteRacao" (ngModelChange)="findLoteProducao()">
                         <mat-option *ngFor="let loteProducao of lstLoteProducao" value="{{ loteProducao.idLoteRacao }}">
-                            {{loteProducao.idRacao}} - {{loteProducao.descrRacao}} - Saldo: [{{loteProducao.saldo}}] - UN: [{{loteProducao.unidade}}] - Fabr: [{{retornaDataFormata(loteProducao.dataFabricacao)}}] - Val: [{{retornaDataFormata(loteProducao.dataValidade)}}] 
+                            {{loteProducao.idRacao}} - {{loteProducao.descrRacao}} - UN: [{{loteProducao.unidade}}]
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+            </div>
+            <div class="col-md-5">
+                <table>
+                    <thead>
+                        <th class="text-center">Saldo</th>
+                        <th class="text-center">Fabricação</th>
+                        <th class="text-center">Validade</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                <label class="quadrado" readonly> {{loteProducao.saldo}} </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="quadrado" style="min-width: 100px; min-height: 25px;" readonly> {{retornaDataFormata(loteProducao.dataFabricacao)}} </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="quadrado" style="min-width: 100px; min-height: 25px;" readonly> {{retornaDataFormata(loteProducao.dataValidade)}} </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

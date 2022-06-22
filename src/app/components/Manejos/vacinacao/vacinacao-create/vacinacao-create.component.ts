@@ -64,7 +64,7 @@ export class VacinacaoCreateComponent implements OnInit {
 
   ELEMENT_DATA: AnimalChip[] = []
 
-  displayedColumns: string[] = ['chip', 'codigo', 'descrSexoAnimal', 'pesoAtual', 'dtaHoraUltimaPesagem', 'acoes'];
+  displayedColumns: string[] = ['chip', 'nome', 'descrSexoAnimal', 'pesoAtual', 'dtaHoraUltimaPesagem', 'acoes'];
   dataSource = new MatTableDataSource<AnimalChip>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -18,7 +18,7 @@ export class AnimalchipListComponent implements OnInit {
 
   ELEMENT_DATA: AnimalChip[] = []
 
-  displayedColumns: string[] = ['idAnimalChip', 'chip', 'codigo', 'dtaNascimento', 'sexo', 'raca', 'lote', 'alimentacao', 'pesagem', 'vacinacao', 'acoes'];
+  displayedColumns: string[] = ['idAnimalChip', 'chip', 'nome', 'dtaNascimento', 'sexo', 'raca', 'lote', 'alimentacao', 'pesagem', 'vacinacao', 'acoes'];
 
   dataSource = new MatTableDataSource<AnimalChip>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;

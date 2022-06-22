@@ -67,7 +67,6 @@ export class FornecedorUpdateComponent implements OnInit {
 
   findById(): void{
     this.service.findById(this.fornecedor.idPessoa).subscribe(resposta => { this.fornecedor = resposta;})
-    console.log(this.fornecedor.dtaNascimentoPessoa);
   }
 
   findAllTipoForncedor(): void{
